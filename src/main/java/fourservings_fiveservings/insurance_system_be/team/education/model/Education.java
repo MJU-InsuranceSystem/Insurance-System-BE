@@ -1,65 +1,36 @@
 package fourservings_fiveservings.insurance_system_be.team.education.model;
 
 
-/**
- * @author USER
- * @version 1.0
+import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.time.LocalDateTime;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
- */
-public class Education {
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
+public class Education extends BaseEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	private String content;
+
+	private String subject;
+
+	private String teacher;
+
 	private String location;
-	private String name;
-	private String schedule;
-	private String teacherName;
+
 	private String textbook;
 
-	public String getContent() {
-		return content;
-	}
+	private LocalDateTime startTime;
 
-	public String getLocation() {
-		return location;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getSchedule() {
-		return schedule;
-	}
-
-	public String getTeacherName() {
-		return teacherName;
-	}
-
-	public String getTextbook() {
-		return textbook;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setSchedule(String schedule) {
-		this.schedule = schedule;
-	}
-
-	public void setTeacherName(String teacherName) {
-		this.teacherName = teacherName;
-	}
-
-	public void setTextbook(String textbook) {
-		this.textbook = textbook;
-	}
+	private LocalDateTime endTime;
 }
