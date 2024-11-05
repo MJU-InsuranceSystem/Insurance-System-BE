@@ -16,7 +16,7 @@ public class CustomerList {
         customer.password = String.valueOf(2);
         customer.name = "김모델";
         customer.sex = "남자";
-        customer.age = "22";
+        customer.birthDay = "22";
         customer.phoneNumber = "010-1111-1111";
         customer.userType = UserType.CUSTOMER;
         customers.add(customer);
