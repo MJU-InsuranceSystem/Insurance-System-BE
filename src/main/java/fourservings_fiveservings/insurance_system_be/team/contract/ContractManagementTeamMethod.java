@@ -47,7 +47,7 @@ public class ContractManagementTeamMethod extends TeamMethod {
         contract.setInsurance(insuranceApplication);
         contract.setManagerName("모델들이 하는 모델링");
         contract.setCustomerName(customerName);
-        applyCustomer.getContractList().add(contract);
+//        applyCustomer.getContractList().add(contract);
         contractList.add(contract);
         insuranceApplyList.remove(insuranceApplication);
 
