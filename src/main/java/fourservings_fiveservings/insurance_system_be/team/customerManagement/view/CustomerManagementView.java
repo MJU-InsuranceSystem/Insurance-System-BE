@@ -12,7 +12,7 @@ public class CustomerManagementView extends DepartmentView {
             println("고객 아이디 : " + customer.getId());
             println("고객 이름 : " + customer.getName());
             println("고객 나이 : " + customer.getBirthDay());
-            println("고객 성별 : " + customer.getSex());
+//            println("고객 성별 : " + customer.getSex());
             println("고객 전화번호 : " + customer.getPhoneNumber());
             println("");
         });

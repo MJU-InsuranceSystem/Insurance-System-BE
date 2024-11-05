@@ -12,10 +12,10 @@ public class CustomerList {
 
     private CustomerList() {
         Customer customer = new Customer();
-        customer.id = String.valueOf(2);
+//        customer.id = String.valueOf(2);
         customer.password = String.valueOf(2);
         customer.name = "김모델";
-        customer.sex = "남자";
+//        customer.sex = "남자";
         customer.birthDay = "22";
         customer.phoneNumber = "010-1111-1111";
         customer.userType = UserType.CUSTOMER;
