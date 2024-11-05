@@ -32,14 +32,17 @@ public class SignUpProcess implements Process {
             signUpInfo.get(AuthGuideMessage.AUTH_CUSTOMER_WORKER_KEY));
         switch (userType) {
             case CUSTOMER -> {
-                Customer customer = Customer.create(signUpInfo);
-                customerList.add(customer);
-                return customer;
+//                Customer customer = new Customer();
+//                customerList.add(customer);
+//                return customer;
+                return null;
+
             }
             case WORKER -> {
-                Worker worker = Worker.create(signUpInfo);
-                workerList.add(worker);
-                return worker;
+//                Worker worker = Worker.create(signUpInfo);
+//                workerList.add(worker);
+//                return worker;
+                return null;
             }
             default -> {
                 throw new IllegalArgumentException("지원하지 않는 유형입니다");

@@ -22,7 +22,7 @@ public class LoginProcess implements Process {
         Map<String, String> loginInfo = systemView.getLoginInfo();
         User user = login(loginInfo);
         AuthUtil.user = user;
-        user.login();
+//        user.login();
         systemView.successLogin();
         return user;
     }

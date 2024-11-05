@@ -13,7 +13,7 @@ public class EducationListImpl implements EducationList {
 	{
 		for (int i = 1; i < 5 ; i++) {
 			Education education = new Education();
-			education.setName(i + " 번째 교육 제목");
+//			education.setName(i + " 번째 교육 제목");
 			educations.add(education);
 		}
 	}

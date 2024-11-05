@@ -30,14 +30,14 @@ public class BusinessEducationTeamMethod extends TeamMethod {
 
     @Override
     public ResponseVO register(RequestVO request) {
-        Education education = new Education();
-        education.setName(request.get(EducationView.EDUCATION_NAME));
-        education.setContent(request.get(EducationView.EDUCATION_CONTENTS));
-        education.setLocation(request.get(EducationView.EDUCATION_LOCATION));
-        education.setTextbook(request.get(EducationView.EDUCATION_TEXTBOOK));
-        education.setTeacherName(request.get(EducationView.EDUCATION_TEACHER));
-        education.setSchedule(request.get(EducationView.EDUCATION_SCHEDULE));
-        educationListImpl.add(education);
+//        Education education = new Education();
+//        education.setName(request.get(EducationView.EDUCATION_NAME));
+//        education.setContent(request.get(EducationView.EDUCATION_CONTENTS));
+//        education.setLocation(request.get(EducationView.EDUCATION_LOCATION));
+//        education.setTextbook(request.get(EducationView.EDUCATION_TEXTBOOK));
+//        education.setTeacherName(request.get(EducationView.EDUCATION_TEACHER));
+//        education.setSchedule(request.get(EducationView.EDUCATION_SCHEDULE));
+//        educationListImpl.add(education);
 
         ResponseVO responseVO = new ResponseVO();
         responseVO.add(Status.getKey(), Status.SUCCESS.getStatus());
@@ -54,9 +54,9 @@ public class BusinessEducationTeamMethod extends TeamMethod {
         List<Education> educations = educationListImpl.findAll();
         ResponseVO responseVO = new ResponseVO();
         StringBuilder sb = new StringBuilder();
-        for (Education education : educations) {
-            sb.append(education.getName()).append("\n");
-        }
+//        for (Education education : educations) {
+//            sb.append(education.getName()).append("\n");
+//        }
         responseVO.add(EducationView.ALL_EDUCATION, sb.toString());
         return responseVO;
     }

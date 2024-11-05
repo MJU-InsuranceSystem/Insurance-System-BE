@@ -32,9 +32,9 @@ public class FrontController {
                 if (user == null) {
                     break;
                 }
-                if (!user.isLogin()) {
-                    continue;
-                }
+//                if (!user.isLogin()) {
+//                    continue;
+//                }
                 switch (user.getUserType()) {
                     case CUSTOMER -> customerSystem.process();
                     case WORKER -> workerSystem.process();
