@@ -3,7 +3,7 @@ package fourservings_fiveservings.insurance_system_be.team.education.usecase;
 import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.common.usecase.Usecase;
-import fourservings_fiveservings.insurance_system_be.team.Team;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.education.view.EducationView;
 import java.util.Arrays;
 import java.util.function.BiConsumer;
@@ -13,22 +13,22 @@ import java.util.function.Function;
 public enum EducationUseCase implements Usecase {
 
     PREPARE_EDUCATION(1, "영업 교육을 준비한다.",
-        EducationView::prepareEducation, Team::register, EducationView::completeMessage),
+        EducationView::prepareEducation, TeamMethod::register, EducationView::completeMessage),
     MANAGE_EDUCATION(2, "영업 교육을 관리한다.",
-        EducationView::manageEducation, Team::process, EducationView::completeMessage),
+        EducationView::manageEducation, TeamMethod::process, EducationView::completeMessage),
     MANAGE_EDUCATION_STUDENT(3, "교육대상자/수료생을 관리한다.",
-        EducationView::manageEducationStudent, Team::process, EducationView::completeMessage);
+        EducationView::manageEducationStudent, TeamMethod::process, EducationView::completeMessage);
 
     private final int order;
     private final String description;
 
     private final Function<EducationView, RequestVO> action;
-    private final BiFunction<Team, RequestVO, ResponseVO> teamAction;
+    private final BiFunction<TeamMethod, RequestVO, ResponseVO> teamAction;
     private final BiConsumer<EducationView, ResponseVO> showResult;
 
 
     EducationUseCase(int order, String description, Function<EducationView, RequestVO> action,
-        BiFunction<Team, RequestVO, ResponseVO> teamAction,
+        BiFunction<TeamMethod, RequestVO, ResponseVO> teamAction,
         BiConsumer<EducationView, ResponseVO> showResult) {
         this.order = order;
         this.description = description;
@@ -49,8 +49,8 @@ public enum EducationUseCase implements Usecase {
         return action.apply(educationView);
     }
 
-    public ResponseVO teamAction(Team team, RequestVO responseDto) {
-        return teamAction.apply(team, responseDto);
+    public ResponseVO teamAction(TeamMethod teamMethod, RequestVO responseDto) {
+        return teamAction.apply(teamMethod, responseDto);
     }
 
     public void showResult(EducationView view, ResponseVO responseVO) {

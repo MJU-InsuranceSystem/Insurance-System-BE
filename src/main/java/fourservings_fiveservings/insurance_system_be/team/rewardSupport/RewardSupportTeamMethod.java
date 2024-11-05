@@ -10,7 +10,7 @@ import static fourservings_fiveservings.insurance_system_be.team.rewardSupport.v
 import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceChargeCustomerApplyList;
-import fourservings_fiveservings.insurance_system_be.team.Team;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.plan.Status;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.Accident;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.AccidentList;
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
  * @author USER
  * @version 1.0
  */
-public class RewardSupportTeam extends Team {
+public class RewardSupportTeamMethod extends TeamMethod {
 
     private final AccidentList accidentList;
     private final LitigationInfoList litigationInfoList;
@@ -35,7 +35,7 @@ public class RewardSupportTeam extends Team {
 
     private static boolean judgmentResult = false;
 
-    public RewardSupportTeam(AccidentList accidentList, LitigationInfoList litigationInfoList,
+    public RewardSupportTeamMethod(AccidentList accidentList, LitigationInfoList litigationInfoList,
         InsuranceChargeCustomerApplyList insuranceChargeCustomerApplyList,
         InsurancePremiumPaymentCustomerList insurancePremiumPaymentCustomerList) {
         this.accidentList = accidentList;

@@ -12,9 +12,10 @@ import java.util.Objects;
 public class InsuranceListImpl implements InsuranceList {
 
     private static final List<Insurance> insurances = new ArrayList<>();
+
     static {
         Insurance insurance = new Insurance();
-        insurance.setInsuranceId(String.valueOf(0));
+//        insurance.setInsuranceId(String.valueOf(0));
         insurance.setInsuranceName("화재보험입니다.");
         insurance.setInsuranceType(String.valueOf(1));
         insurances.add(insurance);

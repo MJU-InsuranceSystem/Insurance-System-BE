@@ -6,10 +6,10 @@ import fourservings_fiveservings.insurance_system_be.team.TeamController;
 public class ContractManagementController implements TeamController {
 
     private final ContractManagementView contractManagementView;
-    private final ContractManagementTeam contractManagementTeam;
+    private final ContractManagementTeamMethod contractManagementTeam;
 
     public ContractManagementController(ContractManagementView contractManagementView,
-        ContractManagementTeam contractManagementTeam) {
+        ContractManagementTeamMethod contractManagementTeam) {
         this.contractManagementView = contractManagementView;
         this.contractManagementTeam = contractManagementTeam;
     }

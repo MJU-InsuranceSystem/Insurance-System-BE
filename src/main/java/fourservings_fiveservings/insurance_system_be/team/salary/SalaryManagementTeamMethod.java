@@ -1,18 +1,13 @@
-package fourservings_fiveservings.insurance_system_be.team.damageAssessment;
+package fourservings_fiveservings.insurance_system_be.team.salary;
 
 import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
-import fourservings_fiveservings.insurance_system_be.team.Team;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 
-/**
- * @author USER
- * @version 1.0
- */
-public class DamageAssessmentTeam extends Team {
+public class SalaryManagementTeamMethod extends TeamMethod {
 
-    public DamageAssessmentTeam() {
-
-    }
+    public SalaryApplication m_SalaryApplication;
+    public SalaryApplicationListImpl m_SalaryApplicationListImpl;
 
     @Override
     public ResponseVO manage(RequestVO request) {
@@ -38,10 +33,4 @@ public class DamageAssessmentTeam extends Team {
     public ResponseVO retrieve(RequestVO request) {
         return null;
     }
-
-    public void finalize() throws Throwable {
-        super.finalize();
-    }
-
-
 }
