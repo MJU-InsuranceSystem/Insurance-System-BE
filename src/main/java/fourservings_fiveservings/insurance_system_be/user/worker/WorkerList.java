@@ -15,7 +15,7 @@ public class WorkerList {
         worker.id = String.valueOf(1);
         worker.password = String.valueOf(1);
         worker.name = "한고홍";
-        worker.age = "24";
+        worker.birthDay = "24";
         worker.sex = "남자";
         worker.phoneNumber = "010-2222-2222";
         worker.userType = UserType.WORKER;
