@@ -5,18 +5,18 @@ import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceChargeCustomerApplyList;
 import fourservings_fiveservings.insurance_system_be.team.TeamController;
-import fourservings_fiveservings.insurance_system_be.team.rewardSupport.RewardSupportTeam;
+import fourservings_fiveservings.insurance_system_be.team.rewardSupport.RewardSupportTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.usecase.RewardSupportUseCase;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.view.RewardSupportView;
 
 public class RewardSupportController implements TeamController {
 
     private final RewardSupportView rewardSupportView;
-    private final RewardSupportTeam rewardSupportTeam;
+    private final RewardSupportTeamMethod rewardSupportTeam;
 
 
     public RewardSupportController(RewardSupportView rewardSupportView,
-        RewardSupportTeam rewardSupportTeam,
+        RewardSupportTeamMethod rewardSupportTeam,
         InsuranceChargeCustomerApplyList insuranceChargeCustomerApplyList) {
         this.rewardSupportView = rewardSupportView;
         this.rewardSupportTeam = rewardSupportTeam;

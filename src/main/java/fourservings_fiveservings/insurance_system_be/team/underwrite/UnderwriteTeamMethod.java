@@ -7,7 +7,7 @@ import fourservings_fiveservings.insurance_system_be.common.exception.IsNotExist
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceApplication;
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceApplyList;
 import fourservings_fiveservings.insurance_system_be.insurance.company.InsuranceCompanyList;
-import fourservings_fiveservings.insurance_system_be.team.Team;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.plan.Status;
 import fourservings_fiveservings.insurance_system_be.team.underwrite.model.UnderwritePolicy;
 import fourservings_fiveservings.insurance_system_be.team.underwrite.model.UnderwritePolicyListImpl;
@@ -21,13 +21,13 @@ import java.util.Objects;
  * @version 1.0
  */
 
-public class UnderwriteTeam extends Team {
+public class UnderwriteTeamMethod extends TeamMethod {
 
     private final InsuranceCompanyList insuranceCompanyList;
     private final InsuranceApplyList insuranceApplyList;
     private final UnderwritePolicyListImpl underwritePolicyListImpl;
 
-    public UnderwriteTeam(InsuranceCompanyList insuranceCompanyList,
+    public UnderwriteTeamMethod(InsuranceCompanyList insuranceCompanyList,
         InsuranceApplyList insuranceApplyList, UnderwritePolicyListImpl underwritePolicyListImpl) {
         this.insuranceCompanyList = insuranceCompanyList;
         this.insuranceApplyList = insuranceApplyList;
@@ -66,7 +66,7 @@ public class UnderwriteTeam extends Team {
         String risk = request.get(UnderwriteView.POLICY_RISK);
         String premium = request.get(UnderwriteView.POLICY_PREMIUM);
         String subscription = request.get(UnderwriteView.POLICY_SUBSCRIPTION);
-        underwritePolicy.setPolicyId(policyId);
+        underwritePolicy.setPolicyId(1L);
         underwritePolicy.setPolicyName(policyName);
         underwritePolicy.setPolicyName(policyName);
         underwritePolicy.setRiskInfo(risk);

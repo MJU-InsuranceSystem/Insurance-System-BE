@@ -3,7 +3,7 @@ package fourservings_fiveservings.insurance_system_be.team.workerManagement;
 
 import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
-import fourservings_fiveservings.insurance_system_be.team.Team;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.user.worker.Worker;
 import fourservings_fiveservings.insurance_system_be.user.worker.WorkerList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author USER
  * @version 1.0
  */
-public class WorkerManagementTeam extends Team {
+public class WorkerManagementTeamMethod extends TeamMethod {
 
     private final WorkerList workerList = WorkerList.getInstance();
 

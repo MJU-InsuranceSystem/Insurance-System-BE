@@ -3,18 +3,18 @@ package fourservings_fiveservings.insurance_system_be.team.education;
 
 import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
-import fourservings_fiveservings.insurance_system_be.team.Team;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.education.model.Education;
 import fourservings_fiveservings.insurance_system_be.team.education.model.EducationListImpl;
 import fourservings_fiveservings.insurance_system_be.team.education.view.EducationView;
 import fourservings_fiveservings.insurance_system_be.team.plan.Status;
 import java.util.List;
 
-public class BusinessEducationTeam extends Team {
+public class BusinessEducationTeamMethod extends TeamMethod {
 
     public EducationListImpl educationListImpl;
 
-    public BusinessEducationTeam(EducationListImpl educationListImpl) {
+    public BusinessEducationTeamMethod(EducationListImpl educationListImpl) {
         this.educationListImpl = educationListImpl;
     }
 

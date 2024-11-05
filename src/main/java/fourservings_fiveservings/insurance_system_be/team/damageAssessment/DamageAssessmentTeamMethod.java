@@ -1,24 +1,16 @@
-package fourservings_fiveservings.insurance_system_be.team.complaint;
-
+package fourservings_fiveservings.insurance_system_be.team.damageAssessment;
 
 import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
-import fourservings_fiveservings.insurance_system_be.team.Team;
-import fourservings_fiveservings.insurance_system_be.team.complaint.model.Complaint;
-import fourservings_fiveservings.insurance_system_be.team.complaint.model.ComplaintList;
-import fourservings_fiveservings.insurance_system_be.team.complaint.model.ComplaintListImpl;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 
 /**
  * @author USER
  * @version 1.0
  */
-public class ComplaintManagementTeam extends Team {
+public class DamageAssessmentTeamMethod extends TeamMethod {
 
-    public Complaint complaint;
-
-    private final ComplaintList complaintList = new ComplaintListImpl();
-
-    public ComplaintManagementTeam() {
+    public DamageAssessmentTeamMethod() {
 
     }
 
@@ -48,11 +40,8 @@ public class ComplaintManagementTeam extends Team {
     }
 
     public void finalize() throws Throwable {
-
+        super.finalize();
     }
 
-    public void analyze() {
-
-    }
 
 }

@@ -1,31 +1,15 @@
 package fourservings_fiveservings.insurance_system_be.team;
 
+import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
-import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
+@Entity
+public class Team extends BaseEntity {
 
-/**
- * @author yoon
- * @version 1.0
- */
-public abstract class Team {
-
-    private int team_Id;
-    private String team_name;
-
-    public Team() {
-
-    }
-
-    public abstract ResponseVO manage(RequestVO request);
-
-    public abstract ResponseVO process(RequestVO request);
-
-    public abstract ResponseVO register(RequestVO request);
-
-    public abstract ResponseVO remove(RequestVO request);
-
-    public abstract ResponseVO retrieve(RequestVO request);
-
+    @Id
+    private Long teamId;
+    private String teamName;
+    private String type;
 
 }

@@ -6,21 +6,21 @@ import fourservings_fiveservings.insurance_system_be.common.exception.EmptyInput
 import fourservings_fiveservings.insurance_system_be.common.exception.IsNotExistException;
 import fourservings_fiveservings.insurance_system_be.common.exception.NotCorrectFormat;
 import fourservings_fiveservings.insurance_system_be.team.TeamController;
-import fourservings_fiveservings.insurance_system_be.team.contract.ContractManagementTeam;
-import fourservings_fiveservings.insurance_system_be.team.underwrite.UnderwriteTeam;
+import fourservings_fiveservings.insurance_system_be.team.contract.ContractManagementTeamMethod;
+import fourservings_fiveservings.insurance_system_be.team.underwrite.UnderwriteTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.underwrite.usecase.UnderwriteUsecase;
 import fourservings_fiveservings.insurance_system_be.team.underwrite.view.UnderwriteView;
 import java.util.Objects;
 
 public class UnderwriteController implements TeamController {
 
-    private final UnderwriteTeam underwriteTeam;
+    private final UnderwriteTeamMethod underwriteTeam;
     private final UnderwriteView underwriteView;
-    private final ContractManagementTeam contractManagementTeam;
+    private final ContractManagementTeamMethod contractManagementTeam;
     private final String TEAM_NAME = "U/W 팀";
 
-    public UnderwriteController(UnderwriteTeam underwriteTeam, UnderwriteView underwriteView,
-        ContractManagementTeam contractManagementTeam) {
+    public UnderwriteController(UnderwriteTeamMethod underwriteTeam, UnderwriteView underwriteView,
+        ContractManagementTeamMethod contractManagementTeam) {
         this.underwriteTeam = underwriteTeam;
         this.underwriteView = underwriteView;
         this.contractManagementTeam = contractManagementTeam;
