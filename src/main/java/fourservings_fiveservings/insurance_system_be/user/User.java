@@ -16,11 +16,11 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "ENTITY_TYPE")
-@SuperBuilder
 public abstract class User extends BaseEntity {
 
     @Id
@@ -44,4 +44,16 @@ public abstract class User extends BaseEntity {
 
     public UserType userType;
 
+    protected User(String loginId, String password, String email, String phoneNumber, Address address,
+        String name,
+        String birthDay, UserType userType) {
+        this.loginId = loginId;
+        this.password = password;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.name = name;
+        this.birthDay = birthDay;
+        this.userType = userType;
+    }
 }
