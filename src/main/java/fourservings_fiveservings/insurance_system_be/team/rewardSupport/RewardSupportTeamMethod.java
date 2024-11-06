@@ -109,7 +109,7 @@ public class RewardSupportTeamMethod extends TeamMethod {
             judgmentResult = false;
             Accident accident = accidentList.read(0);
             responseVO.add(ACCIDENT_NAME, accident.getCustomerName());
-            responseVO.add(CLAIMINSURANCE_ACCOUNT, accident.getClaimInsurance().getAccount());
+//            responseVO.add(CLAIMINSURANCE_ACCOUNT, accident.getClaimInsurance().getAccount());
             responseVO.add(Status.getKey(), Status.SUCCESS.getStatus());
             return responseVO;
         }

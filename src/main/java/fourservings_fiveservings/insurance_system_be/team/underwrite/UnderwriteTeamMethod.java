@@ -13,6 +13,7 @@ import fourservings_fiveservings.insurance_system_be.team.underwrite.model.Under
 import fourservings_fiveservings.insurance_system_be.team.underwrite.model.UnderwritePolicyListImpl;
 import fourservings_fiveservings.insurance_system_be.team.underwrite.usecase.UnderwriteUsecase;
 import fourservings_fiveservings.insurance_system_be.team.underwrite.view.UnderwriteView;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -28,7 +29,7 @@ public class UnderwriteTeamMethod extends TeamMethod {
     private final UnderwritePolicyListImpl underwritePolicyListImpl;
 
     public UnderwriteTeamMethod(InsuranceCompanyList insuranceCompanyList,
-        InsuranceApplyList insuranceApplyList, UnderwritePolicyListImpl underwritePolicyListImpl) {
+                                InsuranceApplyList insuranceApplyList, UnderwritePolicyListImpl underwritePolicyListImpl) {
         this.insuranceCompanyList = insuranceCompanyList;
         this.insuranceApplyList = insuranceApplyList;
         this.underwritePolicyListImpl = underwritePolicyListImpl;
@@ -51,9 +52,9 @@ public class UnderwriteTeamMethod extends TeamMethod {
         responseVO.add(UnderwriteView.UNDERWRITING_RESULT, result);
         if (insuranceApplication != null) {
             responseVO.add(UnderwriteView.FINISH_INSURANCE_CUSTOMER_NAME,
-                insuranceApplication.getSubscriberName());
-            responseVO.add(UnderwriteView.FINISH_INSURANCE_ID,
-                String.valueOf(insuranceApplication.getInsuranceApplicationID()));
+                    insuranceApplication.getSubscriberName());
+//            responseVO.add(UnderwriteView.FINISH_INSURANCE_ID,
+//                    String.valueOf(insuranceApplication.getId()));
         }
         return responseVO;
     }
@@ -102,7 +103,7 @@ public class UnderwriteTeamMethod extends TeamMethod {
     private ResponseVO findById(String applicationId) {
         ResponseVO responseVO = new ResponseVO();
         InsuranceApplication insuranceApplication = insuranceApplyList.findById(
-            Integer.parseInt(applicationId));
+                Integer.parseInt(applicationId));
         responseVO.add(UnderwriteView.ONE_SELECT_INSURANCE, insuranceApplication.toString());
         return responseVO;
     }
@@ -114,7 +115,7 @@ public class UnderwriteTeamMethod extends TeamMethod {
             StringBuilder insuranceInfoBuilder = new StringBuilder();
             for (InsuranceApplication insuranceApplication : insuranceApplications) {
                 insuranceInfoBuilder.append(
-                    "보험 ID : " + insuranceApplication.getInsuranceApplicationID()).append('\n');
+                        "보험 ID : " + insuranceApplication.getInsuranceId()).append('\n');
             }
             responseVO.add(UnderwriteView.ALL_INSURANCE_APPLY, insuranceInfoBuilder.toString());
         }

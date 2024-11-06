@@ -23,13 +23,13 @@ public class ContractListImpl implements ContractList {
 
     @Override
     public void removeById(int contractId) {
-        CONTRACTS.removeIf(contract -> contract.getContractId() == contractId);
+        CONTRACTS.removeIf(contract -> contract.getId() == contractId);
     }
 
     @Override
     public InsuranceApplication findById(int contractId) {
         for (Contract contract : CONTRACTS) {
-            if (contract.getContractId() == contractId) {
+            if (contract.getId() == contractId) {
                 return contract.getInsuranceApplication();
             }
         }
@@ -44,7 +44,7 @@ public class ContractListImpl implements ContractList {
     @Override
     public void update(Contract contract) {
         for (int i = 0; i < CONTRACTS.size(); i++) {
-            if (CONTRACTS.get(i).getContractId() == contract.getContractId()) {
+            if (CONTRACTS.get(i).getId() == contract.getId()) {
                 CONTRACTS.set(i, contract);
                 return;
             }

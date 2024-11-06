@@ -1,65 +1,55 @@
 package fourservings_fiveservings.insurance_system_be.team.rewardSupport.model;
 
 
+import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
+import fourservings_fiveservings.insurance_system_be.user.worker.Worker;
+import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+
 /**
  * @author USER
  * @version 1.0
  */
-public class Accident {
+@Getter
+@Setter
+//@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
+public class Accident extends BaseEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    private int accidentID;
     private String content;
+
     private String customerName;
-    private ClaimInsurance claimInsurance;
+
+    // ----------------------
+
+    private LocalDateTime accidentDate;
+
+    private String description;
+
+    private String location;
+
+    private int damageAmount;
 
     public Accident() {
 
     }
 
-    public int getAccidentID() {
-        return accidentID;
-    }
 
-    public void setAccidentID(int accidentID) {
-        this.accidentID = accidentID;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public ClaimInsurance getClaimInsurance() {
-        return claimInsurance;
-    }
-
-    public void setClaimInsurance(ClaimInsurance claimInsurance) {
-        this.claimInsurance = claimInsurance;
-    }
-
-
-    public void finalize() throws Throwable {
-
-    }
-
-    @Override
-    public String toString() {
-        return "Accident ID: " + accidentID + "\n" +
-                "사고 내용: " + content + "\n" +
-                "고객 이름: " + customerName + "\n" +
-                "사고 정보: " + (claimInsurance != null ? claimInsurance.toString() : "null");
-    }
+//    @Override
+//    public String toString() {
+//        return "Accident ID: " + id + "\n" +
+//                "사고 내용: " + content + "\n" +
+//                "고객 이름: " + customerName + "\n" +
+//                "사고 정보: " + (claimInsurance != null ? claimInsurance.toString() : "null");
+//    }
 
 }
