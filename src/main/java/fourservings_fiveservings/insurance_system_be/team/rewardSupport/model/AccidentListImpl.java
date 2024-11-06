@@ -23,7 +23,7 @@ public class AccidentListImpl implements AccidentList {
 
     public boolean add(Accident accident) {
         if (accident != null) {
-            accident.setAccidentID(generateId());
+            accident.setId(generateId());
             accidentList.add(accident);
             return true;
         }
@@ -31,23 +31,23 @@ public class AccidentListImpl implements AccidentList {
     }
 
     public boolean delete(int accidentID) {
-        return accidentList.removeIf(accident -> accident.getAccidentID() == accidentID);
+        return accidentList.removeIf(accident -> accident.getId() == accidentID);
     }
 
     public Accident read(int accidentID) {
         return accidentList.stream()
-                .filter(accident -> accident.getAccidentID() == accidentID)
+                .filter(accident -> accident.getId() == accidentID)
                 .findFirst()
                 .orElse(null);
     }
 
     public Accident update(int accidentID, Accident udateAccident) {
         IntStream.range(0, accidentList.size())
-                .filter(i -> accidentList.get(i).getAccidentID() == accidentID)
+                .filter(i -> accidentList.get(i).getId() == accidentID)
                 .findFirst()
                 .ifPresent(i -> accidentList.set(i, udateAccident));
         return accidentList.stream()
-                .filter(accident -> accident.getAccidentID() == accidentID)
+                .filter(accident -> accident.getId() == accidentID)
                 .findFirst()
                 .orElse(null);
     }

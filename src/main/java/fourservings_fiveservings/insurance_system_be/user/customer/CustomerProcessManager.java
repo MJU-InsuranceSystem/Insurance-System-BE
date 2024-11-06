@@ -94,7 +94,7 @@ public class CustomerProcessManager {
             claimInsurance.setResidentNumber(request.get(CLAIMINSURANCE_RESIDENTNUMBER));
             claimInsurance.setSupportingFile(request.get(CLAIMINSURANCE_SUPPORTINGFILE));
 
-            accident.setClaimInsurance(claimInsurance);
+//            accident.setClaimInsurance(claimInsurance);
 
             for (Map.Entry<String, String> entry : request.getTotalInfo().entrySet()) {
                 if (entry.getValue() == null) {

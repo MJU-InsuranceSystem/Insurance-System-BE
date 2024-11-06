@@ -6,7 +6,9 @@ import fourservings_fiveservings.insurance_system_be.user.UserType;
 import fourservings_fiveservings.insurance_system_be.user.auth.AuthGuideMessage;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+
 import java.util.Map;
+
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,8 +27,7 @@ public class Worker extends User {
 
     @Builder
     private Worker(String loginId, String password, String email, String phoneNumber, Address address,
-        String name,
-        String birthDay, UserType userType, Long hireYear, Role role) {
+                   String name, String birthDay, UserType userType, Long hireYear, Role role) {
         super(loginId, password, email, phoneNumber, address, name, birthDay, userType);
         this.hireYear = hireYear;
         this.role = role;
