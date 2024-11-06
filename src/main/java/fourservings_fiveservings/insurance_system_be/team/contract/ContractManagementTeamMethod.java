@@ -43,7 +43,7 @@ public class ContractManagementTeamMethod extends TeamMethod {
         String customerName = request.get(UnderwriteView.FINISH_INSURANCE_CUSTOMER_NAME);
 
         Contract contract = new Contract();
-        contract.setContractId(order++);
+        contract.setId(order++);
         contract.setInsurance(insuranceApplication);
         contract.setManagerName("모델들이 하는 모델링");
         contract.setCustomerName(customerName);

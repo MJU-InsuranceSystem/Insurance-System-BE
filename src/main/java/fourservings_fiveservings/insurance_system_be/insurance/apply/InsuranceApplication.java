@@ -6,6 +6,7 @@ import fourservings_fiveservings.insurance_system_be.insurance.Insurance;
  * @author USER
  * @version 1.0
  */
+
 public class InsuranceApplication {
 
     private int insuranceApplicationID;

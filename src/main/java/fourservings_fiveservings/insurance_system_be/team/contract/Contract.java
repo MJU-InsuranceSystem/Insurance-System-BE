@@ -1,52 +1,41 @@
 package fourservings_fiveservings.insurance_system_be.team.contract;
 
+import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceApplication;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
-public class Contract {
+@Getter
+@Setter
+@Entity
+public class Contract extends BaseEntity {
 
-    private int contractId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     private String customerName;
+
     private InsuranceApplication insuranceApplication;
+
     private String managerName;
 
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public int getContractId() {
-        return contractId;
-    }
-
-    public void setContractId(int contractId) {
-        this.contractId = contractId;
-    }
-
-    public InsuranceApplication getInsuranceApplication() {
-        return insuranceApplication;
-    }
-
-    public String getManagerName() {
-        return managerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
 
     public void setInsurance(InsuranceApplication insuranceApplication) {
         this.insuranceApplication = insuranceApplication;
     }
 
-    public void setManagerName(String managerName) {
-        this.managerName = managerName;
-    }
 
-    @Override
-    public String toString() {
-        return "contract ID = " + contractId + "\n" +
-            "customer Name = " + customerName + '\n' +
-            "insurance ID = " + insuranceApplication.getInsuranceApplicationID() + '\n' +
-            "insurance Type = " + insuranceApplication.getInsurance().getInsuranceType() + '\n' +
-            "managerName = " + managerName;
-    }
+//    @Override
+//    public String toString() {
+//        return "contract ID = " + id + "\n" +
+//            "customer Name = " + customerName + '\n' +
+//            "insurance ID = " + insuranceApplication.getInsuranceApplicationID() + '\n' +
+//            "insurance Type = " + insuranceApplication.getInsurance().getInsuranceType() + '\n' +
+//            "managerName = " + managerName;
+//    }
 }
