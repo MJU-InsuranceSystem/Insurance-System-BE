@@ -1,6 +1,8 @@
 package fourservings_fiveservings.insurance_system_be.team.rewardSupport.model;
 
 
+import jakarta.persistence.Entity;
+
 /**
  * @author USER
  * @version 1.0
