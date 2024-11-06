@@ -7,6 +7,8 @@ import fourservings_fiveservings.insurance_system_be.insurance.Insurance;
 import fourservings_fiveservings.insurance_system_be.insurance.InsuranceType;
 import fourservings_fiveservings.insurance_system_be.team.contract.Contract;
 import fourservings_fiveservings.insurance_system_be.team.plan.Status;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

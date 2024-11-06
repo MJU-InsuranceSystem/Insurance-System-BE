@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.user.auth;
+package fourservings_fiveservings.insurance_system_be.auth;
 
 import fourservings_fiveservings.insurance_system_be.user.customer.CustomerList;
 import fourservings_fiveservings.insurance_system_be.user.worker.WorkerList;

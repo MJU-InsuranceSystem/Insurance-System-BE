@@ -1,8 +1,8 @@
-package fourservings_fiveservings.insurance_system_be.user.auth;
+package fourservings_fiveservings.insurance_system_be.auth.controller;
 
 
-import fourservings_fiveservings.insurance_system_be.common.view.SystemView;
-import fourservings_fiveservings.insurance_system_be.user.User;
+import fourservings_fiveservings.insurance_system_be.auth.service.AuthService;
+import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignUpRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

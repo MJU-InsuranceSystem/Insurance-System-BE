@@ -2,8 +2,6 @@ package fourservings_fiveservings.insurance_system_be.common.controller;
 
 
 import fourservings_fiveservings.insurance_system_be.common.view.SystemView;
-import fourservings_fiveservings.insurance_system_be.user.User;
-import fourservings_fiveservings.insurance_system_be.user.auth.AuthController;
 import fourservings_fiveservings.insurance_system_be.user.customer.CustomerSystem;
 import fourservings_fiveservings.insurance_system_be.user.worker.WorkerSystem;
 

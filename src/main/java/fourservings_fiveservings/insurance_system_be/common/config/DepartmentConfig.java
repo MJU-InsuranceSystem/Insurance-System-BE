@@ -53,7 +53,7 @@ public class DepartmentConfig {
 
     public static UnderwriteController underwriteController() {
         return new UnderwriteController(underwriteTeam(), underwriteView(),
-            contractManagementTeam());
+                contractManagementTeam());
     }
 
     public static CustomerManagementController customerManagementController() {
@@ -86,12 +86,12 @@ public class DepartmentConfig {
 
     private static UnderwriteTeamMethod underwriteTeam() {
         return new UnderwriteTeamMethod(new InsuranceCompanyList(), new InsuranceApplyListImpl(),
-            new UnderwritePolicyListImpl());
+                new UnderwritePolicyListImpl());
     }
 
     private static ContractManagementTeamMethod contractManagementTeam() {
         return new ContractManagementTeamMethod(new ContractListImpl(),
-            new InsuranceApplyListImpl());
+                new InsuranceApplyListImpl());
     }
 
     private static EducationView educationView() {
@@ -104,8 +104,8 @@ public class DepartmentConfig {
 
     public static TeamController designInspectionController() {
         return new InsurancePlanController(designTeamView(), insuranceInspectionTeamView(),
-            designInspectionTeam(),
-            insuranceInspectionTeam());
+                designInspectionTeam(),
+                insuranceInspectionTeam());
     }
 
     private static InsuranceInspectionView insuranceInspectionTeamView() {
@@ -122,7 +122,7 @@ public class DepartmentConfig {
 
     private static InsurancePlanTeamMethod designInspectionTeam() {
         return new InsurancePlanTeamMethod(designPlanList(), proposalList(), insuranceList(),
-            authrizationInsuranceList());
+                authrizationInsuranceList());
     }
 
     private static DesignPlanList designPlanList() {
@@ -144,7 +144,7 @@ public class DepartmentConfig {
     // reward
     public static RewardSupportController rewardSupportController() {
         return new RewardSupportController(rewardSupportView(), rewardSupportTeam(),
-            new InsuranceChargeCustomerApplyListImpl());
+                new InsuranceChargeCustomerApplyListImpl());
     }
 
     private static RewardSupportView rewardSupportView() {
@@ -153,7 +153,7 @@ public class DepartmentConfig {
 
     private static RewardSupportTeamMethod rewardSupportTeam() {
         return new RewardSupportTeamMethod(accidentList(), litigationInfoList(),
-            insuranceChargeCustomerApplyList(), insurancePremiumPaymentCustomerList());
+                insuranceChargeCustomerApplyList(), insurancePremiumPaymentCustomerList());
     }
 
     private static AccidentList accidentList() {

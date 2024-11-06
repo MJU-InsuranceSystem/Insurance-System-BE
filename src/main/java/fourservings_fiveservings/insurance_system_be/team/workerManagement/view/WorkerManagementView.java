@@ -2,7 +2,7 @@ package fourservings_fiveservings.insurance_system_be.team.workerManagement.view
 
 
 import fourservings_fiveservings.insurance_system_be.common.view.DepartmentView;
-import fourservings_fiveservings.insurance_system_be.user.worker.Worker;
+import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import java.util.List;
 
 public class WorkerManagementView extends DepartmentView {

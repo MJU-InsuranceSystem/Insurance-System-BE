@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.common.view;
 
 import fourservings_fiveservings.insurance_system_be.team.Department;
-import fourservings_fiveservings.insurance_system_be.user.auth.AuthGuideMessage;
+import fourservings_fiveservings.insurance_system_be.auth.AuthGuideMessage;
 import fourservings_fiveservings.insurance_system_be.user.customer.CustomerProcess;
 import java.io.BufferedReader;
 import java.io.IOException;

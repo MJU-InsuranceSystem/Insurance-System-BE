@@ -3,7 +3,7 @@ package fourservings_fiveservings.insurance_system_be.team.complaint.model;
 import fourservings_fiveservings.insurance_system_be.team.complaint.ComplaintCategory;
 import fourservings_fiveservings.insurance_system_be.team.complaint.ComplaintEvaluation;
 import fourservings_fiveservings.insurance_system_be.team.complaint.ComplaintStatus;
-import fourservings_fiveservings.insurance_system_be.user.customer.Customer;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 
 /**
  * @author USER

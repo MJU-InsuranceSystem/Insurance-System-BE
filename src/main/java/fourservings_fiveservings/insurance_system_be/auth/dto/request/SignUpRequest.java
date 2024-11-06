@@ -1,8 +1,8 @@
-package fourservings_fiveservings.insurance_system_be.user.auth;
+package fourservings_fiveservings.insurance_system_be.auth.dto.request;
 
-import fourservings_fiveservings.insurance_system_be.user.Address;
-import fourservings_fiveservings.insurance_system_be.user.User;
-import fourservings_fiveservings.insurance_system_be.user.customer.Customer;
+import fourservings_fiveservings.insurance_system_be.user.entity.Address;
+import fourservings_fiveservings.insurance_system_be.user.entity.User;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 
 public record SignUpRequest(
     String loginId,

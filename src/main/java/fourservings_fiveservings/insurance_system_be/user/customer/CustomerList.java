@@ -1,6 +1,8 @@
 package fourservings_fiveservings.insurance_system_be.user.customer;
 
 import fourservings_fiveservings.insurance_system_be.user.UserType;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -11,15 +13,15 @@ public class CustomerList {
     private final List<Customer> customers = new ArrayList<>();
 
     private CustomerList() {
-        Customer customer = new Customer();
-//        customer.id = String.valueOf(2);
-        customer.password = String.valueOf(2);
-        customer.name = "김모델";
-//        customer.sex = "남자";
-        customer.birthDay = "22";
-        customer.phoneNumber = "010-1111-1111";
-        customer.userType = UserType.CUSTOMER;
-        customers.add(customer);
+//        Customer customer = new Customer();
+////        customer.id = String.valueOf(2);
+//        customer.password = String.valueOf(2);
+//        customer.name = "김모델";
+////        customer.sex = "남자";
+//        customer.birthDay = "22";
+//        customer.phoneNumber = "010-1111-1111";
+//        customer.userType = UserType.CUSTOMER;
+//        customers.add(customer);
     }
 
     public static CustomerList getInstance() {

@@ -8,7 +8,7 @@ import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceAp
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceApplyList;
 import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.underwrite.view.UnderwriteView;
-import fourservings_fiveservings.insurance_system_be.user.customer.Customer;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 
 public class ContractManagementTeamMethod extends TeamMethod {
 

@@ -1,7 +1,8 @@
-package fourservings_fiveservings.insurance_system_be.user;
+package fourservings_fiveservings.insurance_system_be.user.entity;
 
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
+import fourservings_fiveservings.insurance_system_be.user.UserType;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -13,7 +14,6 @@ import jakarta.persistence.InheritanceType;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Entity

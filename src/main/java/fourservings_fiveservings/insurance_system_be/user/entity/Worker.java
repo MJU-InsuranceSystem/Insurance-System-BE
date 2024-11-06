@@ -1,19 +1,14 @@
-package fourservings_fiveservings.insurance_system_be.user.worker;
+package fourservings_fiveservings.insurance_system_be.user.entity;
 
-import fourservings_fiveservings.insurance_system_be.user.Address;
-import fourservings_fiveservings.insurance_system_be.user.User;
 import fourservings_fiveservings.insurance_system_be.user.UserType;
-import fourservings_fiveservings.insurance_system_be.user.auth.AuthGuideMessage;
+import fourservings_fiveservings.insurance_system_be.user.entity.role.Role;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-
-import java.util.Map;
 
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

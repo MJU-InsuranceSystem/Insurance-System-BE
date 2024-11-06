@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.user.auth;
+package fourservings_fiveservings.insurance_system_be.auth;
 
 public class AuthGuideMessage {
 

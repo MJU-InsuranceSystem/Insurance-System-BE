@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.salesChannel.model;
 
-import fourservings_fiveservings.insurance_system_be.user.customer.Customer;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 
 /**
  * @author USER

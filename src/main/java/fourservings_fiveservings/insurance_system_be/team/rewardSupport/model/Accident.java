@@ -2,11 +2,8 @@ package fourservings_fiveservings.insurance_system_be.team.rewardSupport.model;
 
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
-import fourservings_fiveservings.insurance_system_be.user.worker.Worker;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;

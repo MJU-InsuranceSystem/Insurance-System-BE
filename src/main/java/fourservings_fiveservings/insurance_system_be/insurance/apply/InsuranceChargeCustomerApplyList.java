@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.insurance.apply;
 
 
-import fourservings_fiveservings.insurance_system_be.user.customer.Customer;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 
 public interface InsuranceChargeCustomerApplyList {
 

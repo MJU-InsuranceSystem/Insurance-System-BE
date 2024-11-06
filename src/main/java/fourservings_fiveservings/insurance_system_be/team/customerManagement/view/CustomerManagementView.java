@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.customerManagement.view;
 
 import fourservings_fiveservings.insurance_system_be.common.view.DepartmentView;
-import fourservings_fiveservings.insurance_system_be.user.customer.Customer;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import java.util.List;
 
 public class CustomerManagementView extends DepartmentView {

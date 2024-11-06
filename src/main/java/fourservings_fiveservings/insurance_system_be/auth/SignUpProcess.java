@@ -1,11 +1,9 @@
-package fourservings_fiveservings.insurance_system_be.user.auth;
+package fourservings_fiveservings.insurance_system_be.auth;
 
 import fourservings_fiveservings.insurance_system_be.common.view.SystemView;
-import fourservings_fiveservings.insurance_system_be.user.User;
+import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.user.UserType;
-import fourservings_fiveservings.insurance_system_be.user.customer.Customer;
 import fourservings_fiveservings.insurance_system_be.user.customer.CustomerList;
-import fourservings_fiveservings.insurance_system_be.user.worker.Worker;
 import fourservings_fiveservings.insurance_system_be.user.worker.WorkerList;
 import java.util.Map;
 

@@ -23,9 +23,10 @@ import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.Ac
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.AccidentList;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.ClaimInsurance;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.InsurancePremiumPaymentCustomerList;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
+
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class CustomerProcessManager {
 

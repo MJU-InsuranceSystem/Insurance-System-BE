@@ -2,7 +2,6 @@ package fourservings_fiveservings.insurance_system_be.team.rewardSupport;
 
 import static fourservings_fiveservings.insurance_system_be.insurance.InsuranceConstant.ENTITY_LIST;
 import static fourservings_fiveservings.insurance_system_be.team.rewardSupport.view.RewardSupportView.ACCIDENT_NAME;
-import static fourservings_fiveservings.insurance_system_be.team.rewardSupport.view.RewardSupportView.CLAIMINSURANCE_ACCOUNT;
 import static fourservings_fiveservings.insurance_system_be.team.rewardSupport.view.RewardSupportView.JUDGE_ANSWER;
 import static fourservings_fiveservings.insurance_system_be.team.rewardSupport.view.RewardSupportView.NOT_PAID_CUSTOMER;
 import static fourservings_fiveservings.insurance_system_be.team.rewardSupport.view.RewardSupportView.PAY_ANSWER;
@@ -16,7 +15,7 @@ import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.Ac
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.AccidentList;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.InsurancePremiumPaymentCustomerList;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.LitigationInfoList;
-import fourservings_fiveservings.insurance_system_be.user.customer.Customer;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import fourservings_fiveservings.insurance_system_be.user.customer.CustomerList;
 import java.util.List;
 import java.util.stream.Collectors;
