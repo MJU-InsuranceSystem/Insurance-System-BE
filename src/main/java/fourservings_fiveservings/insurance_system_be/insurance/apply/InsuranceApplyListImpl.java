@@ -30,7 +30,7 @@ public class InsuranceApplyListImpl implements InsuranceApplyList{
     @Override
     public InsuranceApplication findById(int insuranceId) {
         return INSURANCE_APPLICATIONS.stream()
-            .filter(insuranceApplication -> insuranceApplication.getInsuranceApplicationID() == insuranceId)
+            .filter(insuranceApplication -> insuranceApplication.getInsuranceId() == insuranceId)
             .findFirst()
             .orElseThrow(() -> new NoSuchElementException("Insurance not found with ID: " + insuranceId));
     }

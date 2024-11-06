@@ -2,10 +2,7 @@ package fourservings_fiveservings.insurance_system_be.team.contract;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceApplication;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,10 +17,10 @@ public class Contract extends BaseEntity {
 
     private String customerName;
 
-    private InsuranceApplication insuranceApplication;
-
     private String managerName;
 
+    @Embedded
+    private InsuranceApplication insuranceApplication;
 
     public void setInsurance(InsuranceApplication insuranceApplication) {
         this.insuranceApplication = insuranceApplication;

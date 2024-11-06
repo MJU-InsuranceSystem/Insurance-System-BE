@@ -59,12 +59,12 @@ public class CustomerProcessManager {
         String familyHistory = requestVO.get(CustomerView.FAMILY_HISTORY);
         String requestInsurance = requestVO.get(CustomerView.REQUEST_INSURANCE);
 
-        insuranceApplication.setInsuranceApplicationID(insuranceApplicationId);
+        insuranceApplication.setInsuranceId(insuranceApplicationId);
         insuranceApplication.setSubscriberName(subscriberName);
         insuranceApplication.setPersonalInfo(personalInfo);
         insuranceApplication.setFamilyHistory(familyHistory);
         insuranceApplication.setRequestInsurance(requestInsurance);
-        insuranceApplication.setInsurance(insurance);
+//        insuranceApplication.setInsurance(insurance);
         insuranceApplyList.add(insuranceApplication);
     }
 
@@ -139,19 +139,19 @@ public class CustomerProcessManager {
         }
 //        List<Contract> contracts = customer.getContractList();
         List<Contract> contracts = null;
-        String insurances = contracts.stream()
-            .map(contract -> contract.getInsuranceApplication().getInsurance().getInsuranceType()
-                .getDescription())
-            .collect(Collectors.joining(", "));
+//        String insurances = contracts.stream()
+//            .map(contract -> contract.getInsuranceApplication().getInsurance().getInsuranceType()
+//                .getDescription())
+//            .collect(Collectors.joining(", "));
+//
+//        int totalAccount = contracts.stream()
+//            .mapToInt(contract -> contract.getInsuranceApplication().getInsurance().getReward()
+//                .getMonthPaymentFee())
+//            .sum();
 
-        int totalAccount = contracts.stream()
-            .mapToInt(contract -> contract.getInsuranceApplication().getInsurance().getReward()
-                .getMonthPaymentFee())
-            .sum();
-
-        responseVO.add(CustomerView.CHECK_PAID, "N");
-        responseVO.add(CustomerView.SUBSCRIBE_INSURANCE, insurances);
-        responseVO.add(CustomerView.TOTAL_ACCOUNT, String.valueOf(totalAccount));
+//        responseVO.add(CustomerView.CHECK_PAID, "N");
+//        responseVO.add(CustomerView.SUBSCRIBE_INSURANCE, insurances);
+//        responseVO.add(CustomerView.TOTAL_ACCOUNT, String.valueOf(totalAccount));
         return responseVO;
     }
 }
