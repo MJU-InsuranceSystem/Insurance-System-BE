@@ -17,7 +17,7 @@ import fourservings_fiveservings.insurance_system_be.user.worker.WorkerSystem;
 public class MainSystemConfig {
 
     public FrontController frontController() {
-        return new FrontController(systemView(), authController(), customerSystem(),
+        return new FrontController(systemView(), customerSystem(),
             workerSystem());
     }
 
@@ -25,9 +25,9 @@ public class MainSystemConfig {
         return new InsuranceSystemView();
     }
 
-    private AuthController authController() {
-        return new AuthController(systemView());
-    }
+//    private AuthController authController() {
+//        return new AuthController(systemView());
+//    }
 
 
     private CustomerSystem customerSystem() {
