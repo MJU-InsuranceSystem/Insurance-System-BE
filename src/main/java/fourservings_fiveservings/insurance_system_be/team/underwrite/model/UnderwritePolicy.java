@@ -1,54 +1,43 @@
 package fourservings_fiveservings.insurance_system_be.team.underwrite.model;
 
+import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Setter;
+
 /**
  * @author yoon
  * @version 1.0
- *
  */
-public class UnderwritePolicy {
-	private int policyId;
-	private String policyName;
-	private String riskInfo;
-	private String premiumInfo;
-	private String subscriptionInfo;
 
-	public int getPolicyId() {
-		return policyId;
-	}
+@Entity
+@Setter
+public class UnderwritePolicy extends BaseEntity {
 
-	public String getPolicyName() {
-		return policyName;
-	}
+    @Id
+    private Long policyId;
+    private String policyType;
+    private String policyName;
+    private String riskInfo;
+    private String premiumInfo;
+    private String subscriptionInfo;
 
-	public String getRiskInfo() {
-		return riskInfo;
-	}
 
-	public String getPremiumInfo() {
-		return premiumInfo;
-	}
+    public String getPolicyName() {
+        return policyName;
+    }
 
-	public String getSubscriptionInfo() {
-		return subscriptionInfo;
-	}
+    public String getRiskInfo() {
+        return riskInfo;
+    }
 
-	public void setPolicyId(int policyId) {
-		this.policyId = policyId;
-	}
+    public String getPremiumInfo() {
+        return premiumInfo;
+    }
 
-	public void setPolicyName(String policyName) {
-		this.policyName = policyName;
-	}
+    public String getSubscriptionInfo() {
+        return subscriptionInfo;
+    }
 
-	public void setRiskInfo(String riskInfo) {
-		this.riskInfo = riskInfo;
-	}
-
-	public void setPremiumInfo(String premiumInfo) {
-		this.premiumInfo = premiumInfo;
-	}
-
-	public void setSubscriptionInfo(String subscriptionInfo) {
-		this.subscriptionInfo = subscriptionInfo;
-	}
+    
 }

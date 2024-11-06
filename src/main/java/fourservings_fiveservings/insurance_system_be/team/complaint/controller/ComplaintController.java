@@ -3,17 +3,17 @@ package fourservings_fiveservings.insurance_system_be.team.complaint.controller;
 
 import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.team.TeamController;
-import fourservings_fiveservings.insurance_system_be.team.complaint.ComplaintManagementTeam;
+import fourservings_fiveservings.insurance_system_be.team.complaint.ComplaintManagementTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.complaint.usecase.ComplaintUseCase;
 import fourservings_fiveservings.insurance_system_be.team.complaint.view.ComplaintView;
 
 public class ComplaintController implements TeamController {
 
     private final ComplaintView complaintView;
-    private final ComplaintManagementTeam complaintManagementTeam;
+    private final ComplaintManagementTeamMethod complaintManagementTeam;
 
     public ComplaintController(ComplaintView complaintView,
-        ComplaintManagementTeam complaintManagementTeam) {
+        ComplaintManagementTeamMethod complaintManagementTeam) {
         this.complaintView = complaintView;
         this.complaintManagementTeam = complaintManagementTeam;
     }

@@ -6,8 +6,8 @@ import static fourservings_fiveservings.insurance_system_be.insurance.InsuranceC
 
 import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
-import fourservings_fiveservings.insurance_system_be.team.Team;
 import fourservings_fiveservings.insurance_system_be.team.TeamController;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.designPlan.DesignConstant;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.proposal.ProposalConstant;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.usecase.DesignUseCase;
@@ -19,16 +19,16 @@ public class InsurancePlanController implements TeamController {
 
     private final InsurancePlanView insurancePlanView;
     private final InsuranceInspectionView insuranceInspectionView;
-    private final Team insurancePlanTeam;
-    private final Team insuranceInspectionTeam;
+    private final TeamMethod insurancePlanTeamMethod;
+    private final TeamMethod insuranceInspectionTeamMethod;
 
     public InsurancePlanController(InsurancePlanView insurancePlanView,
-        InsuranceInspectionView insuranceInspectionView, Team insurancePlanTeam,
-        Team insuranceInspectionTeam) {
+        InsuranceInspectionView insuranceInspectionView, TeamMethod insurancePlanTeamMethod,
+        TeamMethod insuranceInspectionTeamMethod) {
         this.insurancePlanView = insurancePlanView;
         this.insuranceInspectionView = insuranceInspectionView;
-        this.insurancePlanTeam = insurancePlanTeam;
-        this.insuranceInspectionTeam = insuranceInspectionTeam;
+        this.insurancePlanTeamMethod = insurancePlanTeamMethod;
+        this.insuranceInspectionTeamMethod = insuranceInspectionTeamMethod;
     }
 
 
@@ -44,17 +44,17 @@ public class InsurancePlanController implements TeamController {
         switch (useCase) {
             case ASK_INSURANCE_AUTHORIZATION -> {
                 RequestVO requestVO = insurancePlanView.requestAuthorization();
-                ResponseVO responseVO = insurancePlanTeam.retrieve(requestVO);
+                ResponseVO responseVO = insurancePlanTeamMethod.retrieve(requestVO);
                 requestVO = insurancePlanView.requestAuthorization(responseVO);
-                responseVO = insurancePlanTeam.retrieve(requestVO);
+                responseVO = insurancePlanTeamMethod.retrieve(requestVO);
 
                 requestVO = insuranceInspectionView.authorizationInsurance(responseVO);
-                responseVO = insurancePlanTeam.process(requestVO);
+                responseVO = insurancePlanTeamMethod.process(requestVO);
                 insurancePlanView.showAuthrizationResult(responseVO);
             }
             case PLAN_INSURANCE -> {
                 RequestVO requestVO = insurancePlanView.createProposal();
-                ResponseVO responseVO = insurancePlanTeam.register(requestVO);
+                ResponseVO responseVO = insurancePlanTeamMethod.register(requestVO);
                 insurancePlanView.completeCreateProposal(responseVO);
             }
             case DESIGN_INSURANCE -> {
@@ -63,19 +63,20 @@ public class InsurancePlanController implements TeamController {
                 requestVO.add(ENTITY_LIST, ALL);
                 requestVO.add(ENTITY_KIND, ProposalConstant.PROPOSAL);
 
-                requestVO = insurancePlanView.selectProposal(insurancePlanTeam.retrieve(requestVO));
-                responseVO = insurancePlanTeam.retrieve(requestVO);
+                requestVO = insurancePlanView.selectProposal(
+                    insurancePlanTeamMethod.retrieve(requestVO));
+                responseVO = insurancePlanTeamMethod.retrieve(requestVO);
                 requestVO = insurancePlanView.createDesign(responseVO);
                 RequestVO requestInsuranceDto = insurancePlanView.createInsurance();
 
-                insurancePlanTeam.register(requestInsuranceDto);
-                responseVO = insurancePlanTeam.register(requestVO);
+                insurancePlanTeamMethod.register(requestInsuranceDto);
+                responseVO = insurancePlanTeamMethod.register(requestVO);
                 insurancePlanView.completeCreateDesignPlan(responseVO);
             }
             case MANAGE_INSURANCE -> {
                 RequestVO requestVO = insurancePlanView.requestInsurances();
                 if (Objects.equals(requestVO.get(DesignConstant.READ_INSURANCE_RESULT), "Y")) {
-                    ResponseVO responseVO = insurancePlanTeam.retrieve(requestVO);
+                    ResponseVO responseVO = insurancePlanTeamMethod.retrieve(requestVO);
                     insurancePlanView.showAllInsurance(responseVO);
                     return;
                 }

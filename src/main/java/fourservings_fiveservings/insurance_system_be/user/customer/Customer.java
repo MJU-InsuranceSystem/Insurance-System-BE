@@ -1,85 +1,29 @@
 package fourservings_fiveservings.insurance_system_be.user.customer;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.Contract;
+import fourservings_fiveservings.insurance_system_be.user.Address;
 import fourservings_fiveservings.insurance_system_be.user.User;
 import fourservings_fiveservings.insurance_system_be.user.UserType;
-import fourservings_fiveservings.insurance_system_be.user.auth.AuthGuideMessage;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-/**
- * @author USER
- * @version 1.0
- */
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
+@DiscriminatorValue("CUSTOMER")
 public class Customer extends User {
 
-    private List<Contract> contractList = new ArrayList<>();
+    private ContractStatus contractStatus;
 
-    public Customer() {
-
-    }
-
-    public Customer(String name, String age, String sex, String phoneNumber, String id,
-        String password) {
-        this.name = name;
-        this.age = age;
-        this.sex = sex;
-        this.phoneNumber = phoneNumber;
-        this.id = id;
-        this.password = password;
-        this.userType = UserType.CUSTOMER;
-        this.loginStatus = false;
-    }
-
-    public static Customer create(Map<String, String> authInfo) {
-        String name = authInfo.get(AuthGuideMessage.AUTH_NAME_KEY);
-        String age = authInfo.get(AuthGuideMessage.AUTH_AGE_KEY);
-        String sex = authInfo.get(AuthGuideMessage.AUTH_SEX_KEY);
-        String phoneNumber = authInfo.get(AuthGuideMessage.AUTH_PHONE_NUMBER_KEY);
-        String id = authInfo.get(AuthGuideMessage.AUTH_ID_KEY);
-        String password = authInfo.get(AuthGuideMessage.AUTH_PASSWORD_KEY);
-
-        return new Customer(name, age, sex, phoneNumber, id, password);
-    }
-
-    public void applyComplaint() {
-
-    }
-
-    public void applyConsultation() {
-
-    }
-
-    public void claimlnsuranceMoney() {
-
-    }
-
-    public void dropComplaint() {
-
-    }
-
-    public void evaluateComplaint() {
-
-    }
-
-    public void pay() {
-
-    }
-
-    public void signUplnsurance() {
-
-    }
-
-    public void updateComplaint() {
-
-    }
-
-    public List<Contract> getContractList() {
-        return contractList;
-    }
-
-    public void setContractList(List<Contract> contractList) {
-        this.contractList = contractList;
+    @Builder
+    private Customer(String loginId, String password, String email, String phoneNumber, Address address,
+        String name,
+        String birthDay, UserType userType, ContractStatus contractStatus) {
+        super(loginId, password, email, phoneNumber, address, name, birthDay, UserType.CUSTOMER);
+        this.contractStatus = ContractStatus.NONE;
     }
 }

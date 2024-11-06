@@ -46,7 +46,8 @@ public class CustomerProcessManager {
 
     public List<Contract> retrieveContract() {
         Customer loginUser = (Customer) AuthUtil.user;
-        return loginUser.getContractList();
+//        return loginUser.getContractList();
+        return null;
     }
 
     public void applyInsurance(RequestVO requestVO, Insurance insurance) {
@@ -136,8 +137,8 @@ public class CustomerProcessManager {
             responseVO.add(CustomerView.CHECK_PAID, "Y");
             return responseVO;
         }
-        List<Contract> contracts = customer.getContractList();
-
+//        List<Contract> contracts = customer.getContractList();
+        List<Contract> contracts = null;
         String insurances = contracts.stream()
             .map(contract -> contract.getInsuranceApplication().getInsurance().getInsuranceType()
                 .getDescription())

@@ -6,18 +6,18 @@ import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceApplication;
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceApplyList;
-import fourservings_fiveservings.insurance_system_be.team.Team;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.underwrite.view.UnderwriteView;
 import fourservings_fiveservings.insurance_system_be.user.customer.Customer;
 
-public class ContractManagementTeam extends Team {
+public class ContractManagementTeamMethod extends TeamMethod {
 
     private final ContractList contractList;
     private final InsuranceApplyList insuranceApplyList;
     private static int order = 0;
 
 
-    public ContractManagementTeam(ContractList contractList,
+    public ContractManagementTeamMethod(ContractList contractList,
         InsuranceApplyList insuranceApplyList) {
         this.contractList = contractList;
         this.insuranceApplyList = insuranceApplyList;
@@ -47,7 +47,7 @@ public class ContractManagementTeam extends Team {
         contract.setInsurance(insuranceApplication);
         contract.setManagerName("모델들이 하는 모델링");
         contract.setCustomerName(customerName);
-        applyCustomer.getContractList().add(contract);
+//        applyCustomer.getContractList().add(contract);
         contractList.add(contract);
         insuranceApplyList.remove(insuranceApplication);
 

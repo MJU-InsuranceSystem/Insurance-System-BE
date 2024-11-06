@@ -2,16 +2,16 @@ package fourservings_fiveservings.insurance_system_be.team.workerManagement.cont
 
 
 import fourservings_fiveservings.insurance_system_be.team.TeamController;
-import fourservings_fiveservings.insurance_system_be.team.workerManagement.WorkerManagementTeam;
+import fourservings_fiveservings.insurance_system_be.team.workerManagement.WorkerManagementTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.workerManagement.usecase.WorkerManagementUsecase;
 import fourservings_fiveservings.insurance_system_be.team.workerManagement.view.WorkerManagementView;
 
 public class WorkerManagementController implements TeamController {
 
-    private final WorkerManagementTeam workerManagementTeam;
+    private final WorkerManagementTeamMethod workerManagementTeam;
     private final WorkerManagementView workerManagementView;
 
-    public WorkerManagementController(WorkerManagementTeam workerManagementTeam,
+    public WorkerManagementController(WorkerManagementTeamMethod workerManagementTeam,
         WorkerManagementView workerManagementView) {
         this.workerManagementTeam = workerManagementTeam;
         this.workerManagementView = workerManagementView;

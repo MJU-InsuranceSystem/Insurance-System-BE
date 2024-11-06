@@ -3,7 +3,7 @@ package fourservings_fiveservings.insurance_system_be.team.education.controller;
 import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.team.TeamController;
-import fourservings_fiveservings.insurance_system_be.team.education.BusinessEducationTeam;
+import fourservings_fiveservings.insurance_system_be.team.education.BusinessEducationTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.education.usecase.EducationUseCase;
 import fourservings_fiveservings.insurance_system_be.team.education.view.EducationView;
 import java.util.Objects;
@@ -11,10 +11,10 @@ import java.util.Objects;
 public class EducationController implements TeamController {
 
     private final EducationView educationView;
-    private final BusinessEducationTeam businessEducationTeam;
+    private final BusinessEducationTeamMethod businessEducationTeam;
 
     public EducationController(EducationView educationView,
-        BusinessEducationTeam businessEducationTeam) {
+        BusinessEducationTeamMethod businessEducationTeam) {
         this.educationView = educationView;
         this.businessEducationTeam = businessEducationTeam;
     }

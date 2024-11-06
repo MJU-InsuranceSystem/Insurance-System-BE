@@ -6,29 +6,29 @@ import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceAp
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceChargeCustomerApplyList;
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceChargeCustomerApplyListImpl;
 import fourservings_fiveservings.insurance_system_be.insurance.company.InsuranceCompanyList;
-import fourservings_fiveservings.insurance_system_be.team.Team;
 import fourservings_fiveservings.insurance_system_be.team.TeamController;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.contract.ContractListImpl;
 import fourservings_fiveservings.insurance_system_be.team.contract.ContractManagementController;
-import fourservings_fiveservings.insurance_system_be.team.contract.ContractManagementTeam;
+import fourservings_fiveservings.insurance_system_be.team.contract.ContractManagementTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.contract.ContractManagementView;
 import fourservings_fiveservings.insurance_system_be.team.customerManagement.CustomerManageTeam;
 import fourservings_fiveservings.insurance_system_be.team.customerManagement.controller.CustomerManagementController;
 import fourservings_fiveservings.insurance_system_be.team.customerManagement.view.CustomerManagementView;
-import fourservings_fiveservings.insurance_system_be.team.education.BusinessEducationTeam;
+import fourservings_fiveservings.insurance_system_be.team.education.BusinessEducationTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.education.controller.EducationController;
 import fourservings_fiveservings.insurance_system_be.team.education.model.EducationListImpl;
 import fourservings_fiveservings.insurance_system_be.team.education.view.EducationView;
-import fourservings_fiveservings.insurance_system_be.team.plan.design.InsurancePlanTeam;
+import fourservings_fiveservings.insurance_system_be.team.plan.design.InsurancePlanTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.controller.InsurancePlanController;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.designPlan.DesignPlanList;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.designPlan.DesignPlanListImpl;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.proposal.ProposalList;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.proposal.ProposalListImpl;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.view.InsurancePlanView;
-import fourservings_fiveservings.insurance_system_be.team.plan.inspection.InsuranceInspectionTeam;
+import fourservings_fiveservings.insurance_system_be.team.plan.inspection.InsuranceInspectionTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.plan.inspection.InsuranceInspectionView;
-import fourservings_fiveservings.insurance_system_be.team.rewardSupport.RewardSupportTeam;
+import fourservings_fiveservings.insurance_system_be.team.rewardSupport.RewardSupportTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.controller.RewardSupportController;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.AccidentList;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.AccidentListImpl;
@@ -37,11 +37,11 @@ import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.In
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.LitigationInfoList;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.model.LitigationInfoListImpl;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.view.RewardSupportView;
-import fourservings_fiveservings.insurance_system_be.team.underwrite.UnderwriteTeam;
+import fourservings_fiveservings.insurance_system_be.team.underwrite.UnderwriteTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.underwrite.controller.UnderwriteController;
 import fourservings_fiveservings.insurance_system_be.team.underwrite.model.UnderwritePolicyListImpl;
 import fourservings_fiveservings.insurance_system_be.team.underwrite.view.UnderwriteView;
-import fourservings_fiveservings.insurance_system_be.team.workerManagement.WorkerManagementTeam;
+import fourservings_fiveservings.insurance_system_be.team.workerManagement.WorkerManagementTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.workerManagement.controller.WorkerManagementController;
 import fourservings_fiveservings.insurance_system_be.team.workerManagement.view.WorkerManagementView;
 
@@ -72,8 +72,8 @@ public class DepartmentConfig {
         return new WorkerManagementController(workerManagementTeam(), workerManagementView());
     }
 
-    public static WorkerManagementTeam workerManagementTeam() {
-        return new WorkerManagementTeam();
+    public static WorkerManagementTeamMethod workerManagementTeam() {
+        return new WorkerManagementTeamMethod();
     }
 
     public static WorkerManagementView workerManagementView() {
@@ -84,21 +84,22 @@ public class DepartmentConfig {
         return new UnderwriteView();
     }
 
-    private static UnderwriteTeam underwriteTeam() {
-        return new UnderwriteTeam(new InsuranceCompanyList(), new InsuranceApplyListImpl(),
+    private static UnderwriteTeamMethod underwriteTeam() {
+        return new UnderwriteTeamMethod(new InsuranceCompanyList(), new InsuranceApplyListImpl(),
             new UnderwritePolicyListImpl());
     }
 
-    private static ContractManagementTeam contractManagementTeam() {
-        return new ContractManagementTeam(new ContractListImpl(), new InsuranceApplyListImpl());
+    private static ContractManagementTeamMethod contractManagementTeam() {
+        return new ContractManagementTeamMethod(new ContractListImpl(),
+            new InsuranceApplyListImpl());
     }
 
     private static EducationView educationView() {
         return new EducationView();
     }
 
-    private static BusinessEducationTeam businessEducationTeam() {
-        return new BusinessEducationTeam(new EducationListImpl());
+    private static BusinessEducationTeamMethod businessEducationTeam() {
+        return new BusinessEducationTeamMethod(new EducationListImpl());
     }
 
     public static TeamController designInspectionController() {
@@ -111,16 +112,16 @@ public class DepartmentConfig {
         return new InsuranceInspectionView();
     }
 
-    private static Team insuranceInspectionTeam() {
-        return new InsuranceInspectionTeam();
+    private static TeamMethod insuranceInspectionTeam() {
+        return new InsuranceInspectionTeamMethod();
     }
 
     private static InsurancePlanView designTeamView() {
         return new InsurancePlanView();
     }
 
-    private static InsurancePlanTeam designInspectionTeam() {
-        return new InsurancePlanTeam(designPlanList(), proposalList(), insuranceList(),
+    private static InsurancePlanTeamMethod designInspectionTeam() {
+        return new InsurancePlanTeamMethod(designPlanList(), proposalList(), insuranceList(),
             authrizationInsuranceList());
     }
 
@@ -150,8 +151,8 @@ public class DepartmentConfig {
         return new RewardSupportView();
     }
 
-    private static RewardSupportTeam rewardSupportTeam() {
-        return new RewardSupportTeam(accidentList(), litigationInfoList(),
+    private static RewardSupportTeamMethod rewardSupportTeam() {
+        return new RewardSupportTeamMethod(accidentList(), litigationInfoList(),
             insuranceChargeCustomerApplyList(), insurancePremiumPaymentCustomerList());
     }
 

@@ -1,6 +1,5 @@
 package fourservings_fiveservings.insurance_system_be.team.education.model;
 
-
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,23 +13,15 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Education extends BaseEntity {
+public class EducationHistory extends BaseEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	private String content;
+    private LocalDateTime CompletionDate;
 
-	private String subject;
+    private Long grade;
 
-	private String teacher;
-
-	private String location;
-
-	private String textbook;
-
-	private LocalDateTime startTime;
-
-	private LocalDateTime endTime;
+    private EducationStatus educationStatus;
 }

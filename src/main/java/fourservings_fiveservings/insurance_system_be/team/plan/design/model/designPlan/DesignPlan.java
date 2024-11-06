@@ -1,20 +1,32 @@
 package fourservings_fiveservings.insurance_system_be.team.plan.design.model.designPlan;
 
+import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.SaleTarget;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.proposal.Proposal;
+import fourservings_fiveservings.insurance_system_be.user.worker.Worker;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 /**
  * @author USER
  * @version 1.0
  */
-public class DesignPlan {
+@Entity
+public class DesignPlan extends BaseEntity {
 
-    private String desingPlanTitle;
-    private String content;
+    @Id
+    private Long id;
+
+    private String designPlanTitle;
     private String Description;
     private String InsuranceName;
-    private String Manager;
+    @ManyToOne
+    private Worker worker;
     private String insuranceType;
+
+    @OneToOne
     private Proposal proposal;
     //    private String reward;
     private SaleTarget saleTarget;
@@ -44,11 +56,10 @@ public class DesignPlan {
     }
 
     public String getManager() {
-        return Manager;
+        return null;
     }
 
     public void setManager(String manager) {
-        Manager = manager;
     }
 
     public Proposal getProposal() {
@@ -67,20 +78,19 @@ public class DesignPlan {
         this.saleTarget = saleTarget;
     }
 
-    public String getDesingPlanTitle() {
-        return desingPlanTitle;
+    public String getDesignPlanTitle() {
+        return designPlanTitle;
     }
 
-    public void setDesingPlanTitle(String desingPlanTitle) {
-        this.desingPlanTitle = desingPlanTitle;
+    public void setDesignPlanTitle(String desingPlanTitle) {
+        this.designPlanTitle = desingPlanTitle;
     }
 
     public String getContent() {
-        return content;
+        return null;
     }
 
     public void setContent(String content) {
-        this.content = content;
     }
 
     public String getInsuranceType() {

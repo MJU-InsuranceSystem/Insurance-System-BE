@@ -21,7 +21,7 @@ import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.insurance.Insurance;
 import fourservings_fiveservings.insurance_system_be.insurance.InsuranceList;
 import fourservings_fiveservings.insurance_system_be.insurance.reward.Reward;
-import fourservings_fiveservings.insurance_system_be.team.Team;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.plan.Status;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.designPlan.DesignConstant;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.designPlan.DesignPlan;
@@ -36,7 +36,7 @@ import java.util.Objects;
  * @author USER
  * @version 1.0
  */
-public class InsurancePlanTeam extends Team {
+public class InsurancePlanTeamMethod extends TeamMethod {
 
     private final DesignPlanList designPlanList;
     private final ProposalList proposalList;
@@ -44,7 +44,7 @@ public class InsurancePlanTeam extends Team {
     private final InsuranceList authrizationInsuranceList;
 
 
-    public InsurancePlanTeam(DesignPlanList designPlanList, ProposalList proposalList,
+    public InsurancePlanTeamMethod(DesignPlanList designPlanList, ProposalList proposalList,
         InsuranceList insuranceList, InsuranceList authrizationInsuranceList) {
         this.designPlanList = designPlanList;
         this.proposalList = proposalList;
@@ -101,14 +101,14 @@ public class InsurancePlanTeam extends Team {
             }
             case INSURANCE -> {
                 Insurance insurance = new Insurance();
-                insurance.setInsuranceId(Integer.toString(this.insuranceList.findAll().size()));
+//                insurance.setInsuranceId(Integer.toString(this.insuranceList.findAll().size()));
                 insurance.setInsuranceType(request.get(ProposalConstant.INSURANCE_KIND));
                 insurance.setInsuranceName(request.get(INSURANCE_NAME));
                 insurance.setResponsiblePerson(request.get(RESPONSIBLE_PERSON));
-                insurance.setReightObligation(request.get(SUBSCRIBER_RIGHTS_AND_OBLIGATION));
+                insurance.setRightObligation(request.get(SUBSCRIBER_RIGHTS_AND_OBLIGATION));
 
                 Reward reward = insurance.getReward();
-                reward.setRewardId(Integer.parseInt(insurance.getInsuranceId()));
+//                reward.setRewardId(Integer.parseInt(insurance.getInsuranceId()));
                 reward.setMaxReward(Integer.parseInt(request.get(MAX_REWARD)));
                 reward.setMonthPaymentFee(Integer.parseInt(request.get(MONTH_PAYMENT_FEE)));
                 reward.setInsuranceRate(Integer.parseInt(request.get(INSURANCE_RATE)));
@@ -123,7 +123,7 @@ public class InsurancePlanTeam extends Team {
                 DesignPlan designPlan = new DesignPlan();
                 designPlan.setProposal(
                     proposalList.findById(Integer.parseInt(request.get("기획서번호"))));
-                designPlan.setDesingPlanTitle(request.get(DesignConstant.DESIGN_TITLE));
+                designPlan.setDesignPlanTitle(request.get(DesignConstant.DESIGN_TITLE));
                 designPlan.setContent(request.get(DesignConstant.DESIGN_CONTENT));
                 designPlan.setManager(request.get(DesignConstant.DESIGN_MANAGER));
                 designPlanList.add(designPlan);
@@ -150,7 +150,7 @@ public class InsurancePlanTeam extends Team {
                 switch (request.get(ENTITY_KIND)) {
                     case INSURANCE -> {
                         for (Insurance insurance : insuranceList.findAll()) {
-                            responseVO.add(insurance.getInsuranceId(), insurance.toString());
+//                            responseVO.add(insurance.getInsuranceId(), insurance.toString());
                         }
                     }
                     case ProposalConstant.PROPOSAL -> {
@@ -168,7 +168,7 @@ public class InsurancePlanTeam extends Team {
                     case INSURANCE -> {
                         Insurance insurance = insuranceList.findById(
                             Integer.parseInt(request.get("선택번호")));
-                        responseVO.add(INSURANCE_NUMBER, insurance.getInsuranceId());
+//                        responseVO.add(INSURANCE_NUMBER, insurance.getInsuranceId());
                         responseVO.add(INSURANCE_NAME, insurance.getInsuranceName());
                         responseVO.add(ProposalConstant.INSURANCE_KIND,
                             insurance.getInsuranceType().getDescription());

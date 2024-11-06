@@ -1,21 +1,10 @@
-package fourservings_fiveservings.insurance_system_be.team.recruitment;
+package fourservings_fiveservings.insurance_system_be.team.plan.inspection;
 
 import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
-import fourservings_fiveservings.insurance_system_be.team.Team;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 
-/**
- * @author USER
- * @version 1.0
- */
-public class RecruitmentTeam extends Team {
-
-    public Applicant m_Applicant;
-    public AppliCantListImpl m_AppliCantListImpl;
-
-    public RecruitmentTeam() {
-
-    }
+public class InsuranceInspectionTeamMethod extends TeamMethod {
 
     @Override
     public ResponseVO manage(RequestVO request) {

@@ -1,12 +1,18 @@
 package fourservings_fiveservings.insurance_system_be.team.plan.design.model.proposal;
 
+import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 /**
  * @author USER
  * @version 1.0
  */
-public class Proposal {
+@Entity
+public class Proposal extends BaseEntity {
 
-    private int proposalId;
+    @Id
+    private Long proposalId;
     private String title;
     private String productOverview;
     private String marketResearch;
@@ -33,7 +39,7 @@ public class Proposal {
 
     public static class ProposalBuilder {
 
-        private int proposalId;
+        private Long proposalId;
         private String title;
         private String productOverview;
         private String marketResearch;
@@ -42,7 +48,7 @@ public class Proposal {
         private String saleTarget;
         private String reward;
 
-        public ProposalBuilder proposalId(int proposalId) {
+        public ProposalBuilder proposalId(long proposalId) {
             this.proposalId = proposalId;
             return this;
         }
@@ -93,7 +99,7 @@ public class Proposal {
     }
 
     public int getProposalId() {
-        return proposalId;
+        return 1;
     }
 
     public String getTitle() {
@@ -124,7 +130,7 @@ public class Proposal {
         return reward;
     }
 
-    public void setProposalId(int proposalId) {
+    public void setProposalId(long proposalId) {
         this.proposalId = proposalId;
     }
 
@@ -155,6 +161,7 @@ public class Proposal {
     public void setReward(String reward) {
         this.reward = reward;
     }
+
     @Override
     public String toString() {
         return "기획서 제목: " + title + "/ 개요: "

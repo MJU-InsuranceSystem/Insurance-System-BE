@@ -3,18 +3,18 @@ package fourservings_fiveservings.insurance_system_be.team.marketing;
 
 import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
-import fourservings_fiveservings.insurance_system_be.team.Team;
+import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 
 /**
  * @author USER
  * @version 1.0
  */
-public class MarketingTeam extends Team {
+public class MarketingTeamMethod extends TeamMethod {
 
     public Campaign campaign;
     public CampaignListImpl campaignListImpl;
 
-    public MarketingTeam() {
+    public MarketingTeamMethod() {
 
     }
 
