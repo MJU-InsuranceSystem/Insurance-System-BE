@@ -33,13 +33,11 @@ public class Accident extends BaseEntity {
 
     private LocalDateTime accidentDate;
 
-    // content랑 겹쳐서 이름 바꿔야함
     private String description;
 
     private String location;
 
     private int damageAmount;
-
 
     public Accident() {
 
