@@ -1,8 +1,8 @@
 package fourservings_fiveservings.insurance_system_be.auth.service;
 
 import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignUpRequest;
-import fourservings_fiveservings.insurance_system_be.user.repository.UserRepository;
-import fourservings_fiveservings.insurance_system_be.user.entity.User;
+import fourservings_fiveservings.insurance_system_be.domain.user.repository.UserRepository;
+import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
