@@ -2,7 +2,7 @@ package fourservings_fiveservings.insurance_system_be.auth.controller;
 
 
 import fourservings_fiveservings.insurance_system_be.auth.service.AuthService;
-import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignUpRequest;
+import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignUpRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +17,7 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/sign-up")
-    public void signUp(@RequestBody SignUpRequest signUpRequest) {
-        authService.signUp(signUpRequest);
+    public void signUp(@RequestBody SignUpRequestDto signUpRequestDto) {
+        authService.signUp(signUpRequestDto);
     }
 }
