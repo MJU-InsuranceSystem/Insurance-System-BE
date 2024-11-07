@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.rewardSupport.model;
 
-import fourservings_fiveservings.insurance_system_be.insurance.InsuranceType;
+import fourservings_fiveservings.insurance_system_be.domain.insurance.InsuranceType;
 
 /**
  * @author yoon

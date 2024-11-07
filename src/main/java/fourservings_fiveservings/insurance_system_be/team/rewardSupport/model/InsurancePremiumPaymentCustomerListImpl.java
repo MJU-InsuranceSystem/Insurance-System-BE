@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.rewardSupport.model;
 
-import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
+import fourservings_fiveservings.insurance_system_be.domain.user.entity.Customer;
 import java.util.ArrayList;
 import java.util.List;
 
