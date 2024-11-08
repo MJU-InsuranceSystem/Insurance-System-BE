@@ -3,17 +3,11 @@ package fourservings_fiveservings.insurance_system_be.domain.user.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import fourservings_fiveservings.insurance_system_be.domain.user.UserType;
-import jakarta.persistence.DiscriminatorColumn;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Getter
 @Entity
@@ -25,8 +19,6 @@ public abstract class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    public String loginId;
 
     public String password;
 
@@ -41,13 +33,11 @@ public abstract class User extends BaseEntity {
 
     public String birthDay;
 
+    @Enumerated(EnumType.STRING)
     public UserType userType;
 
-    protected User(String loginId, String password, String email, String phoneNumber,
-        Address address,
-        String name,
-        String birthDay, UserType userType) {
-        this.loginId = loginId;
+    protected User(String password, String email, String phoneNumber, Address address,
+        String name, String birthDay, UserType userType) {
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -55,5 +45,9 @@ public abstract class User extends BaseEntity {
         this.name = name;
         this.birthDay = birthDay;
         this.userType = userType;
+    }
+
+    public boolean isPasswordValid(PasswordEncoder passwordEncoder, String password) {
+        return passwordEncoder.matches(password, this.password);
     }
 }
