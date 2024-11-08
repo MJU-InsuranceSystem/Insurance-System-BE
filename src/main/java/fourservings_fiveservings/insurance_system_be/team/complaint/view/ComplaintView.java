@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.complaint.view;
 
 
-import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.RequestVO;
 import fourservings_fiveservings.insurance_system_be.common.view.DepartmentView;
 
 public class ComplaintView extends DepartmentView {

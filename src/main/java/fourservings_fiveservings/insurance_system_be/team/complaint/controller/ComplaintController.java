@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.complaint.controller;
 
 
-import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.RequestVO;
 import fourservings_fiveservings.insurance_system_be.team.TeamController;
 import fourservings_fiveservings.insurance_system_be.team.complaint.ComplaintManagementTeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.complaint.usecase.ComplaintUseCase;

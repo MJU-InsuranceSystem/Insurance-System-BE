@@ -16,8 +16,8 @@ import static fourservings_fiveservings.insurance_system_be.insurance.reward.Rew
 import static fourservings_fiveservings.insurance_system_be.insurance.reward.RewardConstant.MONTH_PAYMENT_FEE;
 import static fourservings_fiveservings.insurance_system_be.user.customer.CustomerView.INSURANCE_NUMBER;
 
-import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
-import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.RequestVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.insurance.Insurance;
 import fourservings_fiveservings.insurance_system_be.insurance.InsuranceList;
 import fourservings_fiveservings.insurance_system_be.insurance.reward.Reward;

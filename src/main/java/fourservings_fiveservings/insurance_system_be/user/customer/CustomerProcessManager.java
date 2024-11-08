@@ -11,8 +11,8 @@ import static fourservings_fiveservings.insurance_system_be.user.customer.Custom
 import static fourservings_fiveservings.insurance_system_be.user.customer.CustomerView.CLAIMINSURANCE_SUPPORTINGFILE;
 
 import fourservings_fiveservings.insurance_system_be.common.AuthUtil;
-import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
-import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.RequestVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.insurance.Insurance;
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceApplication;
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceApplyList;

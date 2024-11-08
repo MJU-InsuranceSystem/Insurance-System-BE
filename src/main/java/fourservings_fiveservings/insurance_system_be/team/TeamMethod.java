@@ -1,8 +1,8 @@
 package fourservings_fiveservings.insurance_system_be.team;
 
 
-import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
-import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.RequestVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.ResponseVO;
 
 /**
  * @author yoon

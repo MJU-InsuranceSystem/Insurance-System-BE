@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.user.customer;
 
-import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
-import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.RequestVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.common.view.SystemView;
 import fourservings_fiveservings.insurance_system_be.insurance.Insurance;
 import fourservings_fiveservings.insurance_system_be.insurance.InsuranceList;

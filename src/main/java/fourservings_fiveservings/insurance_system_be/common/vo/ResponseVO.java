@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.common.dto;
+package fourservings_fiveservings.insurance_system_be.common.vo;
 
 import java.util.HashMap;
 import java.util.Map;

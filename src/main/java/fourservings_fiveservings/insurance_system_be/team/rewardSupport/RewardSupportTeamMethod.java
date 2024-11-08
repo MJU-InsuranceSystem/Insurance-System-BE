@@ -7,8 +7,8 @@ import static fourservings_fiveservings.insurance_system_be.team.rewardSupport.v
 import static fourservings_fiveservings.insurance_system_be.team.rewardSupport.view.RewardSupportView.NOT_PAID_CUSTOMER;
 import static fourservings_fiveservings.insurance_system_be.team.rewardSupport.view.RewardSupportView.PAY_ANSWER;
 
-import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
-import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.RequestVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.insurance.apply.InsuranceChargeCustomerApplyList;
 import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.plan.Status;

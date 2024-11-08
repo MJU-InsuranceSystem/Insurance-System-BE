@@ -12,8 +12,8 @@ import static fourservings_fiveservings.insurance_system_be.insurance.InsuranceC
 import static fourservings_fiveservings.insurance_system_be.insurance.InsuranceConstant.RESTRICTION_REGULATION;
 import static fourservings_fiveservings.insurance_system_be.insurance.InsuranceConstant.SUBSCRIBER_RIGHTS_AND_OBLIGATION;
 
-import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
-import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.RequestVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.common.view.DepartmentView;
 import fourservings_fiveservings.insurance_system_be.insurance.InsuranceType;
 import fourservings_fiveservings.insurance_system_be.insurance.reward.RewardConstant;

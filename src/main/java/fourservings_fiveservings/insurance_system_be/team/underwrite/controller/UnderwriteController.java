@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.underwrite.controller;
 
-import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
-import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.RequestVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.common.exception.EmptyInputException;
 import fourservings_fiveservings.insurance_system_be.common.exception.IsNotExistException;
 import fourservings_fiveservings.insurance_system_be.common.exception.NotCorrectFormat;

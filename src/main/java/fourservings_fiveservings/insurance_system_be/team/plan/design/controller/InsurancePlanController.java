@@ -4,8 +4,8 @@ import static fourservings_fiveservings.insurance_system_be.insurance.InsuranceC
 import static fourservings_fiveservings.insurance_system_be.insurance.InsuranceConstant.ENTITY_KIND;
 import static fourservings_fiveservings.insurance_system_be.insurance.InsuranceConstant.ENTITY_LIST;
 
-import fourservings_fiveservings.insurance_system_be.common.dto.RequestVO;
-import fourservings_fiveservings.insurance_system_be.common.dto.ResponseVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.RequestVO;
+import fourservings_fiveservings.insurance_system_be.common.vo.ResponseVO;
 import fourservings_fiveservings.insurance_system_be.team.TeamController;
 import fourservings_fiveservings.insurance_system_be.team.TeamMethod;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.designPlan.DesignConstant;

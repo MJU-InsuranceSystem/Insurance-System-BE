@@ -4,7 +4,7 @@ import fourservings_fiveservings.insurance_system_be.user.Address;
 import fourservings_fiveservings.insurance_system_be.user.User;
 import fourservings_fiveservings.insurance_system_be.user.customer.Customer;
 
-public record SignUpRequest(
+public record SignUpRequestDto(
     String loginId,
 
     String password,
