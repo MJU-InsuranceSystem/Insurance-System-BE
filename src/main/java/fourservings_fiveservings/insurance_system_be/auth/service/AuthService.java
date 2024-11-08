@@ -1,8 +1,8 @@
 package fourservings_fiveservings.insurance_system_be.auth.service;
 
-import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignUpRequest;
-import fourservings_fiveservings.insurance_system_be.domain.user.repository.UserRepository;
+import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignUpRequestDto;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
+import fourservings_fiveservings.insurance_system_be.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,8 +15,8 @@ public class AuthService {
     private final UserRepository<User> userRepository;
 
     @Transactional
-    public void signUp(SignUpRequest signUpRequest) {
+    public void signUp(SignUpRequestDto signUpRequestDto) {
         String encodedPassword = "12asdfdsiwyef983e1";
-        userRepository.save(signUpRequest.toEntity(encodedPassword));
+        userRepository.save(signUpRequestDto.toEntity(encodedPassword));
     }
 }

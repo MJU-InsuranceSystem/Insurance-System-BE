@@ -4,7 +4,7 @@ import fourservings_fiveservings.insurance_system_be.domain.user.entity.Address;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.Customer;
 
-public record SignUpRequest(
+public record SignUpRequestDto(
     String loginId,
 
     String password,

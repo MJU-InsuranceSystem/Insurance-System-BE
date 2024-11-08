@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @Entity
-
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "ENTITY_TYPE")
@@ -44,7 +43,8 @@ public abstract class User extends BaseEntity {
 
     public UserType userType;
 
-    protected User(String loginId, String password, String email, String phoneNumber, Address address,
+    protected User(String loginId, String password, String email, String phoneNumber,
+        Address address,
         String name,
         String birthDay, UserType userType) {
         this.loginId = loginId;
