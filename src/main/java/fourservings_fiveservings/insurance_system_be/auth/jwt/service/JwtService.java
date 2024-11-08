@@ -59,7 +59,7 @@ public class JwtService {
         // authenticate 매서드가 실행될 때 CustomUserDetailsService 에서 만든 loadUserByUsername 메서드가 실행
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
         TokenDto tokenDto = createAllToken(authentication);
-        saveRefreshTokenToRedis(authentication.getName(), tokenDto.getRefreshToken());
+//        saveRefreshTokenToRedis(authentication.getName(), tokenDto.getRefreshToken());
 
         return tokenDto;
     }

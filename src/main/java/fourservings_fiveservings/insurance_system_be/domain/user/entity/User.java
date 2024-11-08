@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Getter
 @Entity
@@ -44,5 +45,9 @@ public abstract class User extends BaseEntity {
         this.name = name;
         this.birthDay = birthDay;
         this.userType = userType;
+    }
+
+    public boolean isPasswordValid(PasswordEncoder passwordEncoder, String password) {
+        return passwordEncoder.matches(password, this.password);
     }
 }
