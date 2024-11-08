@@ -9,8 +9,6 @@ jobs:
   build_and_push:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
 
     steps:
     - uses: actions/checkout@v4
@@ -20,12 +18,22 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: make application.yml
+      run: |
+        cd ./src/main/resources
+        touch ./application.yml
+        echo "${{ secrets.YML }}" > ./application.yml
+      shell: bash
+
+    - name: make application-prod.yml
+      run: |
+        cd ./src/main/resources
+        touch ./application-prod.yml
+        echo "${{ secrets.PROD_YML }}" > ./application-prod.yml
+      shell: bash
+
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
-
-    - name: Load .env variables
-      run: |
-          export $(grep -v '^#' .env | xargs)
 
     - name: Build with Gradle Wrapper
       run: ./gradlew clean build
@@ -61,7 +69,7 @@ jobs:
           IMAGE_TAG: latest
       run: |
           echo "REPOSITORY: $REPOSITORY"
-          docker build --env-file .env -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG .
+          docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG"
 
