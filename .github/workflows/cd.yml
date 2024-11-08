@@ -2,14 +2,9 @@
 on: workflow_dispatch
 
 jobs:
-  build_and_push:
+ deploy :
 
-    runs-on: ubuntu-latest
-
-  run-docker-image-on-ec2:
-    needs: build_and_push
     runs-on: self-hosted
-
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
