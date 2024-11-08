@@ -3,7 +3,7 @@ name: CI script
 on:
   push:
     branches:
-      - main
+      - ci-cd
 
 jobs:
   build_and_push:
