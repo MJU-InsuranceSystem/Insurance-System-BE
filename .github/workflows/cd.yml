@@ -23,12 +23,26 @@ jobs:
           REPOSITORY: distribute/dev
         run: sudo docker pull public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
 
-      - name: Deploy to EC2
+      - name: SSH into EC2 and Deploy Docker
         env:
-          REGISTRY_ALIAS: ${{ secrets.DEV_ECR_REGISTRY_ALIAS }}
+          SSH_KEY: ${{ secrets.DEV_EC2_SSH_KEY }}
+          HOST: 3.39.206.214
+          USER: ubuntu
         run: |
-          ssh -o StrictHostKeyChecking=no -i "${{ secrets.DEV_EC2_SSH_KEY }}" ubuntu@3.39.206.214 << 'EOF'
+          echo "${SSH_KEY}" > ec2_key.pem
+          chmod 600 ec2_key.pem
+          
+          # Connect to EC2 and run deployment commands
+          ssh -o StrictHostKeyChecking=no -i ec2_key.pem ${USER}@${HOST} << 'EOF'
+            # Stop and remove existing container if running
             sudo docker stop distribute-container || true
-            sudo docker pull public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
-            sudo docker run --rm -it -d -p 80:8080 --name distribute-container public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
-            sudo docker system prune -f
+            sudo docker rm distribute-container || true
+          
+            sudo docker pull public.ecr.aws/${REGISTRY_ALIAS}/${REPOSITORY}:latest
+
+            sudo docker run -d --name distribute-container -p 80:80 public.ecr.aws/${REGISTRY_ALIAS}/${REPOSITORY}:latest
+          EOF
+
+      - name: Cleanup
+        run: rm -f ec2_key.pem
+
