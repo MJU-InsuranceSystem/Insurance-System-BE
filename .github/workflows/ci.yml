@@ -45,6 +45,16 @@ jobs:
       with:
           registry-type: public
 
+    - name: Delete previous image in Amazon ECR Public
+      env:
+        REGISTRY_ALIAS: ${{ secrets.DEV_ECR_REGISTRY_ALIAS }}
+        REPOSITORY: distribute/dev
+      run: |
+        aws ecr-public batch-delete-image \
+            --repository-name distribute/dev \
+            --image-ids imageTag=latest \
+            --region us-east-1 || echo "No existing image with tag latest found."
+
     - name: Build, tag, and push docker image to Amazon ECR Public
       env:
           REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
