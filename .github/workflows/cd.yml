@@ -4,7 +4,7 @@ on: workflow_dispatch
 jobs:
  deploy :
 
-    runs-on: Linux
+    runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -23,15 +23,12 @@ jobs:
           REPOSITORY: distribute/dev
         run: sudo docker pull public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
 
-      - name: Docker stop container
+      - name: Deploy to EC2
+        env:
+          REGISTRY_ALIAS: ${{ secrets.DEV_ECR_REGISTRY_ALIAS }}
         run: |
-          if [ $(sudo docker ps -a -q -f name=distribute-container) ]; then
-            sudo docker stop distribute-container
-          fi
-
-      - name: Docker run new container
-        run: sudo docker run --rm -it -d -p 80:8080 --name distribute-container public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
-
-      - name: Delete old Docker images
-        run: sudo docker system prune -f
-
+          ssh -o StrictHostKeyChecking=no -i "${{ secrets.DEV_EC2_SSH_KEY }}" ubuntu@3.39.206.214 << 'EOF'
+            sudo docker stop distribute-container || true
+            sudo docker pull public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
+            sudo docker run --rm -it -d -p 80:8080 --name distribute-container public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
+            sudo docker system prune -f
