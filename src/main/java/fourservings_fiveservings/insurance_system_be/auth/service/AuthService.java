@@ -1,9 +1,11 @@
 package fourservings_fiveservings.insurance_system_be.auth.service;
 
 import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignUpRequestDto;
-import fourservings_fiveservings.insurance_system_be.domain.user.repository.UserRepository;
+import fourservings_fiveservings.insurance_system_be.auth.jwt.service.JwtService;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
+import fourservings_fiveservings.insurance_system_be.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,11 +14,14 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class AuthService {
 
+    private final JwtService jwtService;
     private final UserRepository<User> userRepository;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public void signUp(SignUpRequestDto signUpRequestDto) {
-        String encodedPassword = "12asdfdsiwyef983e1";
+        String encodedPassword = passwordEncoder.encode(signUpRequestDto.password());
         userRepository.save(signUpRequestDto.toEntity(encodedPassword));
     }
 }
