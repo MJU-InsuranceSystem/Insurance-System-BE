@@ -4,7 +4,7 @@ on: workflow_dispatch
 jobs:
  deploy :
 
-    runs-on: ip-172-31-8-90
+    runs-on: Linux
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
