@@ -1,8 +1,15 @@
 package fourservings_fiveservings.insurance_system_be.team.plan.design.controller;
 
+//    public InsurancePlanController(InsurancePlanView insurancePlanView,
+//        InsuranceInspectionView insuranceInspectionView, TeamMethod insurancePlanTeamMethod,
+//        TeamMethod insuranceInspectionTeamMethod) {
+//        this.insurancePlanView = insurancePlanView;
+//        this.insuranceInspectionView = insuranceInspectionView;
+//        this.insurancePlanTeamMethod = insurancePlanTeamMethod;
+//        this.insuranceInspectionTeamMethod = insuranceInspectionTeamMethod;
+//    }
 
-
-public class InsurancePlanController  {
+public class InsurancePlanController {
 
 //    private final InsurancePlanView insurancePlanView;
 //    private final InsuranceInspectionView insuranceInspectionView;
