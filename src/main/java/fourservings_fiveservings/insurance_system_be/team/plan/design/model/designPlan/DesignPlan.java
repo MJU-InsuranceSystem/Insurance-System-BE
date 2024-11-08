@@ -3,7 +3,7 @@ package fourservings_fiveservings.insurance_system_be.team.plan.design.model.des
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.SaleTarget;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.proposal.Proposal;
-import fourservings_fiveservings.insurance_system_be.user.worker.Worker;
+import fourservings_fiveservings.insurance_system_be.domain.user.entity.Worker;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
