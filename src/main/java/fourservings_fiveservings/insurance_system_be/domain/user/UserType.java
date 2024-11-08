@@ -1,24 +1,15 @@
 package fourservings_fiveservings.insurance_system_be.domain.user;
 
 import lombok.Getter;
-
-import java.util.Arrays;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor
 public enum UserType {
-  CUSTOMER("고객"),
-  WORKER("직원");
+  CUSTOMER("ROLE_CUSTOMER"),
+  WORKER("ROLE_WORKER"),
+  ADMIN("ROLE_ADMIN");
 
-  private final String type;
+  private final String role;
 
-  UserType(String type){
-    this.type = type;
-  }
-
-    public static UserType find(String type) {
-    return Arrays.stream(UserType.values())
-        .filter(userType -> userType.getType().equals(type))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException("Unknown type: " + type));
-  }
 }

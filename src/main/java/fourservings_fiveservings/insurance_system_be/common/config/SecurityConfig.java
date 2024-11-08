@@ -51,22 +51,15 @@ public class SecurityConfig {
                 /**
                  * 아래 url은 인증 없이 접근 가능
                  */
-
                 .authorizeHttpRequests(authorizeHttpRequests ->
                         authorizeHttpRequests
-                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth")).permitAll()
                                 .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/sign-up")).permitAll()
-                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/login")).permitAll()
+                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/**")).permitAll()
                                 .anyRequest().authenticated()) // 그 외는 접근x
 
                 // jwtFilter 후 UsernamePasswordAuthenticationFilter 인증 처리
-                .addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthenticationFilter(jwtService), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
-    }
-
-    @Bean
-    public JwtAuthenticationFilter jwtFilter() {
-        return new JwtAuthenticationFilter(jwtService);
     }
 }

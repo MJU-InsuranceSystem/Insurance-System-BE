@@ -13,15 +13,21 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    public static final String NO_CHECK_URL_LOGIN = "/api/jwt/auth/login";
-    public static final String NO_CHECK_URL_SIGN_UP = "/api/jwt/auth";
-
     private final JwtService jwtService;
+
+    private static final List<String> NO_CHECK_URLS = List.of("/api/auth", "/api/auth/sign-up");
+
+
+    @Override
+    protected boolean shouldNotFilter(@NonNull HttpServletRequest request) {
+        return NO_CHECK_URLS.stream().anyMatch(url -> request.getRequestURI().startsWith(url));
+    }
 
     /**
      * 실제 필터릴 로직
@@ -32,14 +38,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                     @NonNull HttpServletResponse response,
                                     @NonNull FilterChain filterChain) throws ServletException, IOException {
 
-        /**
-         * 로그인 여부를 판단하지 않고 진입할 url
-         * 회원가입 && LOGIN
-         */
-        if (request.getRequestURI().startsWith(NO_CHECK_URL_LOGIN) || request.getRequestURI().startsWith(NO_CHECK_URL_SIGN_UP)) {
-            filterChain.doFilter(request, response);
-            return;
-        }
 
         /**
          * accessToken header에서 추출 후 유효성 검증

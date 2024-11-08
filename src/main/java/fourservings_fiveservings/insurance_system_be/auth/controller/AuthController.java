@@ -1,6 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.auth.controller;
 
 
+import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignInRequestDto;
 import fourservings_fiveservings.insurance_system_be.auth.service.AuthService;
 import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignUpRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -20,5 +21,10 @@ public class AuthController {
         return ResponseEntity.ok().body("회원가입 완료");
     }
 
+    @GetMapping("/sign-in")
+    public ResponseEntity<String> signIn(@RequestBody SignInRequestDto signInRequestDto) {
+
+        return ResponseEntity.ok().body("로그인");
+    }
 
 }

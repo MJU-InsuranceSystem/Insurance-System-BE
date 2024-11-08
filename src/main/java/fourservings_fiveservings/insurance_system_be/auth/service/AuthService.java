@@ -2,6 +2,7 @@ package fourservings_fiveservings.insurance_system_be.auth.service;
 
 import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignUpRequestDto;
 import fourservings_fiveservings.insurance_system_be.auth.jwt.service.JwtService;
+import fourservings_fiveservings.insurance_system_be.domain.user.UserType;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,12 @@ public class AuthService {
     @Transactional
     public void signUp(SignUpRequestDto signUpRequestDto) {
         String encodedPassword = passwordEncoder.encode(signUpRequestDto.password());
-        userRepository.save(signUpRequestDto.toEntity(encodedPassword));
+        User user = null;
+        if (signUpRequestDto.userType() == UserType.CUSTOMER) {
+           user = userRepository.save(signUpRequestDto.toCustomer(encodedPassword));
+        } else {
+            userRepository.save(signUpRequestDto.toWorker(encodedPassword));
+        }
+
     }
 }

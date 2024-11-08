@@ -3,21 +3,13 @@ package fourservings_fiveservings.insurance_system_be.domain.user.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import fourservings_fiveservings.insurance_system_be.domain.user.UserType;
-import jakarta.persistence.DiscriminatorColumn;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @Entity
-
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "ENTITY_TYPE")
@@ -40,7 +32,7 @@ public abstract class User extends BaseEntity {
 
     public String birthDay;
 
-
+    @Enumerated(EnumType.STRING)
     public UserType userType;
 
     protected User(String password, String email, String phoneNumber, Address address,

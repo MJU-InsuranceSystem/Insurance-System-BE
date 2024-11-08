@@ -4,6 +4,8 @@ import fourservings_fiveservings.insurance_system_be.domain.user.ContractStatus;
 import fourservings_fiveservings.insurance_system_be.domain.user.UserType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,12 +17,13 @@ import lombok.NoArgsConstructor;
 @DiscriminatorValue("CUSTOMER")
 public class Customer extends User {
 
+    @Enumerated(EnumType.STRING)
     private ContractStatus contractStatus;
 
     @Builder
     private Customer(String password, String email, String phoneNumber, Address address,
                      String name, String birthDay, UserType userType, ContractStatus contractStatus) {
-        super(password, email, phoneNumber, address, name, birthDay, UserType.CUSTOMER);
+        super(password, email, phoneNumber, address, name, birthDay, userType);
         this.contractStatus = ContractStatus.NONE;
     }
 }
