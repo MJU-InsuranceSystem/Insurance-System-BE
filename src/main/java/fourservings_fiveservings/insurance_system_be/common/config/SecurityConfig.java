@@ -54,8 +54,9 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(authorizeHttpRequests ->
                         authorizeHttpRequests
-                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/jwt/auth")).permitAll()
-                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/jwt/auth/login")).permitAll()
+                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth")).permitAll()
+                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/sign-up")).permitAll()
+                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/login")).permitAll()
                                 .anyRequest().authenticated()) // 그 외는 접근x
 
                 // jwtFilter 후 UsernamePasswordAuthenticationFilter 인증 처리

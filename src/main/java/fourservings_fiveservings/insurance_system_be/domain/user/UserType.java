@@ -1,7 +1,10 @@
 package fourservings_fiveservings.insurance_system_be.domain.user;
 
+import lombok.Getter;
+
 import java.util.Arrays;
 
+@Getter
 public enum UserType {
   CUSTOMER("고객"),
   WORKER("직원");
@@ -12,11 +15,7 @@ public enum UserType {
     this.type = type;
   }
 
-  public String getType() {
-    return this.type;
-  }
-
-  public static UserType find(String type) {
+    public static UserType find(String type) {
     return Arrays.stream(UserType.values())
         .filter(userType -> userType.getType().equals(type))
         .findFirst()

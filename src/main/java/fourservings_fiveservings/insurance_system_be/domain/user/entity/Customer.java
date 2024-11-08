@@ -10,17 +10,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @DiscriminatorValue("CUSTOMER")
 public class Customer extends User {
 
     private ContractStatus contractStatus;
 
     @Builder
-    private Customer(String loginId, String password, String email, String phoneNumber, Address address,
+    private Customer(String password, String email, String phoneNumber, Address address,
                      String name, String birthDay, UserType userType, ContractStatus contractStatus) {
-        super(loginId, password, email, phoneNumber, address, name, birthDay, UserType.CUSTOMER);
+        super(password, email, phoneNumber, address, name, birthDay, UserType.CUSTOMER);
         this.contractStatus = ContractStatus.NONE;
     }
 }

@@ -27,8 +27,6 @@ public abstract class User extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public String loginId;
-
     public String password;
 
     public String email;
@@ -42,12 +40,11 @@ public abstract class User extends BaseEntity {
 
     public String birthDay;
 
+
     public UserType userType;
 
-    protected User(String loginId, String password, String email, String phoneNumber, Address address,
-        String name,
-        String birthDay, UserType userType) {
-        this.loginId = loginId;
+    protected User(String password, String email, String phoneNumber, Address address,
+        String name, String birthDay, UserType userType) {
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
