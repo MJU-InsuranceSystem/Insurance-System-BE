@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.product.api;
 
-import fourservings_fiveservings.insurance_system_be.common.vo.ApiResponse;
+import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

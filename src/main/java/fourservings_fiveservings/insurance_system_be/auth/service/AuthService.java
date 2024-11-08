@@ -26,9 +26,10 @@ public class AuthService {
     @Transactional
     public void signUp(SignUpRequestDto signUpRequestDto) {
         String encodedPassword = passwordEncoder.encode(signUpRequestDto.password());
+
         if (signUpRequestDto.userType() == UserType.CUSTOMER) {
             userRepository.save(signUpRequestDto.toCustomer(encodedPassword));
-        } else{
+        } else {
             userRepository.save(signUpRequestDto.toWorker(encodedPassword));
         }
     }
