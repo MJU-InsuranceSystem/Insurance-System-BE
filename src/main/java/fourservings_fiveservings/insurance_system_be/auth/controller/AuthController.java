@@ -23,7 +23,7 @@ public class AuthController {
         return ApiResponse.success(SuccessType.SUCCESS);
     }
 
-    @GetMapping("/sign-in")
+    @PostMapping("/sign-in")
     public ApiResponse<?> signIn(@RequestBody SignInRequestDto signInRequestDto) {
         TokenDto token = authService.signIn(signInRequestDto);
         return ApiResponse.success(SuccessType.SUCCESS, token);
