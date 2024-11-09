@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.common.constant;
+package fourservings_fiveservings.insurance_system_be.common.response.constant;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

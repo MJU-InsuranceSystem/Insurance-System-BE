@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.product.controller;
 
-import fourservings_fiveservings.insurance_system_be.common.constant.SuccessType;
-import fourservings_fiveservings.insurance_system_be.common.vo.ApiResponse;
+import fourservings_fiveservings.insurance_system_be.common.response.constant.SuccessType;
+import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.team.product.api.ProductApi;
 import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequest;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
