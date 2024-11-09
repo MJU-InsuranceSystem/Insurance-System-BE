@@ -22,6 +22,7 @@ public record ApiResponse<T>(
         return ApiResponse.<T>builder()
                 .resultType(ResultType.SUCCESS)
                 .httpStatusCode(successType.getHttpStatusCode())
+                .responseCode(successType.getResponseCode())
                 .message(successType.getMessage())
                 .data(data)
                 .build();
