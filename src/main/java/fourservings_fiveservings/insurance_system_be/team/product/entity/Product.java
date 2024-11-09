@@ -49,4 +49,7 @@ public class Product extends BaseEntity {
         this.approveStatus = approveStatus;
     }
 
+    public void approveProduct() {
+        this.approveStatus = ApproveStatus.APPROVE;
+    }
 }

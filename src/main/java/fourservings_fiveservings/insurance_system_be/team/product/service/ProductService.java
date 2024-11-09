@@ -4,7 +4,9 @@ import fourservings_fiveservings.insurance_system_be.team.product.controller.dto
 import fourservings_fiveservings.insurance_system_be.team.product.entity.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
 import fourservings_fiveservings.insurance_system_be.team.product.repository.ProductRepository;
+import fourservings_fiveservings.insurance_system_be.team.product.service.componet.ProductManager;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final ProductManager productManager;
 
     @Transactional
     public void designProduct(DesignProductRequest designProductRequest) {
@@ -26,5 +29,11 @@ public class ProductService {
         List<Product> unapprovedProducts = productRepository.findByApproveStatus(
             ApproveStatus.UN_APPROVE);
         return unapprovedProducts;
+    }
+
+    public void approveProduct(Long productId) {
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        Product product = productManager.checkProduct(optionalProduct);
+        product.approveProduct();
     }
 }

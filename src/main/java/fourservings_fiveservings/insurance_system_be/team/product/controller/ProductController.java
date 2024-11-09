@@ -27,4 +27,10 @@ public class ProductController implements ProductApi {
         List<Product> unapprovedProducts = productService.retrieveUnapprovedProducts();
         return ApiResponse.success(SuccessType.SUCCESS, unapprovedProducts);
     }
+
+    @Override
+    public ApiResponse<?> approveProduct(Long productId) {
+        productService.approveProduct(productId);
+        return ApiResponse.success(SuccessType.SUCCESS);
+    }
 }
