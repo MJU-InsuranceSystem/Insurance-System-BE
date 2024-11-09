@@ -1,5 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.domain.user.service;
 
+import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
+import fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,5 +17,10 @@ public class UserService {
 
     public boolean isEmailExists (String email) {
         return userRepository.findByEmail(email).isPresent();
+    }
+
+    public User getUserInfoByEmail (String email) {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new BusinessException(ErrorType.NO_EXIST_EMAIL));
     }
 }

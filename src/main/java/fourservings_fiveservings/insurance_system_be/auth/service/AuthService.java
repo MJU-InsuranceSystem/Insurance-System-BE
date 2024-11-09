@@ -41,8 +41,7 @@ public class AuthService {
     }
 
     public TokenDto signIn(SignInRequestDto signInRequestDto) {
-        User user = userRepository.findByEmail(signInRequestDto.email())
-                .orElseThrow(() -> new BusinessException(ErrorType.NO_EXIST_EMAIL));
+        User user = userService.getUserInfoByEmail(signInRequestDto.email());
 
         if (!user.isPasswordValid(passwordEncoder, signInRequestDto.password())) {
             throw new BusinessException(ErrorType.MISMATCH_PASSWORD);
