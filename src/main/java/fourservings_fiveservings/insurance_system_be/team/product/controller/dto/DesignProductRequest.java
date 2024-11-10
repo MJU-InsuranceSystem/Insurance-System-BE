@@ -1,6 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.product.controller.dto;
 
 
+import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.SaleTarget;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
@@ -12,7 +13,7 @@ public record DesignProductRequest(
     String rewardDetails, String strategy
 ) {
 
-    public Product toProduct() {
+    public Product toProduct(User productDeveloper) {
         return Product.builder()
             .productTitle(productTitle)
             .productOutline(productOutline)
@@ -21,6 +22,7 @@ public record DesignProductRequest(
             .rewardDetails(rewardDetails)
             .strategy(strategy)
             .approveStatus(ApproveStatus.WAIT_APPROVE)
+            .productDeveloper(productDeveloper)
             .build();
     }
 }

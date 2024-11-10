@@ -1,5 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.product.service;
 
+import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequest;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
@@ -20,8 +21,8 @@ public class ProductService {
     private final ProductManager productManager;
 
     @Transactional
-    public void designProduct(DesignProductRequest designProductRequest) {
-        Product product = designProductRequest.toProduct();
+    public void designProduct(User productDeveloper, DesignProductRequest designProductRequest) {
+        Product product = designProductRequest.toProduct(productDeveloper);
         productRepository.save(product);
     }
 
@@ -31,9 +32,9 @@ public class ProductService {
         return unapprovedProducts;
     }
 
-    public void approveProduct(Long productId) {
+    public void approveProduct(User underwriter, Long productId) {
         Optional<Product> optionalProduct = productRepository.findById(productId);
         Product product = productManager.checkProduct(optionalProduct);
-        product.approveProduct();
+        product.approveProduct(underwriter);
     }
 }
