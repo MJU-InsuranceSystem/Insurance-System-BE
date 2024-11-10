@@ -5,7 +5,7 @@ import fourservings_fiveservings.insurance_system_be.common.response.constant.Su
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.team.product.api.ProductApi;
-import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequest;
+import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
 import fourservings_fiveservings.insurance_system_be.team.product.service.ProductService;
 import java.util.List;
@@ -20,9 +20,9 @@ public class ProductController implements ProductApi {
 
     @Override
     public ApiResponse<?> designProduct(CustomUserDetails customUserDetails,
-        DesignProductRequest designProductRequest) {
+        DesignProductRequestDto designProductRequestDto) {
         User productDeveloper = customUserDetails.getUser();
-        productService.designProduct(productDeveloper, designProductRequest);
+        productService.designProduct(productDeveloper, designProductRequestDto);
         return ApiResponse.success(SuccessType.SUCCESS);
     }
 

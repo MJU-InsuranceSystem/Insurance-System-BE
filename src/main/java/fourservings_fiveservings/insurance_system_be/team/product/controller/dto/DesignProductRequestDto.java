@@ -6,7 +6,7 @@ import fourservings_fiveservings.insurance_system_be.team.plan.design.model.Sale
 import fourservings_fiveservings.insurance_system_be.team.product.entity.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
 
-public record DesignProductRequest(
+public record DesignProductRequestDto(
     // 상품 제목, 상품 개요, 판매 대상, 매달 보험료, 보상 내용, 전략,
     String productTitle, String productOutline,
     SaleTarget saleTarget, Integer monthlyPaymentAmount,
@@ -21,7 +21,7 @@ public record DesignProductRequest(
             .monthlyPaymentAmount(monthlyPaymentAmount)
             .rewardDetails(rewardDetails)
             .strategy(strategy)
-            .approveStatus(ApproveStatus.WAIT_APPROVE)
+            .approveStatus(ApproveStatus.UN_APPROVE)
             .productDeveloper(productDeveloper)
             .build();
     }

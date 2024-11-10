@@ -11,10 +11,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Product extends BaseEntity {
 
     @Id
@@ -34,6 +36,7 @@ public class Product extends BaseEntity {
 
     private String strategy;
 
+    @Enumerated(EnumType.STRING)
     private ApproveStatus approveStatus;
 
     @ManyToOne
@@ -54,6 +57,7 @@ public class Product extends BaseEntity {
         this.rewardDetails = rewardDetails;
         this.strategy = strategy;
         this.approveStatus = approveStatus;
+        this.productDeveloper = productDeveloper;
         this.underwriter = null;
     }
 

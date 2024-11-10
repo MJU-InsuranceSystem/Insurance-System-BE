@@ -2,7 +2,7 @@ package fourservings_fiveservings.insurance_system_be.team.product.api;
 
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
-import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequest;
+import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequestDto;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,11 +18,11 @@ public interface ProductApi {
     // 상품 등록하기? 흠
     @PostMapping()
     ApiResponse<?> designProduct(@AuthenticationPrincipal CustomUserDetails customUserDetails,
-        @RequestBody DesignProductRequest designProductRequest);
+        @RequestBody DesignProductRequestDto designProductRequestDto);
 
-    @GetMapping("?status=un_approved")
+    @GetMapping("/un_approved")
     ApiResponse<?> getUnapprovedProducts();
-    
-    @GetMapping("?status=approved")
+
+    @GetMapping("/approved")
     ApiResponse<?> getApprovedProducts();
 }
