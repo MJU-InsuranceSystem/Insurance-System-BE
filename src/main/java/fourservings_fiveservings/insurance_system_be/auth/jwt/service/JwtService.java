@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class JwtService {
 
-    private static final String ACCESS_TOKEN_HEADER = "ACCESS-AUTH-KEY";
+    private static final String ACCESS_TOKEN_HEADER = "Authorization";
     private static final String REFRESH_TOKEN_HEADER = "REFRESH-AUTH-KEY";
     private static final String BEARER = "BEARER";
     private static final String ACCESS_TOKEN_TYPE = "Access";
