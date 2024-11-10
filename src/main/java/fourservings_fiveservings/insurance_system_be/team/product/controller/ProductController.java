@@ -5,12 +5,13 @@ import fourservings_fiveservings.insurance_system_be.common.response.constant.Su
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.team.product.api.ProductApi;
-import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.product.dto.DesignProductRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
 import fourservings_fiveservings.insurance_system_be.team.product.service.ProductService;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,7 +21,7 @@ public class ProductController implements ProductApi {
 
     @Override
     public ApiResponse<?> designProduct(CustomUserDetails customUserDetails,
-        DesignProductRequestDto designProductRequestDto) {
+                                        DesignProductRequestDto designProductRequestDto) {
         User productDeveloper = customUserDetails.getUser();
         productService.designProduct(productDeveloper, designProductRequestDto);
         return ApiResponse.success(SuccessType.SUCCESS);

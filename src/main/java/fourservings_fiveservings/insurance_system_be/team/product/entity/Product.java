@@ -47,9 +47,9 @@ public class Product extends BaseEntity {
 
     @Builder
     public Product(
-        String productTitle, String productOutline,
-        SaleTarget saleTarget, Integer monthlyPaymentAmount,
-        String rewardDetails, String strategy, ApproveStatus approveStatus, User productDeveloper) {
+            String productTitle, String productOutline,
+            SaleTarget saleTarget, Integer monthlyPaymentAmount,
+            String rewardDetails, String strategy, ApproveStatus approveStatus, User productDeveloper) {
         this.productTitle = productTitle;
         this.productOutline = productOutline;
         this.saleTarget = saleTarget;
