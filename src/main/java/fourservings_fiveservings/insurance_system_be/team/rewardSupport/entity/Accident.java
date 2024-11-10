@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.rewardSupport.model;
+package fourservings_fiveservings.insurance_system_be.team.rewardSupport.entity;
 
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
@@ -39,14 +39,4 @@ public class Accident extends BaseEntity {
     public Accident() {
 
     }
-
-
-//    @Override
-//    public String toString() {
-//        return "Accident ID: " + id + "\n" +
-//                "사고 내용: " + content + "\n" +
-//                "고객 이름: " + customerName + "\n" +
-//                "사고 정보: " + (claimInsurance != null ? claimInsurance.toString() : "null");
-//    }
-
 }

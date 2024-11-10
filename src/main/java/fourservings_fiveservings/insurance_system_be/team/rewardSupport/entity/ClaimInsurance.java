@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.rewardSupport.model;
+package fourservings_fiveservings.insurance_system_be.team.rewardSupport.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import jakarta.persistence.Entity;
