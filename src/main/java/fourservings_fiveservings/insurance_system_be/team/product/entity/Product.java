@@ -1,6 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.product.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
+import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.SaleTarget;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -8,11 +9,14 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Product extends BaseEntity {
 
     @Id
@@ -32,14 +36,20 @@ public class Product extends BaseEntity {
 
     private String strategy;
 
+    @Enumerated(EnumType.STRING)
     private ApproveStatus approveStatus;
 
+    @ManyToOne
+    private User underwriter;
+
+    @ManyToOne
+    private User productDeveloper;
 
     @Builder
     public Product(
         String productTitle, String productOutline,
         SaleTarget saleTarget, Integer monthlyPaymentAmount,
-        String rewardDetails, String strategy, ApproveStatus approveStatus) {
+        String rewardDetails, String strategy, ApproveStatus approveStatus, User productDeveloper) {
         this.productTitle = productTitle;
         this.productOutline = productOutline;
         this.saleTarget = saleTarget;
@@ -47,9 +57,12 @@ public class Product extends BaseEntity {
         this.rewardDetails = rewardDetails;
         this.strategy = strategy;
         this.approveStatus = approveStatus;
+        this.productDeveloper = productDeveloper;
+        this.underwriter = null;
     }
 
-    public void approveProduct() {
+    public void approveProduct(User underwriter) {
         this.approveStatus = ApproveStatus.APPROVE;
+        this.underwriter = underwriter;
     }
 }

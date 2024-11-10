@@ -1,9 +1,11 @@
 package fourservings_fiveservings.insurance_system_be.team.product.controller;
 
+import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.response.constant.SuccessType;
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
+import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.team.product.api.ProductApi;
-import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequest;
+import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
 import fourservings_fiveservings.insurance_system_be.team.product.service.ProductService;
 import java.util.List;
@@ -17,8 +19,10 @@ public class ProductController implements ProductApi {
     private final ProductService productService;
 
     @Override
-    public ApiResponse<?> designProduct(DesignProductRequest designProductRequest) {
-        productService.designProduct(designProductRequest);
+    public ApiResponse<?> designProduct(CustomUserDetails customUserDetails,
+        DesignProductRequestDto designProductRequestDto) {
+        User productDeveloper = customUserDetails.getUser();
+        productService.designProduct(productDeveloper, designProductRequestDto);
         return ApiResponse.success(SuccessType.SUCCESS);
     }
 
@@ -28,9 +32,10 @@ public class ProductController implements ProductApi {
         return ApiResponse.success(SuccessType.SUCCESS, unapprovedProducts);
     }
 
+
     @Override
-    public ApiResponse<?> approveProduct(Long productId) {
-        productService.approveProduct(productId);
-        return ApiResponse.success(SuccessType.SUCCESS);
+    public ApiResponse<?> getApprovedProducts() {
+        List<Product> approvedProduct = productService.retrieveApprovedProducts();
+        return ApiResponse.success(SuccessType.SUCCESS, approvedProduct);
     }
 }
