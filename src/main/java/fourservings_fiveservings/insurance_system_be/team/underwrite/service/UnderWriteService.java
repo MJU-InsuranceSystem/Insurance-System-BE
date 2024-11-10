@@ -17,6 +17,7 @@ public class UnderWriteService {
     private final ProductManager productManager;
     private final ProductRepository productRepository;
 
+    @Transactional
     public void approveProduct(User underwriter, Long productId) {
         Optional<Product> optionalProduct = productRepository.findById(productId);
         Product product = productManager.checkProduct(optionalProduct);
