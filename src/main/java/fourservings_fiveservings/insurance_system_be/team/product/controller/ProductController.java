@@ -32,11 +32,10 @@ public class ProductController implements ProductApi {
         return ApiResponse.success(SuccessType.SUCCESS, unapprovedProducts);
     }
 
+
     @Override
-    public ApiResponse<?> approveProduct(CustomUserDetails customUserDetailsService,
-        Long productId) {
-        User underwriter = customUserDetailsService.getUser();
-        productService.approveProduct(underwriter, productId);
-        return ApiResponse.success(SuccessType.SUCCESS);
+    public ApiResponse<?> getApprovedProducts() {
+        List<Product> approvedProduct = productService.retrieveApprovedProducts();
+        return ApiResponse.success(SuccessType.SUCCESS, approvedProduct);
     }
 }
