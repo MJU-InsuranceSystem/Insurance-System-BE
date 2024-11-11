@@ -5,7 +5,9 @@ import fourservings_fiveservings.insurance_system_be.common.response.constant.Su
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.team.contract.api.ContractApi;
+import fourservings_fiveservings.insurance_system_be.team.contract.entity.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.service.ContractService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +22,11 @@ public class ContractController implements ContractApi {
         User appliedCustomer = customUserDetails.getUser();
         contractService.processContract(appliedCustomer, productId);
         return ApiResponse.success(SuccessType.CREATED);
+    }
+
+    @Override
+    public ApiResponse<?> getUnApprovedContracts() {
+        List<Contract> unApprovedContracts = contractService.getUnapprovedContracts();
+        return ApiResponse.success(SuccessType.SUCCESS, unApprovedContracts);
     }
 }

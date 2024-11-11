@@ -5,6 +5,8 @@ import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiRespo
 import fourservings_fiveservings.insurance_system_be.team.product.dto.DesignProductRequestDto;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +22,13 @@ public interface ProductApi {
     ApiResponse<?> designProduct(@AuthenticationPrincipal CustomUserDetails customUserDetails,
         @RequestBody DesignProductRequestDto designProductRequestDto);
 
-    @GetMapping("/un_approved")
-    ApiResponse<?> getUnapprovedProducts();
+    @GetMapping("/un-approved")
+    ApiResponse<?> getUnApprovedProducts();
 
     @GetMapping("/approved")
     ApiResponse<?> getApprovedProducts();
+
+    @PatchMapping("/{productId}")
+    ApiResponse<?> approveProduct(@AuthenticationPrincipal CustomUserDetails customUserDetails,
+        @PathVariable(name = "productId") Long productId);
 }
