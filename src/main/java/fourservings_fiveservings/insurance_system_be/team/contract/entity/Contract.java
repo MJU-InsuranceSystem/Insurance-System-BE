@@ -1,14 +1,10 @@
 package fourservings_fiveservings.insurance_system_be.team.contract.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
+import fourservings_fiveservings.insurance_system_be.domain.insurance.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -31,12 +27,15 @@ public class Contract extends BaseEntity {
     @Embedded
     private InsuranceApplication insuranceApplication;
 
+    @Enumerated(EnumType.STRING)
+    private ApproveStatus approveStatus;
 
-    public static Contract from(User appliedCustomer, Product product) {
+    public static Contract fromUnApproveContract(User appliedCustomer, Product product) {
         return Contract.builder()
-                .user(appliedCustomer)
-                .product(product)
-                .build();
+            .user(appliedCustomer)
+            .product(product)
+            .approveStatus(ApproveStatus.UN_APPROVE)
+            .build();
     }
 
 

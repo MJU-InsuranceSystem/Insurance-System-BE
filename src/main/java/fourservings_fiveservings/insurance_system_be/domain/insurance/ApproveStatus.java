@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.product.entity;
+package fourservings_fiveservings.insurance_system_be.domain.insurance;
 
 public enum ApproveStatus {
     APPROVE,
