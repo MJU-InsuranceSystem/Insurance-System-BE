@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.auth.custom;
 
-import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
+import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

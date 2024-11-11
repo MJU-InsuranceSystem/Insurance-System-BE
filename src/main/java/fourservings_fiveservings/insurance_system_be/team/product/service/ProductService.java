@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.product.service;
 
-import fourservings_fiveservings.insurance_system_be.domain.insurance.ApproveStatus;
-import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
+import fourservings_fiveservings.insurance_system_be.team.product.insurance.ApproveStatus;
+import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.team.product.dto.DesignProductRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
 import fourservings_fiveservings.insurance_system_be.team.product.repository.ProductRepository;

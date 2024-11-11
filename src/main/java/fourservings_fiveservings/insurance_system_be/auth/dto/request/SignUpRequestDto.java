@@ -1,11 +1,10 @@
 package fourservings_fiveservings.insurance_system_be.auth.dto.request;
 
-import fourservings_fiveservings.insurance_system_be.domain.user.entity.role.Role;
-import fourservings_fiveservings.insurance_system_be.domain.user.entity.role.UserType;
-import fourservings_fiveservings.insurance_system_be.domain.user.entity.Address;
-import fourservings_fiveservings.insurance_system_be.domain.user.entity.Customer;
-import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
-import fourservings_fiveservings.insurance_system_be.domain.user.entity.Worker;
+import fourservings_fiveservings.insurance_system_be.user.entity.embeded.UserType;
+import fourservings_fiveservings.insurance_system_be.user.entity.embeded.Address;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
+import fourservings_fiveservings.insurance_system_be.user.entity.User;
+import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 
 public record SignUpRequestDto(
 
@@ -25,11 +24,7 @@ public record SignUpRequestDto(
 
     String birthDay,
 
-    UserType userType,
-
-    int hireYear,
-
-    Role role
+    UserType userType
 ) {
     public User toCustomer(String encodedPassword) {
         return Customer.builder()
@@ -52,8 +47,6 @@ public record SignUpRequestDto(
                 .name(name)
                 .birthDay(birthDay)
                 .userType(userType)
-                .hireYear(hireYear)
-                .role(role)
                 .build();
     }
 }

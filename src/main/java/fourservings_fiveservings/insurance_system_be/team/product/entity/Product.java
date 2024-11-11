@@ -1,8 +1,8 @@
 package fourservings_fiveservings.insurance_system_be.team.product.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
-import fourservings_fiveservings.insurance_system_be.domain.insurance.ApproveStatus;
-import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
+import fourservings_fiveservings.insurance_system_be.team.product.insurance.ApproveStatus;
+import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.SaleTarget;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

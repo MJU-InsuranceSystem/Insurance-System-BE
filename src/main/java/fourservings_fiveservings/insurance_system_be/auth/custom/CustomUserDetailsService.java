@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.auth.custom;
 
-import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
-import fourservings_fiveservings.insurance_system_be.domain.user.repository.UserRepository;
+import fourservings_fiveservings.insurance_system_be.user.entity.User;
+import fourservings_fiveservings.insurance_system_be.user.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
