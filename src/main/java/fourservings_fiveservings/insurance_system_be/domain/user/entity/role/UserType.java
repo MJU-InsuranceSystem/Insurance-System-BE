@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.domain.user;
+package fourservings_fiveservings.insurance_system_be.domain.user.entity.role;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

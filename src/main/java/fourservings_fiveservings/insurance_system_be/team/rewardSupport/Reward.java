@@ -1,11 +1,8 @@
-package fourservings_fiveservings.insurance_system_be.team.rewardSupport.model;
+package fourservings_fiveservings.insurance_system_be.team.rewardSupport;
 
 import fourservings_fiveservings.insurance_system_be.domain.insurance.InsuranceType;
 
-/**
- * @author yoon
- * @version 1.0
- */
+
 public class Reward {
 
     private InsuranceType insuranceType;
@@ -17,8 +14,5 @@ public class Reward {
 
     }
 
-    public void finalize() throws Throwable {
-
-    }
 
 }

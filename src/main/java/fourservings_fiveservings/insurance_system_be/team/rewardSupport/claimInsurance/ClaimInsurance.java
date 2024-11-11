@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.rewardSupport.model;
+package fourservings_fiveservings.insurance_system_be.team.rewardSupport.claimInsurance;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import jakarta.persistence.Entity;
@@ -31,9 +31,6 @@ public class ClaimInsurance extends BaseEntity {
 
     private String supportingFile;
 
-    public ClaimInsurance() {
-
-    }
 
 
 

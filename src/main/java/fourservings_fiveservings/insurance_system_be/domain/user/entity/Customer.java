@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.domain.user.entity;
 
-import fourservings_fiveservings.insurance_system_be.domain.user.ContractStatus;
-import fourservings_fiveservings.insurance_system_be.domain.user.UserType;
+import fourservings_fiveservings.insurance_system_be.domain.user.constant.ContractStatus;
+import fourservings_fiveservings.insurance_system_be.domain.user.entity.role.UserType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

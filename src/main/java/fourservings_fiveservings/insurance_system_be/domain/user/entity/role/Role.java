@@ -6,6 +6,7 @@ public enum Role {
     EDUCATION,
     MARKETING,
     POLICY,
+    REWARD,
     INSURANCE,
     TEAM_LEADER
 }
