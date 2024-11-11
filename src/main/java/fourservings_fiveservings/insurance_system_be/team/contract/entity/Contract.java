@@ -9,15 +9,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
-@Setter
 @Entity
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Contract extends BaseEntity {
 
@@ -34,22 +31,14 @@ public class Contract extends BaseEntity {
     @Embedded
     private InsuranceApplication insuranceApplication;
 
-    @Builder
-    public Contract(User user, Product product) {
-        this.user = user;
-        this.product = product;
-    }
 
     public static Contract from(User appliedCustomer, Product product) {
         return Contract.builder()
-            .user(appliedCustomer)
-            .product(product)
-            .build();
+                .user(appliedCustomer)
+                .product(product)
+                .build();
     }
 
-    public void setInsurance(InsuranceApplication insuranceApplication) {
-        this.insuranceApplication = insuranceApplication;
-    }
 
     //    @Override
 //    public String toString() {

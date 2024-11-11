@@ -1,10 +1,12 @@
-package fourservings_fiveservings.insurance_system_be.team.rewardSupport.entity;
+package fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity;
 
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
+import fourservings_fiveservings.insurance_system_be.team.contract.entity.Contract;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -13,20 +15,13 @@ import java.time.LocalDateTime;
  * @version 1.0
  */
 @Getter
-@Setter
-//@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Accident extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    private String content;
-
-    private String customerName;
-
-    // ----------------------
 
     private LocalDateTime accidentDate;
 
@@ -36,7 +31,7 @@ public class Accident extends BaseEntity {
 
     private int damageAmount;
 
-    public Accident() {
+    @ManyToOne
+    private Contract contract;
 
-    }
 }

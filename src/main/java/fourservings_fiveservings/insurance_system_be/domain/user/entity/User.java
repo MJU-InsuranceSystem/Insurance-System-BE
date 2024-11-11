@@ -2,7 +2,7 @@ package fourservings_fiveservings.insurance_system_be.domain.user.entity;
 
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
-import fourservings_fiveservings.insurance_system_be.domain.user.UserType;
+import fourservings_fiveservings.insurance_system_be.domain.user.entity.role.UserType;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;

@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.domain.user.entity;
 
-import fourservings_fiveservings.insurance_system_be.domain.user.UserType;
+import fourservings_fiveservings.insurance_system_be.domain.user.entity.role.UserType;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.role.Role;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;

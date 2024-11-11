@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.auth.dto.request;
 
-import fourservings_fiveservings.insurance_system_be.domain.user.UserType;
+import fourservings_fiveservings.insurance_system_be.domain.user.entity.role.UserType;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.Address;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.Customer;
 import fourservings_fiveservings.insurance_system_be.domain.user.entity.User;
