@@ -31,9 +31,6 @@ public class ClaimInsurance extends BaseEntity {
 
     private String supportingFile;
 
-    public ClaimInsurance() {
-
-    }
 
 
 

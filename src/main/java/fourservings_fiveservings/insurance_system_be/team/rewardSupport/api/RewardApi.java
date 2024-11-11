@@ -10,4 +10,8 @@ public interface RewardApi {
 //    CHECK_NOT_PAID_CUSTOMER(3, "보험료 미납 고객 확인"),
 //    MANAGE_LAWSUIT(4, "소송업무 처리하기");
 
+    // 1. 보험사가 보험을 만든 것 안에 보상 엔티티 연관관계 만들고, 그 보상을 확인
+    // 2. 유저(보험금 납부,
+
+
 }
