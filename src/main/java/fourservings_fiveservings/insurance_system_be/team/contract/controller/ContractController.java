@@ -18,7 +18,7 @@ public class ContractController implements ContractApi {
     private final ContractService contractService;
 
     @Override
-    public ApiResponse<?> applyProduct(CustomUserDetails customUserDetails, Long productId) {
+    public ApiResponse<?> joinInsurance(CustomUserDetails customUserDetails, Long productId) {
         User appliedCustomer = customUserDetails.getUser();
         contractService.processContract(appliedCustomer, productId);
         return ApiResponse.success(SuccessType.CREATED);

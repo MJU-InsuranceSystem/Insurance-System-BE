@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface ContractApi {
 
     @PostMapping("/{product-id}")
-    ApiResponse<?> applyProduct(@AuthenticationPrincipal CustomUserDetails customUserDetails,
+    ApiResponse<?> joinInsurance(@AuthenticationPrincipal CustomUserDetails customUserDetails,
         @PathVariable(value = "product-id") Long productId);
 
     @GetMapping("/un-approved")
