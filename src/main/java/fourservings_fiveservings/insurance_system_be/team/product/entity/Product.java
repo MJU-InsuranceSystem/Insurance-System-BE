@@ -11,13 +11,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Builder
 public class Product extends BaseEntity {
 
     @Id
@@ -26,7 +29,7 @@ public class Product extends BaseEntity {
 
     private String productTitle;
 
-    private String productOutline;
+    private String overview;
 
     @Enumerated(EnumType.STRING)
     private SaleTarget saleTarget;
@@ -35,35 +38,19 @@ public class Product extends BaseEntity {
 
     private String rewardDetails;
 
-    private String strategy;
+    private String saleStrategy;
 
     @Enumerated(EnumType.STRING)
     private ApproveStatus approveStatus;
 
     @ManyToOne
-    private User underwriter;
+    private User approveWorker;
 
     @ManyToOne
     private User productDeveloper;
 
-    @Builder
-    public Product(
-        String productTitle, String productOutline,
-        SaleTarget saleTarget, Integer monthlyPaymentAmount,
-        String rewardDetails, String strategy, ApproveStatus approveStatus, User productDeveloper) {
-        this.productTitle = productTitle;
-        this.productOutline = productOutline;
-        this.saleTarget = saleTarget;
-        this.monthlyPaymentAmount = monthlyPaymentAmount;
-        this.rewardDetails = rewardDetails;
-        this.strategy = strategy;
-        this.approveStatus = approveStatus;
-        this.productDeveloper = productDeveloper;
-        this.underwriter = null;
-    }
-
     public void approveProduct(User underwriter) {
         this.approveStatus = ApproveStatus.APPROVE;
-        this.underwriter = underwriter;
+        this.approveWorker = underwriter;
     }
 }
