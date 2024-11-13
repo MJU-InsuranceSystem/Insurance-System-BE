@@ -4,7 +4,7 @@ import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetai
 import fourservings_fiveservings.insurance_system_be.common.response.constant.SuccessType;
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.team.product.api.ProductApi;
-import fourservings_fiveservings.insurance_system_be.team.product.dto.DesignProductRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
 import fourservings_fiveservings.insurance_system_be.team.product.service.ProductService;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;

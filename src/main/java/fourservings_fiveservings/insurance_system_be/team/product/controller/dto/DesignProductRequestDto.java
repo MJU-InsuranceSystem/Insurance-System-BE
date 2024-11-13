@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.product.dto;
+package fourservings_fiveservings.insurance_system_be.team.product.controller.dto;
 
 
 import fourservings_fiveservings.insurance_system_be.team.product.insurance.ApproveStatus;
