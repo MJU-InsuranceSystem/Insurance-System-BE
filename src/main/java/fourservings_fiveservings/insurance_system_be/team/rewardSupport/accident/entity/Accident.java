@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.reward.accident.entity;
+package fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity;
 
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;

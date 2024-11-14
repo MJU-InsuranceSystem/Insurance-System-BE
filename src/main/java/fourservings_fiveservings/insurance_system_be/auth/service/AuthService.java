@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.auth.service;
 
-import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignInRequestDto;
-import fourservings_fiveservings.insurance_system_be.auth.dto.request.SignUpRequestDto;
+import fourservings_fiveservings.insurance_system_be.auth.controller.dto.request.SignInRequestDto;
+import fourservings_fiveservings.insurance_system_be.auth.controller.dto.request.SignUpRequestDto;
 import fourservings_fiveservings.insurance_system_be.auth.jwt.dto.TokenDto;
 import fourservings_fiveservings.insurance_system_be.auth.jwt.service.JwtService;
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;

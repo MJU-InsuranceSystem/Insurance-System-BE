@@ -3,6 +3,8 @@ package fourservings_fiveservings.insurance_system_be.auth.jwt.service;
 import fourservings_fiveservings.insurance_system_be.auth.jwt.dto.TokenDto;
 import fourservings_fiveservings.insurance_system_be.auth.jwt.entity.RefreshToken;
 import fourservings_fiveservings.insurance_system_be.auth.jwt.repository.RefreshTokenRepository;
+import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
+import fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
@@ -114,16 +116,17 @@ public class JwtService {
             return !claims.getBody().getExpiration().before(new Date());
         } catch (ExpiredJwtException e) {
             log.error("토큰이 만료되었습니다: {}", jwtToken, e);
+            throw new BusinessException(ErrorType.EXPIRED_TOKEN);
         } catch (MalformedJwtException e) {
             log.error("잘못된 JWT 형식입니다: {}", jwtToken, e);
+            throw new BusinessException(ErrorType.INVALID_FORMAT_TOKEN);
         } catch (SignatureException e) {
             log.error("서명이 올바르지 않습니다: {}", jwtToken, e);
+            throw new BusinessException(ErrorType.INVALID_SIGNATURE);
         } catch (Exception e) {
             log.error("JWT 토큰 검증 중 오류 발생: {}", jwtToken, e);
+            throw new BusinessException(ErrorType.ERROR_TOKEN);
         }
-
-        // 예외 발생 시 false 반환
-        return false;
     }
 
 
