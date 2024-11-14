@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.reward;
+package fourservings_fiveservings.insurance_system_be.team.rewardSupport;
 
 import fourservings_fiveservings.insurance_system_be.team.product.insurance.InsuranceType;
 
