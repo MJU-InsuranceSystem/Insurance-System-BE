@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.underwrite.service;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.repository.ContractRepository;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import jakarta.persistence.EntityNotFoundException;
