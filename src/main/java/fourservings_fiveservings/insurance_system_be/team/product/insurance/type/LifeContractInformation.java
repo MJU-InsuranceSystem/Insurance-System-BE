@@ -1,18 +1,18 @@
 package fourservings_fiveservings.insurance_system_be.team.product.insurance.type;
 
 
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.InsuranceApplication;
+import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.embaded.ContractInformation;
 
 /**
  * @author USER
  * @version 1.0
  */
-public class LifeInsuranceApplication extends InsuranceApplication {
+public class LifeContractInformation extends ContractInformation {
 
     private String exclusions;
     private String medicalHistory;
 
-    public LifeInsuranceApplication() {
+    public LifeContractInformation() {
 
     }
 

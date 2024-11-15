@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.marketing;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.InsuranceApplication;
+import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.embaded.ContractInformation;
 
 /**
  * @author USER
@@ -11,7 +11,7 @@ public class Campaign {
     private int budget;
     private String expectedRate;
     private String ExternalTeam;
-    private InsuranceApplication insuranceApplication;
+    private ContractInformation contractInformation;
     private String period;
     private Enum progressStatus;
     private String realityRate;
