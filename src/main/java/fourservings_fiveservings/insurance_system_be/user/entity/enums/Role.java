@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.user.entity.embeded;
+package fourservings_fiveservings.insurance_system_be.user.entity.enums;
 
 public enum Role {
     PLAN,
