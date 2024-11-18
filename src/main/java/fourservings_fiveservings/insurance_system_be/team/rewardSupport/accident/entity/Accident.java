@@ -2,7 +2,7 @@ package fourservings_fiveservings.insurance_system_be.team.rewardSupport.acciden
 
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
