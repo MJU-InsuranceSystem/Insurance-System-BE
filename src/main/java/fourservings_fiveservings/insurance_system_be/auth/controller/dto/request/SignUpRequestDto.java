@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.auth.controller.dto.request;
 
-import fourservings_fiveservings.insurance_system_be.user.entity.embeded.UserType;
+import fourservings_fiveservings.insurance_system_be.user.entity.enums.UserType;
 import fourservings_fiveservings.insurance_system_be.user.entity.embeded.Address;
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
