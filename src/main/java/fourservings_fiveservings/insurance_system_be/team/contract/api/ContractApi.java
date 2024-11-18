@@ -17,8 +17,8 @@ public interface ContractApi {
     // 고객이 자동차 보험 신청하는 거.
     @PostMapping("/car/{product-id}")
     ApiResponse<?> joinCarInsurance(@AuthenticationPrincipal CustomUserDetails customUserDetails,
-        @PathVariable(value = "product-id") Long productId,
-        @RequestBody CarInsuranceJoinRequestDto carInsuranceJoinRequestDto);
+                                    @PathVariable(value = "product-id") Long productId,
+                                    @RequestBody CarInsuranceJoinRequestDto carInsuranceJoinRequestDto);
 
     @GetMapping("/un-approved")
     ApiResponse<?> getUnApprovedContracts();

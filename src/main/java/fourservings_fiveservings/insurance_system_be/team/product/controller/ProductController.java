@@ -7,10 +7,11 @@ import fourservings_fiveservings.insurance_system_be.team.product.api.ProductApi
 import fourservings_fiveservings.insurance_system_be.team.product.controller.dto.DesignProductRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
 import fourservings_fiveservings.insurance_system_be.team.product.service.ProductService;
-import fourservings_fiveservings.insurance_system_be.user.entity.User;
-import java.util.List;
+import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,8 +21,8 @@ public class ProductController implements ProductApi {
 
     @Override
     public ApiResponse<?> designProduct(CustomUserDetails customUserDetails,
-        DesignProductRequestDto designProductRequestDto) {
-        User productDeveloper = customUserDetails.getUser();
+                                        DesignProductRequestDto designProductRequestDto) {
+        Worker productDeveloper = customUserDetails.getWorker();
         productService.designProduct(productDeveloper, designProductRequestDto);
         return ApiResponse.success(SuccessType.SUCCESS);
     }
@@ -41,8 +42,8 @@ public class ProductController implements ProductApi {
 
     @Override
     public ApiResponse<?> approveProduct(CustomUserDetails customUserDetailsService,
-        Long productId) {
-        User approveWorker = customUserDetailsService.getUser();
+                                         Long productId) {
+        Worker approveWorker = customUserDetailsService.getWorker();
         productService.approveProduct(approveWorker, productId);
         return ApiResponse.success(SuccessType.SUCCESS);
     }

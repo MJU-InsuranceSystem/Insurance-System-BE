@@ -20,7 +20,7 @@ public interface ProductApi {
     // 상품 등록하기? 흠
     @PostMapping()
     ApiResponse<?> designProduct(@AuthenticationPrincipal CustomUserDetails customUserDetails,
-        @RequestBody DesignProductRequestDto designProductRequestDto);
+                                 @RequestBody DesignProductRequestDto designProductRequestDto);
 
     @GetMapping("/un-approved")
     ApiResponse<?> getUnApprovedProducts();
@@ -30,5 +30,5 @@ public interface ProductApi {
 
     @PatchMapping("/{productId}")
     ApiResponse<?> approveProduct(@AuthenticationPrincipal CustomUserDetails customUserDetails,
-        @PathVariable(name = "productId") Long productId);
+                                  @PathVariable(name = "productId") Long productId);
 }

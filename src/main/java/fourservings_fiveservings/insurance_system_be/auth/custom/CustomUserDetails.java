@@ -1,7 +1,10 @@
 package fourservings_fiveservings.insurance_system_be.auth.custom;
 
+import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
+import fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
-import lombok.Getter;
+import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@Getter
+//@Getter
 @RequiredArgsConstructor
 public class CustomUserDetails implements UserDetails {
 
@@ -53,4 +56,19 @@ public class CustomUserDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public Customer getCustom() {
+        if (user instanceof Customer) {
+            return (Customer) user;
+        }
+        throw new BusinessException(ErrorType.NO_EXIST_USER_TYPE);
+    }
+
+    public Worker getWorker() {
+        if (user instanceof Worker) {
+            return (Worker) user;
+        }
+        throw new BusinessException(ErrorType.NO_EXIST_USER_TYPE);
+    }
 }
+

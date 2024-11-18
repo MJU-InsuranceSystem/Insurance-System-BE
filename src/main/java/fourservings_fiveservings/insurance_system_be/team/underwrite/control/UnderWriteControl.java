@@ -17,7 +17,7 @@ public class UnderWriteControl implements UnderwriteApi {
 
     @Override
     public ApiResponse<?> approveContract(CustomUserDetails customUserDetails, Integer contractId) {
-        User user = customUserDetails.getUser();
+        User user = customUserDetails.getWorker();
         underWriteService.approveContract(user, contractId);
         return ApiResponse.success(SuccessType.SUCCESS);
     }

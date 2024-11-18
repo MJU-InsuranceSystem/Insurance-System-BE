@@ -52,13 +52,4 @@ public abstract class Contract {
         this.approveStatus = ApproveStatus.APPROVE;
         this.underwriteManager = underwriteManager;
     }
-
-    //    @Override
-//    public String toString() {
-//        return "contract ID = " + id + "\n" +
-//            "customer Name = " + customerName + '\n' +
-//            "insurance ID = " + insuranceApplication.getInsuranceApplicationID() + '\n' +
-//            "insurance Type = " + insuranceApplication.getInsurance().getInsuranceType() + '\n' +
-//            "managerName = " + managerName;
-//    }
 }
