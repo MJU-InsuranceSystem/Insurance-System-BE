@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/api/users", produces = "application/json;charset=utf-8")
 public interface UserApi {
 
-    @PostMapping
+    @PostMapping("/accounts")
     ApiResponse<?> setAccount(@AuthenticationPrincipal CustomUserDetails customUserDetails,
                               @RequestBody SetAccountRequestDto setAccountRequestDto);
 
