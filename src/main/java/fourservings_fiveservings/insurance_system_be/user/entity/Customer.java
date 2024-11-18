@@ -24,8 +24,14 @@ public class Customer extends User {
 
     @Builder
     private Customer(String password, String email, String phoneNumber, Address address,
-                     String name, String birthDay, UserType userType, ContractStatus contractStatus) {
+                     String name, String birthDay, UserType userType, Account account, ContractStatus contractStatus) {
         super(password, email, phoneNumber, address, name, birthDay, userType);
         this.contractStatus = ContractStatus.NONE;
+        this.account = account;
+    }
+
+    public void addAccountInfo(String bankName, String accountNumber, int balance) {
+        this.account = new Account(bankName, accountNumber, balance);
+        System.out.println(bankName + " " + accountNumber + " " + balance);
     }
 }

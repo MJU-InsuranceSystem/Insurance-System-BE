@@ -20,7 +20,7 @@ public class PaymentController implements PaymentApi {
     public ApiResponse<?> pay(CustomUserDetails userDetails,
                               Long contractId,
                               PayRequestDto payRequestDto) {
-        User customer = userDetails.getUser();
+        User customer = userDetails.getCustom();
         paymentService.pay(customer, contractId, payRequestDto);
         return ApiResponse.success(SuccessType.SUCCESS);
     }

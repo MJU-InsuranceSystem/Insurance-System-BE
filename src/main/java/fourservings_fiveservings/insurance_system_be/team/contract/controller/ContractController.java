@@ -8,9 +8,10 @@ import fourservings_fiveservings.insurance_system_be.team.contract.controller.dt
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.service.ContractService;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,7 +22,7 @@ public class ContractController implements ContractApi {
     @Override
     public ApiResponse<?> joinCarInsurance(CustomUserDetails customUserDetails,
         Long productId, CarInsuranceJoinRequestDto carInsuranceJoinRequestDto) {
-        User appliedCustomer = customUserDetails.getUser();
+        User appliedCustomer = customUserDetails.getCustom();
         contractService.processCarContract(appliedCustomer, productId, carInsuranceJoinRequestDto);
         return ApiResponse.success(SuccessType.CREATED);
     }
