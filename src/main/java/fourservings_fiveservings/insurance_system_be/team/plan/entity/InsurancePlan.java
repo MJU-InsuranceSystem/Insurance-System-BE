@@ -1,7 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.plan.entity;
 
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -39,11 +38,9 @@ public class InsurancePlan {
     private ReviewStatus reviewStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "planner_id")
     private Worker planner;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "reviewer_id")
     private Worker reviewer;
 
     @Builder
