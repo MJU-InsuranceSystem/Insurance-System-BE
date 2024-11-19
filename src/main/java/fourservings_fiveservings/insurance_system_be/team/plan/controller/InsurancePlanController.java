@@ -32,7 +32,7 @@ public class InsurancePlanController implements InsurancePlanApi {
 
     @Override
     public ApiResponse<List<InsurancePlanListResponse>> getAllInsurancePlans() {
-        List<InsurancePlanListResponse> responses = insurancePlanService.getAllInsurancePlans();
+        List<InsurancePlanListResponse> responses = insurancePlanService.getAll();
         return ApiResponse.success(SuccessType.SUCCESS, responses);
     }
 

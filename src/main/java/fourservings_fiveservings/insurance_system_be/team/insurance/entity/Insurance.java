@@ -43,14 +43,11 @@ public class Insurance extends BaseEntity {
 
     private String exclusions;
 
-    private BigDecimal premium;
+    private BigDecimal monthlyPremium;
 
     private LocalDate salesStartDate;
 
     private LocalDate salesEndDate;
-
-    @Enumerated(EnumType.STRING)
-    private PaymentType paymentType;
 
     @Enumerated(EnumType.STRING)
     private SaleTarget saleTarget;
@@ -65,8 +62,8 @@ public class Insurance extends BaseEntity {
     private Insurance(
         String name, String description, int eligibleAgeMin, int eligibleAgeMax,
         String coverageRange, BigDecimal coverageAmountMax, int duration, String exclusions,
-        BigDecimal premium, LocalDate salesStartDate, LocalDate salesEndDate,
-        PaymentType paymentType, SaleTarget saleTarget, InsuranceType insuranceType, Worker worker
+        BigDecimal monthlyPremium, LocalDate salesStartDate, LocalDate salesEndDate,
+        SaleTarget saleTarget, InsuranceType insuranceType, Worker worker
     ) {
         this.name = name;
         this.description = description;
@@ -76,10 +73,9 @@ public class Insurance extends BaseEntity {
         this.coverageAmountMax = coverageAmountMax;
         this.duration = duration;
         this.exclusions = exclusions;
-        this.premium = premium;
+        this.monthlyPremium = monthlyPremium;
         this.salesStartDate = salesStartDate;
         this.salesEndDate = salesEndDate;
-        this.paymentType = paymentType;
         this.saleTarget = saleTarget;
         this.insuranceType = insuranceType;
         this.worker = worker;

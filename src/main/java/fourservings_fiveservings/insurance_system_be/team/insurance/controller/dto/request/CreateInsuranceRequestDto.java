@@ -2,7 +2,6 @@ package fourservings_fiveservings.insurance_system_be.team.insurance.controller.
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import fourservings_fiveservings.insurance_system_be.team.insurance.entity.Insurance;
-import fourservings_fiveservings.insurance_system_be.team.insurance.entity.PaymentType;
 import fourservings_fiveservings.insurance_system_be.team.insurance.entity.SaleTarget;
 import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsuranceType;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
@@ -26,15 +25,13 @@ public record CreateInsuranceRequestDto(
 
     String exclusions,
 
-    BigDecimal premium,
+    BigDecimal monthlyPremium,
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     LocalDate salesStartDate,
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     LocalDate salesEndDate,
-
-    String paymentType,
 
     String saleTarget,
 
@@ -51,10 +48,9 @@ public record CreateInsuranceRequestDto(
             .coverageAmountMax(coverageAmountMax)
             .duration(duration)
             .exclusions(exclusions)
-            .premium(premium)
+            .monthlyPremium(monthlyPremium)
             .salesStartDate(salesStartDate)
             .salesEndDate(salesEndDate)
-            .paymentType(PaymentType.findByDescription(paymentType))
             .saleTarget(SaleTarget.findByDescription(saleTarget))
             .insuranceType(InsuranceType.findByName(insuranceType))
             .worker(worker)
