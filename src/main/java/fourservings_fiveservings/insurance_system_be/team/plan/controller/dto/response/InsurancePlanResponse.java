@@ -8,7 +8,7 @@ public record InsurancePlanResponse(
     String title,
     String description,
     String plannerName,
-    String insuranceType,
+    String insurancePlanType,
     String fileUrl
 ) {
 
@@ -17,7 +17,7 @@ public record InsurancePlanResponse(
             .title(insurancePlan.getTitle())
             .description(insurancePlan.getDescription())
             .plannerName(insurancePlan.getPlanner().getName())
-            .insuranceType(insurancePlan.getInsuranceType().getName())
+            .insurancePlanType(insurancePlan.getInsurancePlanType().getName())
             .fileUrl(fileUrl)
             .build();
     }

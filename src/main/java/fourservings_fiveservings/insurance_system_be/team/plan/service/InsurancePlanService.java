@@ -30,7 +30,7 @@ public class InsurancePlanService {
         insurancePlanSaver.save(insurancePlan);
     }
 
-    public List<InsurancePlanListResponse> getAllInsurancePlans() {
+    public List<InsurancePlanListResponse> getAll() {
         List<InsurancePlan> insurancePlans = insurancePlanFinder.getAll();
         return insurancePlans.stream()
             .map(InsurancePlanListResponse::from)

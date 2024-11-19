@@ -9,16 +9,19 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum SaleTarget {
-    YOUNG("청년층"),
-    MIDDLE_AGED("중년층"),
-    OLDER("노년층");
+public enum InsuranceType {
+    FIRE("화재보험"),
+    CAR("자동차보험"),
+    LIFE("생명보험"),
+    HEALTH("건강보험"),
+    TRAVEL("여행보험"),
+    CANCER("암보험");
 
-    private final String description;
+    private final String name;
 
-    public static SaleTarget findByDescription(String description) {
-        return Arrays.stream(SaleTarget.values())
-            .filter(saleTarget -> Objects.equals(saleTarget.getDescription(), description))
+    public static InsuranceType findByName(String name) {
+        return Arrays.stream(InsuranceType.values())
+            .filter(insuranceType -> Objects.equals(insuranceType.getName(), name))
             .findFirst()
             .orElseThrow(() -> new ResourceNotFoundException(ErrorType.RESOURCE_NOT_FOUND));
     }

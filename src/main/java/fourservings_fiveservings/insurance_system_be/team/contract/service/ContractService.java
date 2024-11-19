@@ -5,7 +5,7 @@ import fourservings_fiveservings.insurance_system_be.team.contract.entity.common
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.repository.ContractRepository;
 import fourservings_fiveservings.insurance_system_be.team.insurance.entity.Insurance;
-import fourservings_fiveservings.insurance_system_be.team.insurance.implement.InsuranceFinder;
+import fourservings_fiveservings.insurance_system_be.team.insurance.service.implement.InsuranceFinder;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
