@@ -1,8 +1,10 @@
 package fourservings_fiveservings.insurance_system_be.team.plan.service;
 
-import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.CreatePlanRequestDto;
+import fourservings_fiveservings.insurance_system_be.file.service.S3Service;
+import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.CreatePlanRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsurancePlan;
 import fourservings_fiveservings.insurance_system_be.team.plan.service.implement.InsurancePlanFinder;
+import fourservings_fiveservings.insurance_system_be.team.plan.service.implement.InsurancePlanSaver;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,11 +17,12 @@ public class InsurancePlanService {
 
     private final InsurancePlanFinder insurancePlanFinder;
     private final InsurancePlanSaver insurancePlanSaver;
+    private final S3Service s3Service;
 
     @Transactional
     public void createPlan(Worker planner, CreatePlanRequestDto createPlanRequestDto) {
-        String fileUrl = "url";
-        InsurancePlan insurancePlan = createPlanRequestDto.toEntity(planner, fileUrl);
+        String uploadedFileName = s3Service.uploadFile(createPlanRequestDto.file());
+        InsurancePlan insurancePlan = createPlanRequestDto.toEntity(planner, uploadedFileName);
         insurancePlanSaver.save(insurancePlan);
     }
 }

@@ -4,7 +4,7 @@ import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetai
 import fourservings_fiveservings.insurance_system_be.common.response.constant.SuccessType;
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.team.plan.api.InsurancePlanApi;
-import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.CreatePlanRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.CreatePlanRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.plan.service.InsurancePlanService;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import lombok.RequiredArgsConstructor;

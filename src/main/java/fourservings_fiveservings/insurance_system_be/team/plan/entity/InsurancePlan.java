@@ -25,7 +25,7 @@ public class InsurancePlan {
 
     private String description;
 
-    private String fileUrl;
+    private String fileName;
 
     private InsuranceType insuranceType;
 
@@ -35,10 +35,10 @@ public class InsurancePlan {
     private Worker worker;
 
     @Builder
-    private InsurancePlan(String title, String description, InsuranceType insuranceType, String fileUrl, Worker worker) {
+    private InsurancePlan(String title, String description, InsuranceType insuranceType, String fileName, Worker worker) {
         this.title = title;
         this.description = description;
-        this.fileUrl = fileUrl;
+        this.fileName = fileName;
         this.worker = worker;
         this.insuranceType = insuranceType;
         requestStatus = RequestStatus.PENDING;
