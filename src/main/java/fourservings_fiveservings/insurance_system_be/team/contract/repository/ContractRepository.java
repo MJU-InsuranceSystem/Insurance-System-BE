@@ -1,12 +1,11 @@
 package fourservings_fiveservings.insurance_system_be.team.contract.repository;
 
+import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
-import fourservings_fiveservings.insurance_system_be.team.product.insurance.ApproveStatus;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-public interface ContractRepository extends JpaRepository<Contract, Long> {
+public interface ContractRepository extends JpaRepository<Contract, Integer> {
 
     List<Contract> findByApproveStatus(ApproveStatus approveStatus);
 }
