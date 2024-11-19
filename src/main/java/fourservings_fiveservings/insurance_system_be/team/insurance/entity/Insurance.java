@@ -1,8 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.insurance.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
-import fourservings_fiveservings.insurance_system_be.team.plan.entity.ReviewStatus;
-import fourservings_fiveservings.insurance_system_be.user.entity.User;
+import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -30,9 +29,6 @@ public class Insurance extends BaseEntity {
 
     private String overview;
 
-    @Enumerated(EnumType.STRING)
-    private SaleTarget saleTarget;
-
     private int monthlyPaymentAmount;
 
     private String rewardDetails;
@@ -40,16 +36,9 @@ public class Insurance extends BaseEntity {
     private String saleStrategy;
 
     @Enumerated(EnumType.STRING)
-    private ReviewStatus reviewStatus;
+    private SaleTarget saleTarget;
 
     @ManyToOne
-    private User approveWorker;
+    private Worker worker;
 
-    @ManyToOne
-    private User productDeveloper;
-
-    public void approveProduct(User underwriter) {
-        this.reviewStatus = ReviewStatus.APPROVE;
-        this.approveWorker = underwriter;
-    }
 }
