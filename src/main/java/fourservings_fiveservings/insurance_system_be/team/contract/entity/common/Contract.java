@@ -29,11 +29,11 @@ public abstract class Contract {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     // 1 = 1일
     @Embedded
-    ContractInformation contractInformation;
+    private ContractInformation contractInformation;
 
     @Enumerated(EnumType.STRING)
     private ApproveStatus approveStatus;

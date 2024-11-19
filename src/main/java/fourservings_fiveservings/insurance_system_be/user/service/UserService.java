@@ -3,6 +3,7 @@ package fourservings_fiveservings.insurance_system_be.user.service;
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
 import fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType;
+import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.type.Bank;
 import fourservings_fiveservings.insurance_system_be.user.controller.dto.request.SetAccountRequestDto;
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
@@ -16,12 +17,14 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository<User> userRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public void setAccount(CustomUserDetails customUserDetails, SetAccountRequestDto setAccountRequestDto) {
         Customer customer = customUserDetails.getCustom();
-        customer.addAccountInfo(setAccountRequestDto.bankName(), setAccountRequestDto.accountNumber(), setAccountRequestDto.balance());
+        Bank bank = Bank.fromName(setAccountRequestDto.bankName());
+        customer.addAccountInfo(bank, setAccountRequestDto.accountNumber(), setAccountRequestDto.balance());
+
         userRepository.saveAndFlush(customer);
     }
 

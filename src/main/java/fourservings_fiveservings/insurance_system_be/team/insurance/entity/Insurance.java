@@ -33,7 +33,7 @@ public class Insurance extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private SaleTarget saleTarget;
 
-    private Integer monthlyPaymentAmount;
+    private int monthlyPaymentAmount;
 
     private String rewardDetails;
 

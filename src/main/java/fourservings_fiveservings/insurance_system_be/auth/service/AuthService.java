@@ -22,7 +22,7 @@ public class AuthService {
 
     private final JwtService jwtService;
     private final UserService userService;
-    private final UserRepository<User> userRepository;
+    private final UserRepository userRepository;
 
     private final PasswordEncoder passwordEncoder;
 

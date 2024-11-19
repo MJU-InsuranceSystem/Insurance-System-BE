@@ -1,5 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.user.entity;
 
+import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.type.Bank;
 import fourservings_fiveservings.insurance_system_be.user.entity.embeded.Account;
 import fourservings_fiveservings.insurance_system_be.user.entity.embeded.Address;
 import fourservings_fiveservings.insurance_system_be.user.entity.enums.ContractStatus;
@@ -30,8 +31,11 @@ public class Customer extends User {
         this.account = account;
     }
 
-    public void addAccountInfo(String bankName, String accountNumber, int balance) {
-        this.account = new Account(bankName, accountNumber, balance);
-        System.out.println(bankName + " " + accountNumber + " " + balance);
+    public void addAccountInfo(Bank bank, String accountNumber, int balance) {
+        this.account = new Account(bank, accountNumber, balance);
+    }
+
+    public void payAmount(int monthlyPayment) {
+        this.account.withdraw(monthlyPayment);
     }
 }
