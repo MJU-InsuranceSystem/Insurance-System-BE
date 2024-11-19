@@ -32,7 +32,10 @@ public enum ErrorType {
 
     //file
     NOT_SUPPORTED_FILE_FORMAT(HttpStatus.BAD_REQUEST, "FILE-001", "해당 파일 형식을 지원하지 않습니다."),
-    UPLOAD_FILE_FAILED(HttpStatus.INTERNAL_SERVER_ERROR, "FILE-002", "파일 업로드를 실패했습니다.");
+    UPLOAD_FILE_FAILED(HttpStatus.INTERNAL_SERVER_ERROR, "FILE-002", "파일 업로드를 실패했습니다."),
+
+    //valid
+    NOT_VALID_DATE_FORMAT(HttpStatus.BAD_REQUEST, "VALID-001", "날짜 형식이 올바르지 않습니다.");
 
     private final HttpStatus httpStatus;
     private final String errorCode;

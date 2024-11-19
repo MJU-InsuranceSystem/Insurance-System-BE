@@ -9,16 +9,15 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum SaleTarget {
-    YOUNG("청년층"),
-    MIDDLE_AGED("중년층"),
-    OLDER("노년층");
+public enum PaymentType {
+    MONTH("월별"),
+    YEAR("연별");
 
     private final String description;
 
-    public static SaleTarget findByDescription(String description) {
-        return Arrays.stream(SaleTarget.values())
-            .filter(saleTarget -> Objects.equals(saleTarget.getDescription(), description))
+    public static PaymentType findByDescription(String description) {
+        return Arrays.stream(PaymentType.values())
+            .filter(paymentType -> Objects.equals(paymentType.getDescription(), description))
             .findFirst()
             .orElseThrow(() -> new ResourceNotFoundException(ErrorType.RESOURCE_NOT_FOUND));
     }

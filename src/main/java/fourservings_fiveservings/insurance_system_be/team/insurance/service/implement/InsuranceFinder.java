@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.insurance.implement;
+package fourservings_fiveservings.insurance_system_be.team.insurance.service.implement;
 
 import fourservings_fiveservings.insurance_system_be.common.exception.ResourceNotFoundException;
 import fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType;
