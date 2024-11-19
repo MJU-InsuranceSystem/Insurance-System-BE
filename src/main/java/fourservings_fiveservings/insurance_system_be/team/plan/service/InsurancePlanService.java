@@ -1,14 +1,9 @@
 package fourservings_fiveservings.insurance_system_be.team.plan.service;
 
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.CreatePlanRequestDto;
-import fourservings_fiveservings.insurance_system_be.team.insurance.entity.Insurance;
 import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsurancePlan;
-import fourservings_fiveservings.insurance_system_be.team.plan.repository.InsurancePlanRepository;
 import fourservings_fiveservings.insurance_system_be.team.plan.service.implement.InsurancePlanFinder;
-import fourservings_fiveservings.insurance_system_be.team.plan.service.implement.ProductManager;
-import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

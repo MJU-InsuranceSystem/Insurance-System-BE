@@ -1,12 +1,11 @@
 package fourservings_fiveservings.insurance_system_be.team.contract.service;
 
 import fourservings_fiveservings.insurance_system_be.team.contract.controller.dto.request.CarInsuranceJoinRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.repository.ContractRepository;
 import fourservings_fiveservings.insurance_system_be.team.insurance.entity.Insurance;
-import fourservings_fiveservings.insurance_system_be.team.plan.insurance.ApproveStatus;
-import fourservings_fiveservings.insurance_system_be.team.plan.repository.InsuranceRepository;
-import fourservings_fiveservings.insurance_system_be.team.plan.service.implement.ProductManager;
+import fourservings_fiveservings.insurance_system_be.team.insurance.implement.InsuranceFinder;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -18,14 +17,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class ContractService {
 
-    private final InsuranceRepository insuranceRepository;
-    private final ProductManager productManager;
+    private final InsuranceFinder insuranceFinder;
     private final ContractRepository contractRepository;
 
     @Transactional
     public void processCarContract(User appliedCustomer, Long productId,
         CarInsuranceJoinRequestDto carInsuranceJoinRequestDto) {
-        Insurance insurance = productManager.checkProduct(insuranceRepository.findById(productId));
+        Insurance insurance = insuranceFinder.findById(productId);
         Contract contract = carInsuranceJoinRequestDto.createPendingCarContract(appliedCustomer,
             insurance);
         contractRepository.save(contract);

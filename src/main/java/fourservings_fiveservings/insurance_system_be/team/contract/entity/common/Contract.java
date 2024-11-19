@@ -2,7 +2,6 @@ package fourservings_fiveservings.insurance_system_be.team.contract.entity.commo
 
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.embaded.ContractInformation;
 import fourservings_fiveservings.insurance_system_be.team.insurance.entity.Insurance;
-import fourservings_fiveservings.insurance_system_be.team.plan.insurance.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;

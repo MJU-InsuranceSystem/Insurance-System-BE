@@ -3,7 +3,6 @@ package fourservings_fiveservings.insurance_system_be.team.insurance.entity;
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import fourservings_fiveservings.insurance_system_be.team.plan.entity.RequestStatus;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
-import fourservings_fiveservings.insurance_system_be.team.plan.design.model.SaleTarget;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
