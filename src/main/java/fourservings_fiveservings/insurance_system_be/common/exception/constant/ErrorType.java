@@ -8,11 +8,16 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum ErrorType {
 
+    // payment
+    EXIST_EMAILss(HttpStatus.CONFLICT, "PAYMENT-001", "dsfdf"),
+
     // user
     EXIST_EMAIL(HttpStatus.CONFLICT, "USER-001", "이미 존재하는 이메일입니다."),
     NO_EXIST_EMAIL(HttpStatus.NOT_FOUND, "USER-002", "존재하지 않는 이메일 입니다."),
     MISMATCH_PASSWORD(HttpStatus.BAD_REQUEST, "USER-003", "비밀번호가 일치하지 않습니다."),
     NO_EXIST_USER_TYPE(HttpStatus.BAD_REQUEST, "USER-004", "타입변환할 USER 타입이 없습니다."),
+    NO_EXIST_ACCOUNT_INFO(HttpStatus.BAD_REQUEST, "USER-005", "계좌 정보가 없습니다."),
+    INVALID_BANK_NAME(HttpStatus.BAD_REQUEST, "USER-006", "은행 이름이 올바르지 않습니다."),
 
     // auth
     EXPIRED_TOKEN(HttpStatus.UNAUTHORIZED, "AUTH-001", "토큰이 만료되었습니다."),
