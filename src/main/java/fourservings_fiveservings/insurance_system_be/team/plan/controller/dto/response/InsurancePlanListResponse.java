@@ -19,7 +19,7 @@ public record InsurancePlanListResponse(
             .id(insurancePlan.getId())
             .title(insurancePlan.getTitle())
             .insuranceType(insurancePlan.getInsuranceType().getName())
-            .plannerName(insurancePlan.getWorker().getName())
+            .plannerName(insurancePlan.getPlanner().getName())
             .description(insurancePlan.getDescription())
             .build();
     }

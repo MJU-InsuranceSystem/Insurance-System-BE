@@ -1,7 +1,10 @@
 package fourservings_fiveservings.insurance_system_be.team.plan.entity;
 
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,20 +30,36 @@ public class InsurancePlan {
 
     private String fileName;
 
+    private String comments;
+
+    @Enumerated(EnumType.STRING)
     private InsuranceType insuranceType;
 
-    private RequestStatus requestStatus;
+    @Enumerated(EnumType.STRING)
+    private ReviewStatus reviewStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Worker worker;
+    @Column(name = "planner_id")
+    private Worker planner;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "reviewer_id")
+    private Worker reviewer;
 
     @Builder
-    private InsurancePlan(String title, String description, InsuranceType insuranceType, String fileName, Worker worker) {
+    private InsurancePlan(String title, String description, InsuranceType insuranceType, String fileName, Worker planner, Worker reviewer) {
         this.title = title;
         this.description = description;
         this.fileName = fileName;
-        this.worker = worker;
+        this.planner = planner;
         this.insuranceType = insuranceType;
-        requestStatus = RequestStatus.PENDING;
+        this.reviewer = reviewer;
+        this.reviewStatus = ReviewStatus.PENDING;
+    }
+
+    public void updateReview(Worker reviewer, ReviewStatus reviewStatus, String comments) {
+        this.reviewer = reviewer;
+        this.reviewStatus = reviewStatus;
+        this.comments = comments;
     }
 }

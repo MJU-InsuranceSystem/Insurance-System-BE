@@ -12,7 +12,10 @@ import lombok.RequiredArgsConstructor;
 public enum InsuranceType {
     FIRE("화재보험"),
     CAR("자동차보험"),
-    LIFE("생명보험");
+    LIFE("생명보험"),
+    HEALTH("건강보험"),
+    TRAVEL("여행보험"),
+    CANCER("암보험");
 
     private final String name;
 

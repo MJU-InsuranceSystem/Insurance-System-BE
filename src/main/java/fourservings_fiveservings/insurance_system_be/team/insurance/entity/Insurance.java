@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.insurance.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
-import fourservings_fiveservings.insurance_system_be.team.plan.entity.RequestStatus;
+import fourservings_fiveservings.insurance_system_be.team.plan.entity.ReviewStatus;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -40,7 +40,7 @@ public class Insurance extends BaseEntity {
     private String saleStrategy;
 
     @Enumerated(EnumType.STRING)
-    private RequestStatus requestStatus;
+    private ReviewStatus reviewStatus;
 
     @ManyToOne
     private User approveWorker;
@@ -49,7 +49,7 @@ public class Insurance extends BaseEntity {
     private User productDeveloper;
 
     public void approveProduct(User underwriter) {
-        this.requestStatus = RequestStatus.APPROVE;
+        this.reviewStatus = ReviewStatus.APPROVE;
         this.approveWorker = underwriter;
     }
 }

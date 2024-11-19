@@ -18,7 +18,7 @@ public record CreatePlanRequestDto(
             .title(title)
             .description(description)
             .insuranceType(InsuranceType.findByName(insuranceType))
-            .worker(planner)
+            .planner(planner)
             .fileName(uploadedFileName)
             .build();
     }

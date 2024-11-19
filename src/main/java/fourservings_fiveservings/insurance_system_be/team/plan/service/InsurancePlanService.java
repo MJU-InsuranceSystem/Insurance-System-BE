@@ -2,6 +2,7 @@ package fourservings_fiveservings.insurance_system_be.team.plan.service;
 
 import fourservings_fiveservings.insurance_system_be.file.service.S3Service;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.CreatePlanRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.ReviewPlanRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.response.InsurancePlanListResponse;
 import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsurancePlan;
 import fourservings_fiveservings.insurance_system_be.team.plan.service.implement.InsurancePlanFinder;
@@ -22,9 +23,9 @@ public class InsurancePlanService {
     private final S3Service s3Service;
 
     @Transactional
-    public void createPlan(Worker planner, CreatePlanRequestDto createPlanRequestDto) {
-        String uploadedFileName = s3Service.uploadFile(createPlanRequestDto.file());
-        InsurancePlan insurancePlan = createPlanRequestDto.toEntity(planner, uploadedFileName);
+    public void createPlan(Worker planner, CreatePlanRequestDto requestDto) {
+        String uploadedFileName = s3Service.uploadFile(requestDto.file());
+        InsurancePlan insurancePlan = requestDto.toEntity(planner, uploadedFileName);
         insurancePlanSaver.save(insurancePlan);
     }
 
@@ -33,5 +34,15 @@ public class InsurancePlanService {
         return insurancePlans.stream()
             .map(InsurancePlanListResponse::from)
             .toList();
+    }
+
+    @Transactional
+    public void reviewPlan(
+        Worker reviewer,
+        Long insurancePlanId,
+        ReviewPlanRequestDto requestDto
+    ) {
+        InsurancePlan insurancePlan = insurancePlanFinder.findById(insurancePlanId);
+        insurancePlan.updateReview(reviewer, requestDto.getReviewStatus(), requestDto.comments());
     }
 }

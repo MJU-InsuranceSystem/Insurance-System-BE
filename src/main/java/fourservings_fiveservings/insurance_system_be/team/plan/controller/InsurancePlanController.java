@@ -5,6 +5,7 @@ import fourservings_fiveservings.insurance_system_be.common.response.constant.Su
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.team.plan.api.InsurancePlanApi;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.CreatePlanRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.ReviewPlanRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.response.InsurancePlanListResponse;
 import fourservings_fiveservings.insurance_system_be.team.plan.service.InsurancePlanService;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
@@ -19,8 +20,10 @@ public class InsurancePlanController implements InsurancePlanApi {
     private final InsurancePlanService insurancePlanService;
 
     @Override
-    public ApiResponse<?> createPlan(CustomUserDetails customUserDetails,
-                                        CreatePlanRequestDto createPlanRequestDto) {
+    public ApiResponse<?> createPlan(
+        CustomUserDetails customUserDetails,
+        CreatePlanRequestDto createPlanRequestDto
+    ) {
         Worker planner = customUserDetails.getWorker();
         insurancePlanService.createPlan(planner, createPlanRequestDto);
         return ApiResponse.success(SuccessType.SUCCESS);
@@ -33,10 +36,13 @@ public class InsurancePlanController implements InsurancePlanApi {
     }
 
     @Override
-    public ApiResponse<?> approveProduct(CustomUserDetails customUserDetailsService,
-                                         Long productId) {
-        Worker approveWorker = customUserDetailsService.getWorker();
-//        insurancePlanService.approveProduct(approveWorker, productId);
+    public ApiResponse<?> reviewPlan(
+        CustomUserDetails customUserDetails,
+        Long insurancePlanId,
+        ReviewPlanRequestDto reviewPlanRequestDto
+    ) {
+        Worker reviewer = customUserDetails.getWorker();
+        insurancePlanService.reviewPlan(reviewer, insurancePlanId, reviewPlanRequestDto);
         return ApiResponse.success(SuccessType.SUCCESS);
     }
 }

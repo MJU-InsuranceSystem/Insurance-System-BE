@@ -24,6 +24,7 @@ public class S3Service {
     private final AmazonS3 amazonS3;
 
     public String uploadFile(MultipartFile multipartFile) {
+
         if (multipartFile == null || multipartFile.isEmpty()) {
             return null;
         }
@@ -41,6 +42,14 @@ public class S3Service {
         }
 
         return fileName;
+    }
+
+    public String getFileUrl(String fileName) {
+        if (fileName == null || fileName.isEmpty()) {
+            return null;
+        }
+
+        return amazonS3.getUrl(bucketName, fileName).toString();
     }
 
     private String createFileName(String fileName){
