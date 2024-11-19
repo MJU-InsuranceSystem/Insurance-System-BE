@@ -28,7 +28,7 @@ public interface InsurancePlanApi {
     @GetMapping
     ApiResponse<List<InsurancePlanListResponse>> getAllInsurancePlans();
 
-    @GetMapping("{planId}")
+    @GetMapping("/{planId}")
     ApiResponse<InsurancePlanResponse> getInsurancePlan(@PathVariable("planId") Long planId);
 
     @PatchMapping("/{planId}/review")

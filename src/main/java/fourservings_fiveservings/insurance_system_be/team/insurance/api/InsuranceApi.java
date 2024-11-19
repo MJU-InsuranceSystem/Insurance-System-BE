@@ -25,6 +25,6 @@ public interface InsuranceApi {
     @GetMapping
     ApiResponse<List<InsuranceListResponse>> getAllInsurances();
 
-    @GetMapping("{insuranceId}")
-    ApiResponse<InsuranceResponse> getInsurance(@PathVariable Long insuranceId);
+    @GetMapping("/{insuranceId}")
+    ApiResponse<InsuranceResponse> getInsurance(@PathVariable("insuranceId") Long insuranceId);
 }
