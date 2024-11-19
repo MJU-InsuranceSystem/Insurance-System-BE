@@ -2,8 +2,8 @@ package fourservings_fiveservings.insurance_system_be.team.contract.controller.d
 
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.car.CarContract;
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
-import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
-import fourservings_fiveservings.insurance_system_be.team.product.insurance.ApproveStatus;
+import fourservings_fiveservings.insurance_system_be.team.insurance.entity.Insurance;
+import fourservings_fiveservings.insurance_system_be.team.plan.insurance.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 
 public record CarInsuranceJoinRequestDto(
@@ -13,11 +13,11 @@ public record CarInsuranceJoinRequestDto(
 
 ) {
 
-    public Contract createPendingCarContract(User appliedCustomer, Product product) {
+    public Contract createPendingCarContract(User appliedCustomer, Insurance insurance) {
 
         return CarContract.builder()
             .subscriber(appliedCustomer)
-            .product(product)
+            .insurance(insurance)
             .approveStatus(ApproveStatus.PENDING)
             .contractInformation(contractRequestDto.toContractInformation())
             .license(driverLicenseRequestDto.toLicenseEntity())

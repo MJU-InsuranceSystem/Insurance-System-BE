@@ -1,7 +1,7 @@
-package fourservings_fiveservings.insurance_system_be.team.product.entity;
+package fourservings_fiveservings.insurance_system_be.team.insurance.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
-import fourservings_fiveservings.insurance_system_be.team.product.insurance.ApproveStatus;
+import fourservings_fiveservings.insurance_system_be.team.plan.entity.RequestStatus;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.team.plan.design.model.SaleTarget;
 import jakarta.persistence.Entity;
@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Builder
-public class Product extends BaseEntity {
+public class Insurance extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +41,7 @@ public class Product extends BaseEntity {
     private String saleStrategy;
 
     @Enumerated(EnumType.STRING)
-    private ApproveStatus approveStatus;
+    private RequestStatus requestStatus;
 
     @ManyToOne
     private User approveWorker;
@@ -50,7 +50,7 @@ public class Product extends BaseEntity {
     private User productDeveloper;
 
     public void approveProduct(User underwriter) {
-        this.approveStatus = ApproveStatus.APPROVE;
+        this.requestStatus = RequestStatus.APPROVE;
         this.approveWorker = underwriter;
     }
 }

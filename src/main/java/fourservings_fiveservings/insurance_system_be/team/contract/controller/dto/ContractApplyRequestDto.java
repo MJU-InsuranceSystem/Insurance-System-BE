@@ -2,18 +2,18 @@ package fourservings_fiveservings.insurance_system_be.team.contract.controller.d
 
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.car.CarContract;
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
-import fourservings_fiveservings.insurance_system_be.team.product.entity.Product;
-import fourservings_fiveservings.insurance_system_be.team.product.insurance.ApproveStatus;
+import fourservings_fiveservings.insurance_system_be.team.insurance.entity.Insurance;
+import fourservings_fiveservings.insurance_system_be.team.plan.insurance.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 
 public record ContractApplyRequestDto(
 
 ) {
 
-    public static Contract toEntity(User appliedCustomer, Product product) {
+    public static Contract toEntity(User appliedCustomer, Insurance insurance) {
         return CarContract.builder()
             .subscriber(appliedCustomer)
-            .product(product)
+            .insurance(insurance)
             .approveStatus(ApproveStatus.PENDING)
             .build();
     }
