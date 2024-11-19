@@ -8,18 +8,31 @@ import lombok.Builder;
 @Builder
 public record InsuranceResponse(
     String name,
+
     String description,
+
     int eligibleAgeMin,
+
     int eligibleAgeMax,
+
     String coverageRange,
+
     BigDecimal coverageAmountMax,
+
     int duration,
+
     String exclusions,
+
     BigDecimal monthlyPremium,
+
     LocalDate salesStartDate,
+
     LocalDate salesEndDate,
+
     String saleTarget,
+
     String insuranceType,
+
     String workerName // Worker 엔티티와 연관된 담당자의 이름
 ) {
 

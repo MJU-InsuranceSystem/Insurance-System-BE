@@ -7,12 +7,19 @@ import lombok.Builder;
 @Builder
 public record InsuranceListResponse(
     Long id,
+
     String name,
+
     String description,
+
     String insuranceType,
+
     String saleTarget,
+
     BigDecimal monthlyPremium,
+
     int eligibleAgeMin,
+
     int eligibleAgeMax
 ) {
 
