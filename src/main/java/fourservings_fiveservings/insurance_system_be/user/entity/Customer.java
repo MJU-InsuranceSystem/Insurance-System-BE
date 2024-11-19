@@ -34,4 +34,8 @@ public class Customer extends User {
     public void addAccountInfo(Bank bank, String accountNumber, int balance) {
         this.account = new Account(bank, accountNumber, balance);
     }
+
+    public void payAmount(int monthlyPayment) {
+        this.account.withdraw(monthlyPayment);
+    }
 }

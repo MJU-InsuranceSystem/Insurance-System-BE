@@ -16,7 +16,7 @@ public class UnderWriteService {
     private final ContractRepository contractRepository;
 
     @Transactional
-    public void approveContract(User underwriteManager, Integer contractId) {
+    public void approveContract(User underwriteManager, Long contractId) {
         Contract contract = contractRepository.findById(contractId).orElseThrow(
             EntityNotFoundException::new);
         contract.approveContract(underwriteManager);

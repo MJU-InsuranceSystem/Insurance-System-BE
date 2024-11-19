@@ -8,8 +8,12 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum ErrorType {
 
+    // contract
+    NO_EXIST_CONTRACT(HttpStatus.NOT_FOUND, "CONTRACT-001", "계약 정보가 존재하지 않습니다."),
+
     // payment
-    EXIST_EMAILss(HttpStatus.CONFLICT, "PAYMENT-001", "dsfdf"),
+    INSUFFICIENT_BALANCE(HttpStatus.BAD_REQUEST, "PAYMENT-001", "통장에 돈이 충분하지 않습니다."),
+    INVALID_PAYMENT_AMOUNT(HttpStatus.BAD_REQUEST, "PAYMENT-002", "월 납부액과 일치하지 않습니다."),
 
     // user
     EXIST_EMAIL(HttpStatus.CONFLICT, "USER-001", "이미 존재하는 이메일입니다."),

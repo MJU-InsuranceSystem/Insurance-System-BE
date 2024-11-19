@@ -13,5 +13,5 @@ public interface UnderwriteApi {
 
     @PatchMapping("/{contract-id}")
     ApiResponse<?> approveContract(@AuthenticationPrincipal CustomUserDetails customUserDetails,
-        @PathVariable(value = "contract-id") Integer contractId);
+        @PathVariable(value = "contract-id") Long contractId);
 }

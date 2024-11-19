@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository<User> userRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public void setAccount(CustomUserDetails customUserDetails, SetAccountRequestDto setAccountRequestDto) {
