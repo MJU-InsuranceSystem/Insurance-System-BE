@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.plan.service;
+package fourservings_fiveservings.insurance_system_be.team.plan.service.implement;
 
 import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsurancePlan;
 import fourservings_fiveservings.insurance_system_be.team.plan.repository.InsurancePlanRepository;

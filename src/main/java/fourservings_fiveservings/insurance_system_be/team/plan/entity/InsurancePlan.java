@@ -2,6 +2,8 @@ package fourservings_fiveservings.insurance_system_be.team.plan.entity;
 
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,22 +27,36 @@ public class InsurancePlan {
 
     private String description;
 
-    private String fileUrl;
+    private String fileName;
 
+    private String comments;
+
+    @Enumerated(EnumType.STRING)
     private InsuranceType insuranceType;
 
-    private RequestStatus requestStatus;
+    @Enumerated(EnumType.STRING)
+    private ReviewStatus reviewStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Worker worker;
+    private Worker planner;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Worker reviewer;
 
     @Builder
-    private InsurancePlan(String title, String description, InsuranceType insuranceType, String fileUrl, Worker worker) {
+    private InsurancePlan(String title, String description, InsuranceType insuranceType, String fileName, Worker planner, Worker reviewer) {
         this.title = title;
         this.description = description;
-        this.fileUrl = fileUrl;
-        this.worker = worker;
+        this.fileName = fileName;
+        this.planner = planner;
         this.insuranceType = insuranceType;
-        requestStatus = RequestStatus.PENDING;
+        this.reviewer = reviewer;
+        this.reviewStatus = ReviewStatus.PENDING;
+    }
+
+    public void updateReview(Worker reviewer, ReviewStatus reviewStatus, String comments) {
+        this.reviewer = reviewer;
+        this.reviewStatus = reviewStatus;
+        this.comments = comments;
     }
 }

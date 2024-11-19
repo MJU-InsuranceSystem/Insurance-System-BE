@@ -29,6 +29,9 @@ repositories {
 
 dependencies {
 
+    //cloud
+    implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE' //AWS S3
+
     // jdbc
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     runtimeOnly 'com.mysql:mysql-connector-j'

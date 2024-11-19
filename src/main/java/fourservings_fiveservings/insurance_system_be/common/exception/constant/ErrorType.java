@@ -28,7 +28,11 @@ public enum ErrorType {
     EXPIRED_TOKEN(HttpStatus.UNAUTHORIZED, "AUTH-001", "토큰이 만료되었습니다."),
     INVALID_FORMAT_TOKEN(HttpStatus.BAD_REQUEST, "AUTH-002", "잘못된 JWT 형식입니다."),
     INVALID_SIGNATURE(HttpStatus.UNAUTHORIZED, "AUTH-003", "서명이 올바르지 않습니다."),
-    ERROR_TOKEN(HttpStatus.BAD_REQUEST, "AUTH-004", "JWT 토큰 검증 중 오류 발생");
+    ERROR_TOKEN(HttpStatus.BAD_REQUEST, "AUTH-004", "JWT 토큰 검증 중 오류 발생"),
+
+    //file
+    NOT_SUPPORTED_FILE_FORMAT(HttpStatus.BAD_REQUEST, "FILE-001", "해당 파일 형식을 지원하지 않습니다."),
+    UPLOAD_FILE_FAILED(HttpStatus.INTERNAL_SERVER_ERROR, "FILE-002", "파일 업로드를 실패했습니다.");
 
     private final HttpStatus httpStatus;
     private final String errorCode;

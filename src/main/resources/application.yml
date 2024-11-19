@@ -4,6 +4,22 @@ server:
 spring:
   profiles:
     active: ${ACTIVE_NAME}
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+cloud:
+  aws:
+    credentials:
+      access-key: ${AWS_ACCESS_KEY}
+      secret-key: ${AWS_SECRET_KEY}
+    region:
+      static: ${S3_REGION} #ap-northeast-2
+    s3:
+      bucket-name: ${S3_BUCKET_NAME}
+    stack:
+      auto: false
 
 jwt:
   secret-key: ${JWT_SECRET_KEY}

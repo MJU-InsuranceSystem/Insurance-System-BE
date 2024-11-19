@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.plan.controller.dto;
+package fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request;
 
 import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsurancePlan;
 import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsuranceType;
@@ -13,13 +13,13 @@ public record CreatePlanRequestDto(
     MultipartFile file
 ) {
 
-    public InsurancePlan toEntity(Worker planner, String fileUrl) {
+    public InsurancePlan toEntity(Worker planner, String uploadedFileName) {
         return InsurancePlan.builder()
             .title(title)
             .description(description)
             .insuranceType(InsuranceType.findByName(insuranceType))
-            .worker(planner)
-            .fileUrl(fileUrl)
+            .planner(planner)
+            .fileName(uploadedFileName)
             .build();
     }
 }
