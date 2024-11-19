@@ -34,7 +34,7 @@ public class InsurancePlan extends BaseEntity {
     private String comments;
 
     @Enumerated(EnumType.STRING)
-    private InsuranceType insuranceType;
+    private InsurancePlanType insurancePlanType;
 
     @Enumerated(EnumType.STRING)
     private ReviewStatus reviewStatus;
@@ -48,12 +48,12 @@ public class InsurancePlan extends BaseEntity {
     private Worker reviewer;
 
     @Builder
-    private InsurancePlan(String title, String description, InsuranceType insuranceType, String fileName, Worker planner, Worker reviewer) {
+    private InsurancePlan(String title, String description, InsurancePlanType insurancePlanType, String fileName, Worker planner, Worker reviewer) {
         this.title = title;
         this.description = description;
         this.fileName = fileName;
         this.planner = planner;
-        this.insuranceType = insuranceType;
+        this.insurancePlanType = insurancePlanType;
         this.reviewer = reviewer;
         this.reviewStatus = ReviewStatus.PENDING;
     }

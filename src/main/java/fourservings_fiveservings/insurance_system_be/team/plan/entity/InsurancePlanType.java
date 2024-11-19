@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum InsuranceType {
+public enum InsurancePlanType {
     FIRE("화재보험"),
     CAR("자동차보험"),
     LIFE("생명보험"),
@@ -19,8 +19,8 @@ public enum InsuranceType {
 
     private final String name;
 
-    public static InsuranceType findByName(String name) {
-        return Arrays.stream(InsuranceType.values())
+    public static InsurancePlanType findByName(String name) {
+        return Arrays.stream(InsurancePlanType.values())
             .filter(insuranceType -> Objects.equals(insuranceType.getName(), name))
             .findFirst()
             .orElseThrow(() -> new ResourceNotFoundException(ErrorType.RESOURCE_NOT_FOUND));

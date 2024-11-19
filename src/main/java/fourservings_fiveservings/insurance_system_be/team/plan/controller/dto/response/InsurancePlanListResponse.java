@@ -7,7 +7,7 @@ import lombok.Builder;
 public record InsurancePlanListResponse(
     Long id,
     String title,
-    String insuranceType,
+    String insurancePlanType,
     String plannerName,
     String description
 ) {
@@ -16,7 +16,7 @@ public record InsurancePlanListResponse(
         return InsurancePlanListResponse.builder()
             .id(insurancePlan.getId())
             .title(insurancePlan.getTitle())
-            .insuranceType(insurancePlan.getInsuranceType().getName())
+            .insurancePlanType(insurancePlan.getInsurancePlanType().getName())
             .plannerName(insurancePlan.getPlanner().getName())
             .description(insurancePlan.getDescription())
             .build();
