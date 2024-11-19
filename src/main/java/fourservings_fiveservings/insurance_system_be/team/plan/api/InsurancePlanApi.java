@@ -5,6 +5,7 @@ import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiRespo
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.CreatePlanRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.ReviewPlanRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.response.InsurancePlanListResponse;
+import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.response.InsurancePlanResponse;
 import java.util.List;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,10 +28,13 @@ public interface InsurancePlanApi {
     @GetMapping
     ApiResponse<List<InsurancePlanListResponse>> getAllInsurancePlans();
 
+    @GetMapping("{planId}")
+    ApiResponse<InsurancePlanResponse> getInsurancePlan(@PathVariable("planId") Long planId);
+
     @PatchMapping("/{planId}/review")
     ApiResponse<?> reviewPlan(
         @AuthenticationPrincipal CustomUserDetails customUserDetails,
-        @PathVariable(name = "planId") Long insurancePlanId,
+        @PathVariable(name = "planId") Long planId,
         @RequestBody ReviewPlanRequestDto reviewPlanRequestDto
         );
 }

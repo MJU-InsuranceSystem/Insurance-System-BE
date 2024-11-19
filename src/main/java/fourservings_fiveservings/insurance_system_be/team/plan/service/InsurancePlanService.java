@@ -4,6 +4,7 @@ import fourservings_fiveservings.insurance_system_be.file.service.S3Service;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.CreatePlanRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.ReviewPlanRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.response.InsurancePlanListResponse;
+import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.response.InsurancePlanResponse;
 import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsurancePlan;
 import fourservings_fiveservings.insurance_system_be.team.plan.service.implement.InsurancePlanFinder;
 import fourservings_fiveservings.insurance_system_be.team.plan.service.implement.InsurancePlanSaver;
@@ -39,10 +40,16 @@ public class InsurancePlanService {
     @Transactional
     public void reviewPlan(
         Worker reviewer,
-        Long insurancePlanId,
+        Long planId,
         ReviewPlanRequestDto requestDto
     ) {
-        InsurancePlan insurancePlan = insurancePlanFinder.findById(insurancePlanId);
+        InsurancePlan insurancePlan = insurancePlanFinder.findById(planId);
         insurancePlan.updateReview(reviewer, requestDto.getReviewStatus(), requestDto.comments());
+    }
+
+    public InsurancePlanResponse getInsurancePlan(Long planId) {
+        InsurancePlan insurancePlan = insurancePlanFinder.findById(planId);
+        String fileUrl = s3Service.getFileUrl(insurancePlan.getFileName());
+        return InsurancePlanResponse.of(insurancePlan, fileUrl);
     }
 }

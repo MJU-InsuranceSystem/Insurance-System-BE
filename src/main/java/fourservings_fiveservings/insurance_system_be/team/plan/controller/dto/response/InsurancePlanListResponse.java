@@ -2,10 +2,8 @@ package fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.r
 
 import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsurancePlan;
 import lombok.Builder;
-import lombok.Getter;
 
 @Builder
-@Getter
 public record InsurancePlanListResponse(
     Long id,
     String title,
