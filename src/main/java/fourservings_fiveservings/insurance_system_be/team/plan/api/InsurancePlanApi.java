@@ -3,6 +3,8 @@ package fourservings_fiveservings.insurance_system_be.team.plan.api;
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.CreatePlanRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.response.InsurancePlanListResponse;
+import java.util.List;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,7 +21,7 @@ public interface InsurancePlanApi {
                                  @ModelAttribute CreatePlanRequestDto createPlanRequestDto);
 
     @GetMapping("/plans")
-    ApiResponse<?> getAllInsurancePlans();
+    ApiResponse<List<InsurancePlanListResponse>> getAllInsurancePlans();
 
     @PatchMapping("/{productId}")
     ApiResponse<?> approveProduct(@AuthenticationPrincipal CustomUserDetails customUserDetails,
