@@ -1,5 +1,10 @@
 package fourservings_fiveservings.insurance_system_be.team.payment.service;
 
+import static fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType.INSUFFICIENT_BALANCE;
+import static fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType.INVALID_PAYMENT_AMOUNT;
+import static fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType.NO_EXIST_ACCOUNT_INFO;
+import static fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType.NO_EXIST_CONTRACT;
+
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
@@ -11,8 +16,6 @@ import fourservings_fiveservings.insurance_system_be.user.repository.UserReposit
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import static fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType.*;
 
 @Service
 @Transactional(readOnly = true)
@@ -29,7 +32,7 @@ public class PaymentService {
         Contract contract = contractRepository.findById(contractId)
                 .orElseThrow(() -> new BusinessException(NO_EXIST_CONTRACT));
 
-        int monthlyPaymentAmount = contract.getInsurance().getMonthlyPaymentAmount();
+        int monthlyPaymentAmount = contract.getInsurance().getMonthlyPremium().intValue();
         int customerAccountBalance = customer.getAccount().getBalance();
 
         if (customer.getAccount().getAccountNumber() == null) {
