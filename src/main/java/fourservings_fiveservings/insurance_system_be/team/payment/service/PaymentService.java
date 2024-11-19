@@ -29,7 +29,7 @@ public class PaymentService {
         Contract contract = contractRepository.findById(contractId)
                 .orElseThrow(() -> new BusinessException(NO_EXIST_CONTRACT));
 
-        int monthlyPaymentAmount = contract.getProduct().getMonthlyPaymentAmount();
+        int monthlyPaymentAmount = contract.getInsurance().getMonthlyPaymentAmount();
         int customerAccountBalance = customer.getAccount().getBalance();
 
         if (customer.getAccount().getAccountNumber() == null) {
