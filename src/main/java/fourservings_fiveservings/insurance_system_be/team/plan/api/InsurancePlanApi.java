@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping(value = "/api/insurances/plans", produces = "application/json;charset=utf-8")
+@RequestMapping(value = "/api/insurances/plans")
 public interface InsurancePlanApi {
 
     @PostMapping

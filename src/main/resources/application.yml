@@ -15,7 +15,7 @@ cloud:
       access-key: ${AWS_ACCESS_KEY}
       secret-key: ${AWS_SECRET_KEY}
     region:
-      static: ${S3_REGION} #ap-northeast-2
+      static: ${S3_REGION}
     s3:
       bucket-name: ${S3_BUCKET_NAME}
     stack:
