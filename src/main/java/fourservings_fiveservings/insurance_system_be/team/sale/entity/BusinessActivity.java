@@ -13,9 +13,4 @@ public class BusinessActivity {
 	public BusinessActivity(){
 
 	}
-
-	public void finalize() throws Throwable {
-
-	}
-
 }
