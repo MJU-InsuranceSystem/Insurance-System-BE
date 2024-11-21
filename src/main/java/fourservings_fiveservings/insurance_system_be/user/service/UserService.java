@@ -2,7 +2,6 @@ package fourservings_fiveservings.insurance_system_be.user.service;
 
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
-import fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType;
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.type.Bank;
 import fourservings_fiveservings.insurance_system_be.user.controller.dto.request.SetAccountRequestDto;
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
@@ -11,6 +10,8 @@ import fourservings_fiveservings.insurance_system_be.user.repository.UserReposit
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import static fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType.NO_EXIST_EMAIL;
 
 @Service
 @Transactional(readOnly = true)
@@ -25,7 +26,7 @@ public class UserService {
         Bank bank = Bank.fromName(setAccountRequestDto.bankName());
         customer.addAccountInfo(bank, setAccountRequestDto.accountNumber(), setAccountRequestDto.balance());
 
-        userRepository.saveAndFlush(customer);
+        userRepository.save(customer);
     }
 
     public boolean isEmailExists(String email) {
@@ -34,6 +35,6 @@ public class UserService {
 
     public User getUserInfoByEmail(String email) {
         return userRepository.findByEmail(email)
-                .orElseThrow(() -> new BusinessException(ErrorType.NO_EXIST_EMAIL));
+                .orElseThrow(() -> new BusinessException(NO_EXIST_EMAIL));
     }
 }
