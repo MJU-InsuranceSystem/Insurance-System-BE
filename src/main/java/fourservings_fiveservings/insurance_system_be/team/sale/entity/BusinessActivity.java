@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.sale.model;
+package fourservings_fiveservings.insurance_system_be.team.sale.entity;
 /**
  * @author USER
  * @version 1.0
