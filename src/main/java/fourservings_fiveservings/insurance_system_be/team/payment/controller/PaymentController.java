@@ -22,4 +22,10 @@ public class PaymentController implements PaymentApi {
         paymentService.pay(userDetails, contractId, payRequestDto);
         return ApiResponse.success(SuccessType.SUCCESS);
     }
+
+    @Override
+    public ApiResponse<?> getPayments(CustomUserDetails userDetails, Long contractId) {
+        paymentService.getPaymentsByContractId(userDetails, contractId);
+        return null;
+    }
 }

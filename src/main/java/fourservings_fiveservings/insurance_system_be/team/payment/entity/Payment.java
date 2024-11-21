@@ -6,6 +6,7 @@ import fourservings_fiveservings.insurance_system_be.team.contract.entity.common
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,7 +20,7 @@ public class Payment extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int amount;
+    private BigDecimal amount;
 
     private LocalDateTime paymentDate;
 

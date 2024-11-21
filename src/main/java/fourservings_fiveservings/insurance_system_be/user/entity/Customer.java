@@ -11,6 +11,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -31,11 +33,11 @@ public class Customer extends User {
         this.account = account;
     }
 
-    public void addAccountInfo(Bank bank, String accountNumber, int balance) {
+    public void addAccountInfo(Bank bank, String accountNumber, BigDecimal balance) {
         this.account = new Account(bank, accountNumber, balance);
     }
 
-    public void payAmount(int monthlyPayment) {
+    public void payAmount(BigDecimal monthlyPayment) {
         this.account.withdraw(monthlyPayment);
     }
 }
