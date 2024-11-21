@@ -46,7 +46,6 @@ public class PaymentService {
         if (payRequestDto.amount().compareTo(monthlyPaymentAmount) != 0) {
             throw new BusinessException(INVALID_PAYMENT_AMOUNT);
         }
-        // 은행이 일치하는지도 validate
 
         paymentRepository.save(payRequestDto.toPayment(contract));
         customer.payAmount(monthlyPaymentAmount);
