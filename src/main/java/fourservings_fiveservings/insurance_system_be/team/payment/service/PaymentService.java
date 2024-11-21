@@ -9,7 +9,7 @@ import fourservings_fiveservings.insurance_system_be.team.payment.controller.dto
 import fourservings_fiveservings.insurance_system_be.team.payment.entity.Payment;
 import fourservings_fiveservings.insurance_system_be.team.payment.repository.PaymentRepository;
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
-import fourservings_fiveservings.insurance_system_be.user.repository.UserRepository;
+import fourservings_fiveservings.insurance_system_be.user.service.implement.UserSaver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,9 +25,9 @@ import static fourservings_fiveservings.insurance_system_be.common.exception.con
 public class PaymentService {
 
     private final ContractFinder contractFinder;
+    private final UserSaver userSaver;
 
     private final PaymentRepository paymentRepository;
-    private final UserRepository userRepository;
 
     @Transactional
     public void pay(CustomUserDetails customUserDetails, Long contractId, PayRequestDto payRequestDto) {
@@ -49,7 +49,7 @@ public class PaymentService {
 
         paymentRepository.save(payRequestDto.toPayment(contract));
         customer.payAmount(monthlyPaymentAmount);
-        userRepository.saveAndFlush(customer);
+        userSaver.save(customer);
     }
 
     public List<PaymentListResponse> getPaymentsByContractId(Long contractId) {
