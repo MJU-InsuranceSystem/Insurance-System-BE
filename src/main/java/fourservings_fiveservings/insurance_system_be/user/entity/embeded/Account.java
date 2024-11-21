@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Getter
 @Embeddable
 @NoArgsConstructor
@@ -16,9 +18,9 @@ public class Account {
 
     private String accountNumber;
 
-    private int balance;
+    private BigDecimal balance;
 
-    public void withdraw(int monthlyPayment) {
-        this.balance -= monthlyPayment;
+    public void withdraw(BigDecimal monthlyPayment) {
+        this.balance = this.balance.subtract(monthlyPayment);
     }
 }

@@ -3,10 +3,11 @@ package fourservings_fiveservings.insurance_system_be.team.payment.controller.dt
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.payment.entity.Payment;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public record PayRequestDto(
-        int amount,
+        BigDecimal amount,
 
         LocalDateTime paymentDate,
 
