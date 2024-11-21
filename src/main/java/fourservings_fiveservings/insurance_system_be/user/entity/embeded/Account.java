@@ -21,6 +21,6 @@ public class Account {
     private BigDecimal balance;
 
     public void withdraw(BigDecimal monthlyPayment) {
-        this.balance -= monthlyPayment;
+        this.balance = this.balance.subtract(monthlyPayment);
     }
 }
