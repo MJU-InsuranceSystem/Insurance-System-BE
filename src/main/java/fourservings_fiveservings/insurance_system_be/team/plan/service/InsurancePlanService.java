@@ -9,10 +9,11 @@ import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsuranceP
 import fourservings_fiveservings.insurance_system_be.team.plan.service.implement.InsurancePlanFinder;
 import fourservings_fiveservings.insurance_system_be.team.plan.service.implement.InsurancePlanSaver;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -33,15 +34,15 @@ public class InsurancePlanService {
     public List<InsurancePlanListResponse> getAll() {
         List<InsurancePlan> insurancePlans = insurancePlanFinder.getAll();
         return insurancePlans.stream()
-            .map(InsurancePlanListResponse::from)
-            .toList();
+                .map(InsurancePlanListResponse::from)
+                .toList();
     }
 
     @Transactional
     public void reviewPlan(
-        Worker reviewer,
-        Long planId,
-        ReviewPlanRequestDto requestDto
+            Worker reviewer,
+            Long planId,
+            ReviewPlanRequestDto requestDto
     ) {
         InsurancePlan insurancePlan = insurancePlanFinder.findById(planId);
         insurancePlan.updateReview(reviewer, requestDto.getReviewStatus(), requestDto.comments());
