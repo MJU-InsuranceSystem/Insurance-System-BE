@@ -20,7 +20,7 @@ public enum ErrorType {
     NO_EXIST_EMAIL(HttpStatus.NOT_FOUND, "USER-002", "존재하지 않는 이메일 입니다."),
     MISMATCH_PASSWORD(HttpStatus.BAD_REQUEST, "USER-003", "비밀번호가 일치하지 않습니다."),
     NO_EXIST_USER_TYPE(HttpStatus.BAD_REQUEST, "USER-004", "타입변환할 USER 타입이 없습니다."),
-    RESOURCE_NOT_FOUND(HttpStatus.BAD_REQUEST, "USER-005", "해당 자원을 찾을 수 없습니다."),
+    RESOURCE_NOT_FOUND(HttpStatus.NOT_FOUND, "USER-005", "해당 자원을 찾을 수 없습니다."),
     NO_EXIST_ACCOUNT_INFO(HttpStatus.BAD_REQUEST, "USER-005", "계좌 정보가 없습니다."),
     INVALID_BANK_NAME(HttpStatus.BAD_REQUEST, "USER-006", "은행 이름이 올바르지 않습니다."),
 

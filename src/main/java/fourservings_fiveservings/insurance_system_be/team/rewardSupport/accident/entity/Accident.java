@@ -3,25 +3,25 @@ package fourservings_fiveservings.insurance_system_be.team.rewardSupport.acciden
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
+import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity.enums.AccidentType;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-/**
- * @author USER
- * @version 1.0
- */
+
 @Getter
 @Entity
+@Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class Accident extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private LocalDateTime accidentDate;
 
@@ -29,9 +29,17 @@ public class Accident extends BaseEntity {
 
     private String location;
 
-    private int damageAmount;
+    private BigDecimal damageAmount;
+
+    private String fileName;
+
+    @Enumerated(EnumType.STRING)
+    private AccidentType accidentType;
 
     @ManyToOne
     private Contract contract;
+
+    @ManyToOne
+    private Customer customer;
 
 }

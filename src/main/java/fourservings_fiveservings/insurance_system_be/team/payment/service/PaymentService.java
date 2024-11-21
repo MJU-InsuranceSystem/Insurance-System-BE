@@ -40,11 +40,9 @@ public class PaymentService {
         if (customer.getAccount() == null || customer.getAccount().getAccountNumber() == null) {
             throw new BusinessException(NO_EXIST_ACCOUNT_INFO);
         }
-
         if (monthlyPaymentAmount.compareTo(customerAccountBalance) > 0) {
             throw new BusinessException(INSUFFICIENT_BALANCE);
         }
-
         if (payRequestDto.amount().compareTo(monthlyPaymentAmount) != 0) {
             throw new BusinessException(INVALID_PAYMENT_AMOUNT);
         }
