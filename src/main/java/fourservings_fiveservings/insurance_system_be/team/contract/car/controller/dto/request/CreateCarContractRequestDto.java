@@ -1,19 +1,20 @@
-package fourservings_fiveservings.insurance_system_be.team.contract.controller.dto.request;
+package fourservings_fiveservings.insurance_system_be.team.contract.car.controller.dto.request;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.car.CarContract;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.ApproveStatus;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.CreateContractRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.contract.car.entity.CarContract;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.controller.dto.request.ContractRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.team.insurance.entity.Insurance;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 
-public record CarInsuranceJoinRequestDto(
+public record CreateCarContractRequestDto(
     ContractRequestDto contractRequestDto,
     DriverLicenseRequestDto driverLicenseRequestDto,
     CarRequestDto carRequestDto
 
-) {
+) implements CreateContractRequestDto {
 
-    public Contract createPendingCarContract(User appliedCustomer, Insurance insurance) {
+    public CarContract createPendingContract(User appliedCustomer, Insurance insurance) {
 
         return CarContract.builder()
             .subscriber(appliedCustomer)

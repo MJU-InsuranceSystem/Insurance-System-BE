@@ -1,8 +1,8 @@
-package fourservings_fiveservings.insurance_system_be.team.contract.controller.dto.request;
+package fourservings_fiveservings.insurance_system_be.team.contract.car.controller.dto.request;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.car.embaded.CarInformation;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.car.type.CarType;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.car.type.OwnershipStatus;
+import fourservings_fiveservings.insurance_system_be.team.contract.car.entity.embaded.CarInformation;
+import fourservings_fiveservings.insurance_system_be.team.contract.car.entity.type.CarType;
+import fourservings_fiveservings.insurance_system_be.team.contract.car.entity.type.OwnershipStatus;
 import java.time.LocalDate;
 
 public record CarRequestDto(

@@ -5,17 +5,16 @@ import fourservings_fiveservings.insurance_system_be.common.exception.constant.E
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
-import lombok.Getter;
+import fourservings_fiveservings.insurance_system_be.user.entity.enums.UserType;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-@Getter
+//@Getter
 @RequiredArgsConstructor
 public class CustomUserDetails implements UserDetails {
 
@@ -70,6 +69,10 @@ public class CustomUserDetails implements UserDetails {
             return (Worker) user;
         }
         throw new BusinessException(ErrorType.NO_EXIST_USER_TYPE);
+    }
+
+    public UserType getRole() {
+        return user.getUserType();
     }
 }
 
