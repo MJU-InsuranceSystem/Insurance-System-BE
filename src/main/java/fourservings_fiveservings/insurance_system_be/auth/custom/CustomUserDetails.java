@@ -6,15 +6,17 @@ import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import fourservings_fiveservings.insurance_system_be.user.entity.enums.UserType;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-//@Getter
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+@Getter
 @RequiredArgsConstructor
 public class CustomUserDetails implements UserDetails {
 

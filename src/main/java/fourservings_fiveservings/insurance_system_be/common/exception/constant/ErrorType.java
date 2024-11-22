@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum ErrorType {
 
+    NO_EXIST_ACCIDENT(HttpStatus.NOT_FOUND, "ACCIDENT-001", "사건 정보가 존재하지 않습니다."),
+
     // contract
     NO_EXIST_CONTRACT(HttpStatus.NOT_FOUND, "CONTRACT-001", "계약 정보가 존재하지 않습니다."),
 
