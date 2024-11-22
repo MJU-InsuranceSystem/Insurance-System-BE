@@ -7,6 +7,8 @@ import lombok.Builder;
 
 @Builder
 public record InsuranceResponse(
+    Long id,
+
     String name,
 
     String description,
@@ -38,6 +40,7 @@ public record InsuranceResponse(
 
     public static InsuranceResponse from(Insurance insurance) {
         return InsuranceResponse.builder()
+            .id(insurance.getId())
             .name(insurance.getName())
             .description(insurance.getDescription())
             .eligibleAgeMin(insurance.getEligibleAgeMin())

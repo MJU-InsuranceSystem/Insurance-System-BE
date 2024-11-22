@@ -16,6 +16,7 @@ public record AccidentResponseDto(
         String fileUrl,
         String accidentType,
         String customerName,
+        String liabilityStatus,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
 ) {
@@ -30,6 +31,7 @@ public record AccidentResponseDto(
                 .fileUrl(fileUrl)
                 .accidentType(accident.getFileName())
                 .customerName(accident.getCustomer().getName())
+                .liabilityStatus(accident.getLiabilityStatus().getDescription())
                 .createdAt(accident.getCreatedAt())
                 .updatedAt(accident.getUpdatedAt())
                 .build();
