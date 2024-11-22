@@ -46,7 +46,7 @@ public class Accident extends BaseEntity {
     private Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Worker reviewr;
+    private Worker reviewer;
 
     @Builder
     private Accident(
