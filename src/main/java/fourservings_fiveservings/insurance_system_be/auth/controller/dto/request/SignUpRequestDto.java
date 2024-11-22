@@ -1,5 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.auth.controller.dto.request;
 
+import fourservings_fiveservings.insurance_system_be.user.entity.enums.Role;
 import fourservings_fiveservings.insurance_system_be.user.entity.enums.UserType;
 import fourservings_fiveservings.insurance_system_be.user.entity.embeded.Address;
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
@@ -8,23 +9,27 @@ import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 
 public record SignUpRequestDto(
 
-    String password,
+        String password,
 
-    String email,
+        String email,
 
-    String phoneNumber,
+        String phoneNumber,
 
-    String country,
+        String country,
 
-    String city,
+        String city,
 
-    String zipCode,
+        String zipCode,
 
-    String name,
+        String name,
 
-    String birthDay,
+        String birthDay,
 
-    UserType userType
+        UserType userType,
+
+        int hireYear,
+
+        String role
 ) {
     public User toCustomer(String encodedPassword) {
         return Customer.builder()
@@ -47,6 +52,8 @@ public record SignUpRequestDto(
                 .name(name)
                 .birthDay(birthDay)
                 .userType(userType)
+                .hireYear(hireYear)
+                .role(Role.findByName(role))
                 .build();
     }
 }

@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@DiscriminatorValue("Worker")
+@DiscriminatorValue("WORKER")
 public class Worker extends User {
 
     private int hireYear;
