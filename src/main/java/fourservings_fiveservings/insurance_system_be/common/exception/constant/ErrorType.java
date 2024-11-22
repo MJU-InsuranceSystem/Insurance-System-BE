@@ -29,6 +29,7 @@ public enum ErrorType {
     INVALID_FORMAT_TOKEN(HttpStatus.BAD_REQUEST, "AUTH-002", "잘못된 JWT 형식입니다."),
     INVALID_SIGNATURE(HttpStatus.UNAUTHORIZED, "AUTH-003", "서명이 올바르지 않습니다."),
     ERROR_TOKEN(HttpStatus.BAD_REQUEST, "AUTH-004", "JWT 토큰 검증 중 오류 발생"),
+    NO_EXIST_PERMISSION(HttpStatus.UNAUTHORIZED, "AUTH-005", "권한이 존재하지 않습니다."),
 
     //file
     NOT_SUPPORTED_FILE_FORMAT(HttpStatus.BAD_REQUEST, "FILE-001", "해당 파일 형식을 지원하지 않습니다."),
