@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Builder
-public record AccidentListResponseDto(
+public record AccidentResponseDto(
         Long id,
         LocalDateTime accidentDate,
         String description,
@@ -18,8 +18,8 @@ public record AccidentListResponseDto(
         String customerName
 ) {
 
-    public static AccidentListResponseDto from(Accident accident, String fileUrl) {
-        return AccidentListResponseDto.builder()
+    public static AccidentResponseDto from(Accident accident, String fileUrl) {
+        return AccidentResponseDto.builder()
                 .id(accident.getId())
                 .accidentDate(accident.getAccidentDate())
                 .description(accident.getDescription())

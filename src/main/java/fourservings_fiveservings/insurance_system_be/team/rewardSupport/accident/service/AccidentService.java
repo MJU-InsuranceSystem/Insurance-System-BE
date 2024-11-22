@@ -6,7 +6,7 @@ import fourservings_fiveservings.insurance_system_be.file.service.S3Service;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.service.implement.ContractFinder;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.request.RegisterAccidentRequestDto;
-import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.response.AccidentListResponseDto;
+import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.response.AccidentResponseDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity.Accident;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.repository.AccidentRepository;
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
@@ -40,7 +40,7 @@ public class AccidentService {
         accidentRepository.save(accident);
     }
 
-    public List<AccidentListResponseDto> getAllAccidents(CustomUserDetails customUserDetails) {
+    public List<AccidentResponseDto> getAllAccidents(CustomUserDetails customUserDetails) {
         User user = customUserDetails.getUser();
         if (user instanceof Customer customer) {
             List<Accident> accidentsByCustomer = accidentRepository.findAllByCustomerId(customer.getId());
@@ -51,7 +51,7 @@ public class AccidentService {
             return accidentsByCustomer.stream()
                     .map(accident -> {
                         String fileUrl = s3Service.getFileUrl(accident.getFileName());
-                        return AccidentListResponseDto.from(accident, fileUrl);
+                        return AccidentResponseDto.from(accident, fileUrl);
                     })
                     .toList();
         }
@@ -64,8 +64,15 @@ public class AccidentService {
         return accidents.stream()
                 .map(accident -> {
                     String fileUrl = s3Service.getFileUrl(accident.getFileName());
-                    return AccidentListResponseDto.from(accident, fileUrl);
+                    return AccidentResponseDto.from(accident, fileUrl);
                 })
                 .toList();
+    }
+
+    public AccidentResponseDto getAccident(Long accidentId) {
+        Accident accident = accidentRepository.findById(accidentId)
+                .orElseThrow(() -> new BusinessException(NO_EXIST_ACCIDENT));
+        String fileUrl = s3Service.getFileUrl(accident.getFileName());
+        return AccidentResponseDto.from(accident, fileUrl);
     }
 }
