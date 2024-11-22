@@ -9,6 +9,7 @@ public record InsurancePlanResponse(
     String description,
     String plannerName,
     String insurancePlanType,
+    String reviewStatus,
     String fileUrl
 ) {
 
@@ -18,6 +19,7 @@ public record InsurancePlanResponse(
             .description(insurancePlan.getDescription())
             .plannerName(insurancePlan.getPlanner().getName())
             .insurancePlanType(insurancePlan.getInsurancePlanType().getName())
+            .reviewStatus(insurancePlan.getReviewStatus().name())
             .fileUrl(fileUrl)
             .build();
     }
