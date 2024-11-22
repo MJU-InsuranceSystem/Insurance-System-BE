@@ -25,4 +25,5 @@ public enum InsuranceType {
             .findFirst()
             .orElseThrow(() -> new ResourceNotFoundException(ErrorType.RESOURCE_NOT_FOUND));
     }
+
 }

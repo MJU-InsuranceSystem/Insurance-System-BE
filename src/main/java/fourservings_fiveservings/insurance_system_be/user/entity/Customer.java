@@ -1,11 +1,15 @@
 package fourservings_fiveservings.insurance_system_be.user.entity;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.type.Bank;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.type.Bank;
 import fourservings_fiveservings.insurance_system_be.user.entity.embeded.Account;
 import fourservings_fiveservings.insurance_system_be.user.entity.embeded.Address;
 import fourservings_fiveservings.insurance_system_be.user.entity.enums.ContractStatus;
 import fourservings_fiveservings.insurance_system_be.user.entity.enums.UserType;
-import jakarta.persistence.*;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,7 +31,8 @@ public class Customer extends User {
 
     @Builder
     private Customer(String password, String email, String phoneNumber, Address address,
-                     String name, String birthDay, UserType userType, Account account, ContractStatus contractStatus) {
+        String name, String birthDay, UserType userType, Account account,
+        ContractStatus contractStatus) {
         super(password, email, phoneNumber, address, name, birthDay, userType);
         this.contractStatus = ContractStatus.NONE;
         this.account = account;

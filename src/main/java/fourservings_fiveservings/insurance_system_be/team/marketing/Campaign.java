@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.marketing;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.embaded.ContractInformation;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.embaded.ContractInformation;
 
 /**
  * @author USER
