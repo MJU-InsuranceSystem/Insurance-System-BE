@@ -25,6 +25,7 @@ public enum ErrorType {
     RESOURCE_NOT_FOUND(HttpStatus.NOT_FOUND, "USER-005", "해당 자원을 찾을 수 없습니다."),
     NO_EXIST_ACCOUNT_INFO(HttpStatus.BAD_REQUEST, "USER-005", "계좌 정보가 없습니다."),
     INVALID_BANK_NAME(HttpStatus.BAD_REQUEST, "USER-006", "은행 이름이 올바르지 않습니다."),
+    NO_EXIST_USER(HttpStatus.NOT_FOUND, "USER-007", "존재하지 않는 유저입니다."),
 
     // auth
     EXPIRED_TOKEN(HttpStatus.UNAUTHORIZED, "AUTH-001", "토큰이 만료되었습니다."),
