@@ -20,7 +20,7 @@ public enum ErrorType {
     NO_EXIST_EMAIL(HttpStatus.NOT_FOUND, "USER-002", "존재하지 않는 이메일 입니다."),
     MISMATCH_PASSWORD(HttpStatus.BAD_REQUEST, "USER-003", "비밀번호가 일치하지 않습니다."),
     NO_EXIST_USER_TYPE(HttpStatus.BAD_REQUEST, "USER-004", "타입변환할 USER 타입이 없습니다."),
-    RESOURCE_NOT_FOUND(HttpStatus.BAD_REQUEST, "USER-005", "해당 자원을 찾을 수 없습니다."),
+    RESOURCE_NOT_FOUND(HttpStatus.NOT_FOUND, "USER-005", "해당 자원을 찾을 수 없습니다."),
     NO_EXIST_ACCOUNT_INFO(HttpStatus.BAD_REQUEST, "USER-005", "계좌 정보가 없습니다."),
     INVALID_BANK_NAME(HttpStatus.BAD_REQUEST, "USER-006", "은행 이름이 올바르지 않습니다."),
 
@@ -29,6 +29,7 @@ public enum ErrorType {
     INVALID_FORMAT_TOKEN(HttpStatus.BAD_REQUEST, "AUTH-002", "잘못된 JWT 형식입니다."),
     INVALID_SIGNATURE(HttpStatus.UNAUTHORIZED, "AUTH-003", "서명이 올바르지 않습니다."),
     ERROR_TOKEN(HttpStatus.BAD_REQUEST, "AUTH-004", "JWT 토큰 검증 중 오류 발생"),
+    NO_EXIST_PERMISSION(HttpStatus.UNAUTHORIZED, "AUTH-005", "권한이 존재하지 않습니다."),
 
     //file
     NOT_SUPPORTED_FILE_FORMAT(HttpStatus.BAD_REQUEST, "FILE-001", "해당 파일 형식을 지원하지 않습니다."),

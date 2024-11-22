@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/api/underwrite", produces = "application/json;charset=utf-8")
 public interface UnderwriteApi {
     // 고객 계약 허가
-
+    
     @PatchMapping("/{contract-id}")
     ApiResponse<?> approveContract(@AuthenticationPrincipal CustomUserDetails customUserDetails,
         @PathVariable(value = "contract-id") Long contractId);

@@ -1,12 +1,23 @@
 package fourservings_fiveservings.insurance_system_be.team.payment.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.type.PaymentMethod;
-import jakarta.persistence.*;
-import lombok.*;
-
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.type.PaymentMethod;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
@@ -19,7 +30,7 @@ public class Payment extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int amount;
+    private BigDecimal amount;
 
     private LocalDateTime paymentDate;
 
