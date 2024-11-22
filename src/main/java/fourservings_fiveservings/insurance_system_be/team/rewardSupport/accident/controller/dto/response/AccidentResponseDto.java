@@ -15,7 +15,9 @@ public record AccidentResponseDto(
         BigDecimal damageAmount,
         String fileUrl,
         String accidentType,
-        String customerName
+        String customerName,
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt
 ) {
 
     public static AccidentResponseDto from(Accident accident, String fileUrl) {
@@ -28,6 +30,8 @@ public record AccidentResponseDto(
                 .fileUrl(fileUrl)
                 .accidentType(accident.getFileName())
                 .customerName(accident.getCustomer().getName())
+                .createdAt(accident.getCreatedAt())
+                .updatedAt(accident.getUpdatedAt())
                 .build();
     }
 }
