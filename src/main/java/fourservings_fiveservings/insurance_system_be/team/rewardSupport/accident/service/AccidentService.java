@@ -2,7 +2,7 @@ package fourservings_fiveservings.insurance_system_be.team.rewardSupport.acciden
 
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.file.service.S3Service;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.service.implement.ContractFinder;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.request.RegisterAccidentRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity.Accident;
@@ -22,12 +22,14 @@ public class AccidentService {
     private final AccidentRepository accidentRepository;
 
     @Transactional
-    public void createAccident(CustomUserDetails customUserDetails, Long contractId, RegisterAccidentRequestDto registerAccidentRequestDto) {
+    public void createAccident(CustomUserDetails customUserDetails, Long contractId,
+        RegisterAccidentRequestDto registerAccidentRequestDto) {
         Customer customer = customUserDetails.getCustom();
         Contract contract = contractFinder.findById(contractId);
         String uploadFileName = s3Service.uploadFile(registerAccidentRequestDto.file());
 
-        Accident accident = registerAccidentRequestDto.toAccident(customer, contract, uploadFileName);
+        Accident accident = registerAccidentRequestDto.toAccident(customer, contract,
+            uploadFileName);
         accidentRepository.save(accident);
     }
 }
