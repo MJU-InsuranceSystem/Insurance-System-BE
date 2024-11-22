@@ -34,7 +34,10 @@ public class InsurancePlanService {
     public List<InsurancePlanListResponse> getAll() {
         List<InsurancePlan> insurancePlans = insurancePlanFinder.getAll();
         return insurancePlans.stream()
-                .map(InsurancePlanListResponse::from)
+                .map(insurancePlan -> {
+                    String fileUrl = s3Service.getFileUrl(insurancePlan.getFileName());
+                    return InsurancePlanListResponse.from(insurancePlan, fileUrl);
+                })
                 .toList();
     }
 

@@ -9,16 +9,20 @@ public record InsurancePlanListResponse(
     String title,
     String insurancePlanType,
     String plannerName,
-    String description
+    String description,
+    String reviewStatus,
+    String fileUrl
 ) {
 
-    public static InsurancePlanListResponse from(InsurancePlan insurancePlan) {
+    public static InsurancePlanListResponse from(InsurancePlan insurancePlan, String fileUrl) {
         return InsurancePlanListResponse.builder()
             .id(insurancePlan.getId())
             .title(insurancePlan.getTitle())
             .insurancePlanType(insurancePlan.getInsurancePlanType().getName())
             .plannerName(insurancePlan.getPlanner().getName())
             .description(insurancePlan.getDescription())
+            .reviewStatus(insurancePlan.getReviewStatus().name())
+            .fileUrl(fileUrl)
             .build();
     }
 }
