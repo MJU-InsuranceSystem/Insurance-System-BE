@@ -1,8 +1,8 @@
-package fourservings_fiveservings.insurance_system_be.team.contract.controller.dto.request;
+package fourservings_fiveservings.insurance_system_be.team.contract.common.controller.dto.request;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.embaded.ContractInformation;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.type.Bank;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.type.PaymentMethod;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.embaded.ContractInformation;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.type.Bank;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.type.PaymentMethod;
 import java.time.LocalDate;
 
 public record ContractRequestDto(

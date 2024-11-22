@@ -1,7 +1,7 @@
-package fourservings_fiveservings.insurance_system_be.team.contract.entity.common.embaded;
+package fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.embaded;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.type.Bank;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.type.PaymentMethod;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.type.Bank;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.type.PaymentMethod;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -22,10 +22,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ContractInformation {
 
-    private LocalDate startDate;
-
-    private LocalDate endDate;
-
     private int paymentDate;
 
     @Enumerated(EnumType.STRING)
@@ -35,6 +31,10 @@ public class ContractInformation {
 
     @Enumerated(EnumType.STRING)
     private Bank bank;
+
+    private LocalDate startDate;
+
+    private LocalDate endDate;
 
 //    private Insurance insurance;
 }

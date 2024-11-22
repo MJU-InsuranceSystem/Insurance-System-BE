@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.contract.entity.common.type;
+package fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.type;
 
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
 import lombok.Getter;

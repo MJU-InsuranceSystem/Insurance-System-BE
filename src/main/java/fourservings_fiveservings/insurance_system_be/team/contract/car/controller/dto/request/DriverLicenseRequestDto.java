@@ -1,7 +1,7 @@
-package fourservings_fiveservings.insurance_system_be.team.contract.controller.dto.request;
+package fourservings_fiveservings.insurance_system_be.team.contract.car.controller.dto.request;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.car.embaded.License;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.car.type.LicenseType;
+import fourservings_fiveservings.insurance_system_be.team.contract.car.entity.embaded.License;
+import fourservings_fiveservings.insurance_system_be.team.contract.car.entity.type.LicenseType;
 import java.time.LocalDate;
 
 public record DriverLicenseRequestDto(
@@ -19,5 +19,5 @@ public record DriverLicenseRequestDto(
             .validityPeriod(this.validityPeriod())
             .build();
     }
-    
+
 }

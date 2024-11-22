@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.contract.entity.car.type;
+package fourservings_fiveservings.insurance_system_be.team.contract.car.entity.type;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -10,5 +10,5 @@ public enum OwnershipStatus {
     LEASE("리스"),
     RENTAL("렌탈");
     private final String label;
-    
+
 }

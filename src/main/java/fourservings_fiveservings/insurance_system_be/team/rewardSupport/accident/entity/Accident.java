@@ -2,7 +2,7 @@ package fourservings_fiveservings.insurance_system_be.team.rewardSupport.acciden
 
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.common.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity.enums.AccidentType;
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import jakarta.persistence.*;

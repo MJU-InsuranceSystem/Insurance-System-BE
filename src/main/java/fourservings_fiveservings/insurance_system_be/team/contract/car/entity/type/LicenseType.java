@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.contract.entity.car.type;
+package fourservings_fiveservings.insurance_system_be.team.contract.car.entity.type;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

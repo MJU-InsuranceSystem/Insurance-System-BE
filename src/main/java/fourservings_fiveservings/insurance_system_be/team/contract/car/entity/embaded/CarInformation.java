@@ -1,7 +1,7 @@
-package fourservings_fiveservings.insurance_system_be.team.contract.entity.car.embaded;
+package fourservings_fiveservings.insurance_system_be.team.contract.car.entity.embaded;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.car.type.CarType;
-import fourservings_fiveservings.insurance_system_be.team.contract.entity.car.type.OwnershipStatus;
+import fourservings_fiveservings.insurance_system_be.team.contract.car.entity.type.CarType;
+import fourservings_fiveservings.insurance_system_be.team.contract.car.entity.type.OwnershipStatus;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
