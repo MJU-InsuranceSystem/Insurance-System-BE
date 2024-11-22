@@ -57,6 +57,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeHttpRequests ->
                         authorizeHttpRequests
                                 .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/sign-up")).permitAll()
+                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/sign-in")).permitAll()
                                 .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/**")).permitAll()
                                 .anyRequest().authenticated()) // 그 외는 접근x
                 .cors(cors -> cors
