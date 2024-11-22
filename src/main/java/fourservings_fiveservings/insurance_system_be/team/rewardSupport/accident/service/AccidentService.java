@@ -79,6 +79,7 @@ public class AccidentService {
         return AccidentResponseDto.from(accident, fileUrl);
     }
 
+    @Transactional
     public void review(Worker worker, Long id, ReviewAccidentRequestDto request) {
         Accident accident = accidentRepository.findById(id)
             .orElseThrow(() -> new BusinessException(NO_EXIST_ACCIDENT));
