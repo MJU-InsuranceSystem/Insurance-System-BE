@@ -68,7 +68,7 @@ public class Accident extends BaseEntity {
     }
 
     public void updateReview(Worker reviewer, LiabilityStatus liabilityStatus, String comments) {
-        this.reviewr = reviewer;
+        this.reviewer = reviewer;
         this.liabilityStatus = liabilityStatus;
         this.comments = comments;
     }
