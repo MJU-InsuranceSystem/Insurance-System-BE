@@ -1,13 +1,10 @@
 package fourservings_fiveservings.insurance_system_be.team.contract.common.service;
 
-import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
-import fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.controller.dto.response.ContractListResponseDto;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.repository.ContractRepository;
 import fourservings_fiveservings.insurance_system_be.team.insurance.service.implement.InsuranceFinder;
-import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.user.repository.UserRepository;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,11 +36,8 @@ public class ContractService {
 
 
     public List<ContractListResponseDto> getContractListBySubscriberId(Long subscriberId) {
-        User subscriber = userRepository.findById(subscriberId)
-            .orElseThrow(() -> new BusinessException(
-                ErrorType.RESOURCE_NOT_FOUND));
-        return contractRepository.findBySubscriberId(subscriber).stream()
+        return contractRepository.findBySubscriberId(subscriberId).stream()
             .map(ContractListResponseDto::of)
-            .collect(Collectors.toList());
+            .toList();
     }
 }
