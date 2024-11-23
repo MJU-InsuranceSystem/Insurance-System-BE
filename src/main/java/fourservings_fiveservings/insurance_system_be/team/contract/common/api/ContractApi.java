@@ -15,7 +15,7 @@ public interface ContractApi {
     @GetMapping
     ApiResponse<?> getAllContracts();
 
-    @GetMapping("/subscriber/{subscriber-id}")
+    @GetMapping("/subscribers/{subscriber-id}")
     ApiResponse<?> getContractListBySubscriberId(
         @PathVariable(value = "subscriber-id") Long subscriberId);
 }
