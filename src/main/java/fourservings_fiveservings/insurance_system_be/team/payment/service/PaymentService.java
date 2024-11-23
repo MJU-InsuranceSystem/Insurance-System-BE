@@ -7,7 +7,7 @@ import static fourservings_fiveservings.insurance_system_be.common.exception.con
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
-import fourservings_fiveservings.insurance_system_be.team.contract.service.implement.ContractFinder;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.service.implement.ContractFinder;
 import fourservings_fiveservings.insurance_system_be.team.payment.controller.dto.request.PayRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.payment.controller.dto.response.PaymentListResponse;
 import fourservings_fiveservings.insurance_system_be.team.payment.entity.Payment;
