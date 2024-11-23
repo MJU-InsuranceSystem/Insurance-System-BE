@@ -6,17 +6,17 @@ import java.time.LocalDate;
 
 public record DriverLicenseRequestDto(
     String licenseNumber,
-    LicenseType licenseType,
+    String licenseType,
     LocalDate issueDate,
     LocalDate validityPeriod
 ) {
 
     public License toLicenseEntity() {
         return License.builder()
-            .licenseNumber(this.licenseNumber())
-            .licenseType(this.licenseType())
-            .issueDate(this.issueDate())
-            .validityPeriod(this.validityPeriod())
+            .licenseNumber(this.licenseNumber)
+            .licenseType(LicenseType.findByDescription(this.licenseType))
+            .issueDate(this.issueDate)
+            .validityPeriod(this.validityPeriod)
             .build();
     }
 

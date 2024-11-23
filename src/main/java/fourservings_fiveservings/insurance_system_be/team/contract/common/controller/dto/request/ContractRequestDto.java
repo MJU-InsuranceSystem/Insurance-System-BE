@@ -7,9 +7,9 @@ import java.time.LocalDate;
 
 public record ContractRequestDto(
     int paymentDate,
-    PaymentMethod paymentMethod,
+    String paymentMethod,
     String paymentAccount,
-    Bank bank,
+    String bank,
     LocalDate startDate,
     LocalDate endDate
 ) {
@@ -19,9 +19,9 @@ public record ContractRequestDto(
             .startDate(this.startDate)
             .endDate(this.endDate)
             .paymentDate(this.paymentDate)
-            .paymentMethod(this.paymentMethod)
+            .paymentMethod(PaymentMethod.findByDescription(this.paymentMethod))
             .paymentAccount(this.paymentAccount)
-            .bank(this.bank)
+            .bank(Bank.fromName(this.bank))
             .build();
     }
 }
