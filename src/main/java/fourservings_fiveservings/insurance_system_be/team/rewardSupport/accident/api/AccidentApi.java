@@ -3,6 +3,7 @@ package fourservings_fiveservings.insurance_system_be.team.rewardSupport.acciden
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.request.RegisterAccidentRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.request.ReviewAccidentRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.response.AccidentResponseDto;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -22,4 +23,11 @@ public interface AccidentApi {
 
     @GetMapping("/{accidentId}")
     ApiResponse<AccidentResponseDto> getAccident(@PathVariable(value = "accidentId") Long accidentId);
+
+    @PatchMapping("/{accidentId}")
+    ApiResponse<?> reviewAccident(
+        @AuthenticationPrincipal CustomUserDetails customUserDetails,
+        @PathVariable("accidentId") Long id,
+        @RequestBody ReviewAccidentRequestDto reviewAccidentRequestDto
+    );
 }

@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Builder
 public record AccidentResponseDto(
         Long id,
+        String title,
         LocalDateTime accidentDate,
         String description,
         String location,
@@ -16,6 +17,7 @@ public record AccidentResponseDto(
         String fileUrl,
         String accidentType,
         String customerName,
+        String liabilityStatus,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
 ) {
@@ -23,6 +25,7 @@ public record AccidentResponseDto(
     public static AccidentResponseDto from(Accident accident, String fileUrl) {
         return AccidentResponseDto.builder()
                 .id(accident.getId())
+                .title(accident.getTitle())
                 .accidentDate(accident.getAccidentDate())
                 .description(accident.getDescription())
                 .location(accident.getLocation())
@@ -30,6 +33,7 @@ public record AccidentResponseDto(
                 .fileUrl(fileUrl)
                 .accidentType(accident.getFileName())
                 .customerName(accident.getCustomer().getName())
+                .liabilityStatus(accident.getLiabilityStatus().getDescription())
                 .createdAt(accident.getCreatedAt())
                 .updatedAt(accident.getUpdatedAt())
                 .build();
