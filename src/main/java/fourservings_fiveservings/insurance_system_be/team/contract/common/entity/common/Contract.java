@@ -47,8 +47,8 @@ public abstract class Contract {
     @ManyToOne
     private User underwriteManager;
 
-    public void approveContract(User underwriteManager) {
-        this.approveStatus = ApproveStatus.APPROVE;
+    public void updateApproveStatus(User underwriteManager, ApproveStatus approveStatus) {
+        this.approveStatus = approveStatus;
         this.underwriteManager = underwriteManager;
     }
 }

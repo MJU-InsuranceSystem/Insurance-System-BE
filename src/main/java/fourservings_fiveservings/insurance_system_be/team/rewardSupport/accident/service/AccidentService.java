@@ -4,7 +4,7 @@ import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetai
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
 import fourservings_fiveservings.insurance_system_be.file.service.S3Service;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
-import fourservings_fiveservings.insurance_system_be.team.contract.service.implement.ContractFinder;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.service.implement.ContractFinder;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.request.RegisterAccidentRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.response.AccidentResponseDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity.Accident;

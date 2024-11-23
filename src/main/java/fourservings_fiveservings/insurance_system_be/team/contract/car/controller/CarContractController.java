@@ -3,7 +3,7 @@ package fourservings_fiveservings.insurance_system_be.team.contract.car.controll
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.response.constant.SuccessType;
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
-import fourservings_fiveservings.insurance_system_be.team.contract.CreateContractRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.contract.car.api.CarContractApi;
 import fourservings_fiveservings.insurance_system_be.team.contract.car.controller.dto.request.CreateCarContractRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.contract.car.service.CarContractService;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.controller.dto.response.CarContractDetailResponseDto;
@@ -12,18 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class CarContractApi implements
-    fourservings_fiveservings.insurance_system_be.team.contract.car.api.CarContractApi {
+public class CarContractController implements CarContractApi {
 
     private final CarContractService carContractService;
-
 
     public ApiResponse<?> createContract(
         CustomUserDetails customUserDetails,
         Long insuranceId,
-        CreateContractRequestDto createCarContractRequestDto) {
+        CreateCarContractRequestDto createCarContractRequestDto) {
         carContractService.createContract(customUserDetails.getCustom(), insuranceId,
-            (CreateCarContractRequestDto) createCarContractRequestDto);
+            createCarContractRequestDto);
         return ApiResponse.success(SuccessType.CREATED);
     }
 

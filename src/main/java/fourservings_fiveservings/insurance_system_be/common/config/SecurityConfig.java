@@ -35,37 +35,41 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http,
-                                           HandlerMappingIntrospector introspector) throws Exception {
+        HandlerMappingIntrospector introspector) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable)
-                .formLogin(AbstractHttpConfigurer::disable)
+            .csrf(AbstractHttpConfigurer::disable)
+            .formLogin(AbstractHttpConfigurer::disable)
 
-                //http basic 인증 방식 disable
-                .httpBasic(AbstractHttpConfigurer::disable)
+            //http basic 인증 방식 disable
+            .httpBasic(AbstractHttpConfigurer::disable)
 
-                // 세션 생성하지 않음
-                .sessionManagement(sessionManagement ->
-                        sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            // 세션 생성하지 않음
+            .sessionManagement(sessionManagement ->
+                sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
-                // 인증되지 않은 요청에 대해 401에러 -> exception 커스텀 가능
-                .exceptionHandling(e -> e
-                        .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
+            // 인증되지 않은 요청에 대해 401에러 -> exception 커스텀 가능
+            .exceptionHandling(e -> e
+                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
 
-                /**
-                 * 아래 url은 인증 없이 접근 가능
-                 */
-                .authorizeHttpRequests(authorizeHttpRequests ->
-                        authorizeHttpRequests
-                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/sign-up")).permitAll()
-                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/sign-in")).permitAll()
-                                .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/**")).permitAll()
-                                .anyRequest().authenticated()) // 그 외는 접근x
-                .cors(cors -> cors
-                        .configurationSource(corsConfigurationSource())
-                )
+            /**
+             * 아래 url은 인증 없이 접근 가능
+             */
+            .authorizeHttpRequests(authorizeHttpRequests ->
+                authorizeHttpRequests
+                    .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/sign-up"))
+                    .permitAll()
+                    .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/sign-in"))
+                    .permitAll()
+                    .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/**"))
+                    .permitAll()
+                    .anyRequest().authenticated()) // 그 외는 접근x
+            .cors(cors -> cors
+                .configurationSource(corsConfigurationSource())
+            )
 
-                // jwtFilter 후 UsernamePasswordAuthenticationFilter 인증 처리
-                .addFilterBefore(new JwtAuthenticationFilter(jwtService), UsernamePasswordAuthenticationFilter.class);
+            // jwtFilter 후 UsernamePasswordAuthenticationFilter 인증 처리
+            .addFilterBefore(new JwtAuthenticationFilter(jwtService),
+                UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
