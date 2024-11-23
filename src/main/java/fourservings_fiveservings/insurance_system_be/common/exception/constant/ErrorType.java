@@ -12,6 +12,8 @@ public enum ErrorType {
 
     // contract
     NO_EXIST_CONTRACT(HttpStatus.NOT_FOUND, "CONTRACT-001", "계약 정보가 존재하지 않습니다."),
+    NO_EXIST_APPROVE_TYPE(HttpStatus.NOT_FOUND, "CONTRACT-002", "타입변환할 Approve 타입이 없습니다."),
+    NO_EXIST_PAYMENT_METHOD(HttpStatus.NOT_FOUND, "CONTRACT-003", "타입 변환활 Payment method가없습니다."),
 
     // payment
     INSUFFICIENT_BALANCE(HttpStatus.BAD_REQUEST, "PAYMENT-001", "통장에 돈이 충분하지 않습니다."),

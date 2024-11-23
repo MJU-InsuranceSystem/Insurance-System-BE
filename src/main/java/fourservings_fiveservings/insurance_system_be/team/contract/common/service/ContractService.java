@@ -5,6 +5,7 @@ import fourservings_fiveservings.insurance_system_be.team.contract.common.entity
 import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.repository.ContractRepository;
 import fourservings_fiveservings.insurance_system_be.team.insurance.service.implement.InsuranceFinder;
+import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import fourservings_fiveservings.insurance_system_be.user.repository.UserRepository;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,10 +34,9 @@ public class ContractService {
             .map(ContractListResponseDto::of)
             .collect(Collectors.toList());
     }
-
-
-    public List<ContractListResponseDto> getContractListBySubscriberId(Long subscriberId) {
-        return contractRepository.findBySubscriberId(subscriberId).stream()
+    
+    public List<ContractListResponseDto> getContractListBySubscriber(Customer custom) {
+        return contractRepository.findBySubscriberId(custom.getId()).stream()
             .map(ContractListResponseDto::of)
             .toList();
     }

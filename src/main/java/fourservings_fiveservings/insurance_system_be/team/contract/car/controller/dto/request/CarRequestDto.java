@@ -7,20 +7,20 @@ import java.time.LocalDate;
 
 public record CarRequestDto(
     String carNumber,
-    CarType carType,
+    String carType,
     LocalDate modelYear,
     LocalDate registrationDate,
-    OwnershipStatus ownershipStatus,
+    String ownershipStatus,
     Integer accidentFreePeriod
 ) {
 
     public CarInformation toCarInformationEntity() {
         return CarInformation.builder()
             .carNumber(this.carNumber)
-            .carType(this.carType)
+            .carType(CarType.findByName(this.carType))
             .modelYear(this.modelYear)
             .registrationDate(this.registrationDate)
-            .ownershipStatus(ownershipStatus)
+            .ownershipStatus(OwnershipStatus.findByName(ownershipStatus))
             .accidentFreePeriod(this.accidentFreePeriod)
             .build();
     }
