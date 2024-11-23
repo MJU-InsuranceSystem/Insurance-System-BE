@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import org.springframework.web.multipart.MultipartFile;
 
 public record RegisterAccidentRequestDto(
+    String title,
     LocalDateTime accidentDate,
     String description,
     String location,
@@ -20,6 +21,7 @@ public record RegisterAccidentRequestDto(
 
     public Accident toAccident(Customer customer, Contract contract, String uploadedFileName) {
         return Accident.builder()
+            .title(title)
             .accidentDate(accidentDate)
             .description(description)
             .location(location)

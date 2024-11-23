@@ -21,6 +21,8 @@ public class Accident extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String title;
+
     private LocalDateTime accidentDate;
 
     private String description;
@@ -51,11 +53,12 @@ public class Accident extends BaseEntity {
     @Builder
     private Accident(
         Long id, LocalDateTime accidentDate, String description,
-        String location, BigDecimal damageAmount,
+        String location, BigDecimal damageAmount, String title,
         String fileName, AccidentType accidentType, Contract contract,
         Customer customer
     ) {
         this.id = id;
+        this.title = title;
         this.accidentDate = accidentDate;
         this.description = description;
         this.location = location;
