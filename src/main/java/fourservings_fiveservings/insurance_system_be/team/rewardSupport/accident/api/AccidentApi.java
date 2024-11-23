@@ -24,7 +24,7 @@ public interface AccidentApi {
     @GetMapping("/{accidentId}")
     ApiResponse<AccidentResponseDto> getAccident(@PathVariable(value = "accidentId") Long accidentId);
 
-    @PatchMapping("/{accidentId}")
+    @PatchMapping("/{accidentId}/liability")
     ApiResponse<?> reviewAccident(
         @AuthenticationPrincipal CustomUserDetails customUserDetails,
         @PathVariable("accidentId") Long id,

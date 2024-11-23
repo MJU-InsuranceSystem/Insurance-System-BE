@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     protected ResponseEntity<ApiResponse<?>> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
         log.error("HttpMessageNotReadableException", e);
-        ErrorType errorType = ErrorType.NOT_VALID_DATE_FORMAT;
+        ErrorType errorType = ErrorType.NOT_VALID_FORMAT;
         ApiResponse<?> apiResponse = ApiResponse.error(errorType);
         return ResponseEntity.status(errorType.getHttpStatus()).body(apiResponse);
     }

@@ -48,6 +48,6 @@ public class AccidentController implements AccidentApi {
     ) {
         Worker worker = customUserDetails.getWorker();
         accidentService.review(worker, id, reviewAccidentRequestDto);
-        return null;
+        return ApiResponse.success(SuccessType.SUCCESS);
     }
 }
