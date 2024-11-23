@@ -25,6 +25,7 @@ public class CarContractService {
     private final InsuranceFinder insuranceFinder;
     private final CarContractRepository carContractRepository;
 
+    @Transactional
     public void createContract(Customer appliedCustomer,
         Long insuranceId, CreateCarContractRequestDto createCarContractRequestDto) {
         Insurance insurance = insuranceFinder.findById(insuranceId);
