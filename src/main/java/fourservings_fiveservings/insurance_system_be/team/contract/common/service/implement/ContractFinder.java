@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.team.contract.service.implement;
+package fourservings_fiveservings.insurance_system_be.team.contract.common.service.implement;
 
 import static fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType.NO_EXIST_CONTRACT;
 
