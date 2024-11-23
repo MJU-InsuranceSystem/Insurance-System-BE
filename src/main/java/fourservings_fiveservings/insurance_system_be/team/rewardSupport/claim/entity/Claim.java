@@ -1,5 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.rewardSupport.claim.entity;
 
+import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity.Accident;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import jakarta.persistence.Entity;
@@ -18,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Claim {
+public class Claim extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

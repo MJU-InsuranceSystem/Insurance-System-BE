@@ -5,9 +5,12 @@ import fourservings_fiveservings.insurance_system_be.common.exception.constant.E
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity.Accident;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.repository.AccidentRepository;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.claim.controller.dto.request.CreateClaimRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.rewardSupport.claim.controller.dto.response.ClaimListResponse;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.claim.entity.Claim;
+import fourservings_fiveservings.insurance_system_be.team.rewardSupport.claim.service.implement.ClaimFinder;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.claim.service.implement.ClaimSaver;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +19,7 @@ import org.springframework.stereotype.Service;
 public class ClaimService {
 
     private final ClaimSaver claimSaver;
+    private final ClaimFinder claimFinder;
     private final AccidentRepository accidentRepository;
 
     public void create(Worker worker, CreateClaimRequestDto createClaimRequestDto, Long accidentId) {
@@ -23,5 +27,12 @@ public class ClaimService {
             .orElseThrow(() -> new BusinessException(ErrorType.NO_EXIST_ACCIDENT));
         Claim claim = createClaimRequestDto.toEntity(worker, accident);
         claimSaver.save(claim);
+    }
+
+    public List<ClaimListResponse> getAll() {
+        List<Claim> claims = claimFinder.getAll();
+        return claims.stream()
+            .map(ClaimListResponse::from)
+            .toList();
     }
 }

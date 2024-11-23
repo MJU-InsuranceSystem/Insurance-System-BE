@@ -5,8 +5,10 @@ import fourservings_fiveservings.insurance_system_be.common.response.constant.Su
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.claim.api.ClaimApi;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.claim.controller.dto.request.CreateClaimRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.rewardSupport.claim.controller.dto.response.ClaimListResponse;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.claim.service.ClaimService;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,5 +27,11 @@ public class ClaimController implements ClaimApi {
         Worker worker = customUserDetails.getWorker();
         claimService.create(worker, createClaimRequestDto, accidentId);
         return ApiResponse.success(SuccessType.SUCCESS);
+    }
+
+    @Override
+    public ApiResponse<List<ClaimListResponse>> getAllClaims() {
+        List<ClaimListResponse> responses = claimService.getAll();
+        return ApiResponse.success(SuccessType.SUCCESS, responses);
     }
 }
