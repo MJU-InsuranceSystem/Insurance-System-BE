@@ -4,6 +4,7 @@ import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetai
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.request.RegisterAccidentRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.request.ReviewAccidentRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.response.AccidentListResponseDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.response.AccidentResponseDto;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public interface AccidentApi {
                                     @ModelAttribute RegisterAccidentRequestDto registerAccidentRequestDto);
 
     @GetMapping
-    ApiResponse<List<AccidentResponseDto>> getAllAccidents(@AuthenticationPrincipal CustomUserDetails customUserDetails);
+    ApiResponse<List<AccidentListResponseDto>> getAllAccidents(@AuthenticationPrincipal CustomUserDetails customUserDetails);
 
     @GetMapping("/{accidentId}")
     ApiResponse<AccidentResponseDto> getAccident(@PathVariable(value = "accidentId") Long accidentId);
