@@ -31,7 +31,7 @@ public record AccidentResponseDto(
                 .location(accident.getLocation())
                 .damageAmount(accident.getDamageAmount())
                 .fileUrl(fileUrl)
-                .accidentType(accident.getFileName())
+                .accidentType(accident.getAccidentType().getName())
                 .customerName(accident.getCustomer().getName())
                 .liabilityStatus(accident.getLiabilityStatus().getDescription())
                 .createdAt(accident.getCreatedAt())

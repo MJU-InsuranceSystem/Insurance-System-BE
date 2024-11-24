@@ -2,6 +2,7 @@ package fourservings_fiveservings.insurance_system_be.team.rewardSupport.acciden
 
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
+import fourservings_fiveservings.insurance_system_be.file.enums.FIleType;
 import fourservings_fiveservings.insurance_system_be.file.service.S3Service;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.service.implement.ContractFinder;
@@ -37,7 +38,7 @@ public class AccidentService {
                                RegisterAccidentRequestDto registerAccidentRequestDto) {
         Customer customer = customUserDetails.getCustom();
         Contract contract = contractFinder.findById(contractId);
-        String uploadFileName = s3Service.uploadFile(registerAccidentRequestDto.file());
+        String uploadFileName = s3Service.uploadFile(registerAccidentRequestDto.file(), FIleType.ACCIDENT.getLabel());
 
         Accident accident = registerAccidentRequestDto.toAccident(customer, contract,
                 uploadFileName);

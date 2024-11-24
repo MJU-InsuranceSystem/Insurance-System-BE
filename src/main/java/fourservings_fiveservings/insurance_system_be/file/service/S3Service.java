@@ -6,13 +6,14 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import fourservings_fiveservings.insurance_system_be.common.exception.FileException;
 import fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -23,20 +24,22 @@ public class S3Service {
 
     private final AmazonS3 amazonS3;
 
-    public String uploadFile(MultipartFile multipartFile) {
+    public String uploadFile(MultipartFile multipartFile, String fileType) {
 
         if (multipartFile == null || multipartFile.isEmpty()) {
+
             return null;
         }
 
         String fileName = createFileName(multipartFile.getOriginalFilename());
+        String path = fileType + fileName;
         ObjectMetadata objectMetadata = new ObjectMetadata();
         objectMetadata.setContentLength(multipartFile.getSize());
         objectMetadata.setContentType(multipartFile.getContentType());
 
         try (InputStream inputStream = multipartFile.getInputStream()) {
-            amazonS3.putObject(new PutObjectRequest(bucketName, fileName, inputStream, objectMetadata)
-                .withCannedAcl(CannedAccessControlList.PublicRead));
+            amazonS3.putObject(new PutObjectRequest(bucketName, path, inputStream, objectMetadata)
+                    .withCannedAcl(CannedAccessControlList.PublicRead));
         } catch (IOException e) {
             throw new FileException(ErrorType.UPLOAD_FILE_FAILED);
         }
@@ -52,15 +55,15 @@ public class S3Service {
         return amazonS3.getUrl(bucketName, fileName).toString();
     }
 
-    private String createFileName(String fileName){
+    private String createFileName(String fileName) {
         return UUID.randomUUID().toString().concat(getFileExtension(fileName));
     }
 
     //  "."의 존재 유무만 판단
-    private String getFileExtension(String fileName){
-        try{
+    private String getFileExtension(String fileName) {
+        try {
             return fileName.substring(fileName.lastIndexOf("."));
-        } catch (StringIndexOutOfBoundsException e){
+        } catch (StringIndexOutOfBoundsException e) {
             throw new FileException(ErrorType.NOT_SUPPORTED_FILE_FORMAT);
         }
     }
