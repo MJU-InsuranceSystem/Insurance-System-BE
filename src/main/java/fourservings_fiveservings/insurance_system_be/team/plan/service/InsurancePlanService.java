@@ -1,5 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.plan.service;
 
+import fourservings_fiveservings.insurance_system_be.file.enums.FIleType;
 import fourservings_fiveservings.insurance_system_be.file.service.S3Service;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.CreatePlanRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.ReviewPlanRequestDto;
@@ -26,7 +27,7 @@ public class InsurancePlanService {
 
     @Transactional
     public void createPlan(Worker planner, CreatePlanRequestDto requestDto) {
-        String uploadedFileName = s3Service.uploadFile(requestDto.file());
+        String uploadedFileName = s3Service.uploadFile(requestDto.file(), FIleType.INSURANCE_PLAN.getLabel());
         InsurancePlan insurancePlan = requestDto.toEntity(planner, uploadedFileName);
         insurancePlanSaver.save(insurancePlan);
     }
@@ -42,10 +43,9 @@ public class InsurancePlanService {
     }
 
     @Transactional
-    public void reviewPlan(
-            Worker reviewer,
-            Long planId,
-            ReviewPlanRequestDto requestDto
+    public void reviewPlan(Worker reviewer,
+                           Long planId,
+                           ReviewPlanRequestDto requestDto
     ) {
         InsurancePlan insurancePlan = insurancePlanFinder.findById(planId);
         insurancePlan.updateReview(reviewer, requestDto.getReviewStatus(), requestDto.comments());

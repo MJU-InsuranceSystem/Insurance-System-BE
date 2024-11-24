@@ -6,8 +6,8 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum FIleType {
-    INSURANCE_PLAN("plan"),
-    ACCIDENT("accident");
+    INSURANCE_PLAN("plan/"),
+    ACCIDENT("accident/");
 
     private final String label;
 }
