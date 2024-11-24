@@ -16,7 +16,7 @@ public interface AccidentApi {
     @PostMapping("/contracts/{contractId}")
     ApiResponse<?> registerAccident(@AuthenticationPrincipal CustomUserDetails customUserDetails,
                                     @PathVariable(value = "contractId") Long contractId,
-                                    @RequestBody RegisterAccidentRequestDto registerAccidentRequestDto);
+                                    @ModelAttribute RegisterAccidentRequestDto registerAccidentRequestDto);
 
     @GetMapping
     ApiResponse<List<AccidentResponseDto>> getAllAccidents(@AuthenticationPrincipal CustomUserDetails customUserDetails);
@@ -25,9 +25,8 @@ public interface AccidentApi {
     ApiResponse<AccidentResponseDto> getAccident(@PathVariable(value = "accidentId") Long accidentId);
 
     @PatchMapping("/{accidentId}/liability")
-    ApiResponse<?> reviewAccident(
-        @AuthenticationPrincipal CustomUserDetails customUserDetails,
-        @PathVariable("accidentId") Long id,
-        @RequestBody ReviewAccidentRequestDto reviewAccidentRequestDto
+    ApiResponse<?> reviewAccident(@AuthenticationPrincipal CustomUserDetails customUserDetails,
+                                  @PathVariable("accidentId") Long id,
+                                  @RequestBody ReviewAccidentRequestDto reviewAccidentRequestDto
     );
 }
