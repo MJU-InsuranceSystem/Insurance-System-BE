@@ -14,13 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface CarContractApi {
 
     @PostMapping("/{insurance-id}")
-    ApiResponse<?> createContract(
-        @AuthenticationPrincipal CustomUserDetails userDetails,
-        @PathVariable(value = "insurance-id") Long insuranceId,
-        @RequestBody CreateCarContractRequestDto createCarContractRequestDto);
+    ApiResponse<?> createContract(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                  @PathVariable(value = "insurance-id") Long insuranceId,
+                                  @RequestBody CreateCarContractRequestDto createCarContractRequestDto);
 
     @GetMapping("/{contract-id}")
     ApiResponse<?> getContractDetail(@PathVariable(value = "contract-id") Long contractId,
-        @AuthenticationPrincipal CustomUserDetails customUserDetails);
+                                     @AuthenticationPrincipal CustomUserDetails customUserDetails);
 
 }

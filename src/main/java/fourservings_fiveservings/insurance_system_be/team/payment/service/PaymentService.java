@@ -2,6 +2,7 @@ package fourservings_fiveservings.insurance_system_be.team.payment.service;
 
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.service.implement.ContractFinder;
 import fourservings_fiveservings.insurance_system_be.team.payment.controller.dto.request.PayRequestDto;
@@ -41,6 +42,9 @@ public class PaymentService {
 
         if (customer.getAccount() == null || customer.getAccount().getAccountNumber() == null) {
             throw new BusinessException(NO_EXIST_ACCOUNT_INFO);
+        }
+        if (contract.getApproveStatus() != ApproveStatus.APPROVED) {
+            throw new BusinessException(NOT_APPROVE);
         }
         if (monthlyPaymentAmount.compareTo(customerAccountBalance) > 0) {
             throw new BusinessException(INSUFFICIENT_BALANCE);
