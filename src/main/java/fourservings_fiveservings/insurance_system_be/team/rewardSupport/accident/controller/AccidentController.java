@@ -6,6 +6,7 @@ import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiRespo
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.api.AccidentApi;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.request.RegisterAccidentRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.request.ReviewAccidentRequestDto;
+import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.response.AccidentListResponseDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.response.AccidentResponseDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.service.AccidentService;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
@@ -29,8 +30,8 @@ public class AccidentController implements AccidentApi {
     }
 
     @Override
-    public ApiResponse<List<AccidentResponseDto>> getAllAccidents(CustomUserDetails customUserDetails) {
-        List<AccidentResponseDto> response = accidentService.getAllAccidents(customUserDetails);
+    public ApiResponse<List<AccidentListResponseDto>> getAllAccidents(CustomUserDetails customUserDetails) {
+        List<AccidentListResponseDto> response = accidentService.getAllAccidents(customUserDetails);
         return ApiResponse.success(SuccessType.SUCCESS, response);
     }
 

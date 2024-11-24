@@ -14,7 +14,9 @@ import java.time.LocalDateTime;
 
 @Getter
 @Entity
+@Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class Accident extends BaseEntity {
 
     @Id
@@ -49,26 +51,6 @@ public class Accident extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Worker reviewer;
-
-    @Builder
-    private Accident(
-        Long id, LocalDateTime accidentDate, String description,
-        String location, BigDecimal damageAmount, String title,
-        String fileName, AccidentType accidentType, Contract contract,
-        Customer customer
-    ) {
-        this.id = id;
-        this.title = title;
-        this.accidentDate = accidentDate;
-        this.description = description;
-        this.location = location;
-        this.damageAmount = damageAmount;
-        this.fileName = fileName;
-        this.accidentType = accidentType;
-        this.contract = contract;
-        this.customer = customer;
-        this.liabilityStatus = LiabilityStatus.PENDING;
-    }
 
     public void updateReview(Worker reviewer, LiabilityStatus liabilityStatus, String comments) {
         this.reviewer = reviewer;
