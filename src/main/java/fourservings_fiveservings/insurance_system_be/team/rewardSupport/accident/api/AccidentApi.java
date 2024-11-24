@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping(value = "/api/accidents", produces = "application/json;charset=utf-8")
 public interface AccidentApi {
 
-    @PostMapping("/contract/{contractId}")
+    @PostMapping("/contracts/{contractId}")
     ApiResponse<?> registerAccident(@AuthenticationPrincipal CustomUserDetails customUserDetails,
                                     @PathVariable(value = "contractId") Long contractId,
                                     @RequestBody RegisterAccidentRequestDto registerAccidentRequestDto);
