@@ -11,7 +11,7 @@ import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.response.AccidentListResponseDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.controller.dto.response.AccidentResponseDto;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity.Accident;
-import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity.LiabilityStatus;
+import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.entity.enums.LiabilityStatus;
 import fourservings_fiveservings.insurance_system_be.team.rewardSupport.accident.repository.AccidentRepository;
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
