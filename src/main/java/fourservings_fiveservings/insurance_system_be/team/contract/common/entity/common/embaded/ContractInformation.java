@@ -5,16 +5,14 @@ import fourservings_fiveservings.insurance_system_be.team.contract.common.entity
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author USER
- * @version 1.0
- */
+import java.time.LocalDate;
+
+
 @Data
 @Embeddable
 @NoArgsConstructor

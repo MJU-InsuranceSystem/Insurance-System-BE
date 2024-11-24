@@ -16,20 +16,19 @@ public class CarContractController implements CarContractApi {
 
     private final CarContractService carContractService;
 
-    public ApiResponse<?> createContract(
-        CustomUserDetails customUserDetails,
-        Long insuranceId,
-        CreateCarContractRequestDto createCarContractRequestDto) {
+    public ApiResponse<?> createContract(CustomUserDetails customUserDetails,
+                                         Long insuranceId,
+                                         CreateCarContractRequestDto createCarContractRequestDto) {
         carContractService.createContract(customUserDetails.getCustom(), insuranceId,
-            createCarContractRequestDto);
+                createCarContractRequestDto);
         return ApiResponse.success(SuccessType.CREATED);
     }
 
 
     public ApiResponse<?> getContractDetail(Long contractId,
-        CustomUserDetails customUserDetails) {
+                                            CustomUserDetails customUserDetails) {
         CarContractDetailResponseDto carContractDetailDto = carContractService.getContractDetail(
-            contractId, customUserDetails);
+                contractId, customUserDetails);
         return ApiResponse.success(SuccessType.SUCCESS, carContractDetailDto);
     }
 }

@@ -22,11 +22,11 @@ public class UserService {
 
     @Transactional
     public void setAccount(CustomUserDetails customUserDetails,
-        SetAccountRequestDto setAccountRequestDto) {
+                           SetAccountRequestDto setAccountRequestDto) {
         Customer customer = customUserDetails.getCustom();
         Bank bank = Bank.fromName(setAccountRequestDto.bankName());
         customer.addAccountInfo(bank, setAccountRequestDto.accountNumber(),
-            setAccountRequestDto.balance());
+                setAccountRequestDto.balance());
 
         userRepository.save(customer);
     }
@@ -37,6 +37,6 @@ public class UserService {
 
     public User getUserInfoByEmail(String email) {
         return userRepository.findByEmail(email)
-            .orElseThrow(() -> new BusinessException(NO_EXIST_EMAIL));
+                .orElseThrow(() -> new BusinessException(NO_EXIST_EMAIL));
     }
 }
