@@ -1,8 +1,8 @@
 package fourservings_fiveservings.insurance_system_be.team.contract.common.controller.dto.response;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.ApproveStatus;
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.embaded.ContractInformation;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.type.ApproveStatus;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.embaded.ContractInformation;
 import lombok.Builder;
 
 @Builder

@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.user.entity;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.type.Bank;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.type.Bank;
 import fourservings_fiveservings.insurance_system_be.user.entity.embeded.Account;
 import fourservings_fiveservings.insurance_system_be.user.entity.embeded.Address;
 import fourservings_fiveservings.insurance_system_be.user.entity.enums.ContractStatus;

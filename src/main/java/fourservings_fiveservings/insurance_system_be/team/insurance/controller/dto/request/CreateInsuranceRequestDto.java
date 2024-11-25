@@ -2,8 +2,8 @@ package fourservings_fiveservings.insurance_system_be.team.insurance.controller.
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import fourservings_fiveservings.insurance_system_be.team.insurance.entity.Insurance;
-import fourservings_fiveservings.insurance_system_be.team.insurance.entity.InsuranceType;
-import fourservings_fiveservings.insurance_system_be.team.insurance.entity.SaleTarget;
+import fourservings_fiveservings.insurance_system_be.team.insurance.entity.type.InsuranceType;
+import fourservings_fiveservings.insurance_system_be.team.insurance.entity.type.SaleTarget;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import java.math.BigDecimal;
 import java.time.LocalDate;

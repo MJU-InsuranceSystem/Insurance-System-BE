@@ -3,7 +3,7 @@ package fourservings_fiveservings.insurance_system_be.team.contract.car.entity;
 
 import fourservings_fiveservings.insurance_system_be.team.contract.car.entity.embaded.CarInformation;
 import fourservings_fiveservings.insurance_system_be.team.contract.car.entity.embaded.License;
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.Contract;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;

@@ -3,7 +3,7 @@ package fourservings_fiveservings.insurance_system_be.team.contract.common.servi
 import static fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType.NO_EXIST_CONTRACT;
 
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.repository.ContractRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -4,7 +4,7 @@ import static fourservings_fiveservings.insurance_system_be.common.exception.con
 
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.type.Bank;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.type.Bank;
 import fourservings_fiveservings.insurance_system_be.user.controller.dto.request.SetAccountRequestDto;
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;

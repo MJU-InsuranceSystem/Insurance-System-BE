@@ -5,7 +5,7 @@ import fourservings_fiveservings.insurance_system_be.common.response.constant.Su
 import fourservings_fiveservings.insurance_system_be.common.response.vo.ApiResponse;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.api.ContractApi;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.controller.dto.response.ContractListResponseDto;
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.service.ContractService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;

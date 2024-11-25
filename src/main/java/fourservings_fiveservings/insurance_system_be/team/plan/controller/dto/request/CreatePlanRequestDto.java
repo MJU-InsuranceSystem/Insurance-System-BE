@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request;
 
 import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsurancePlan;
-import fourservings_fiveservings.insurance_system_be.team.plan.entity.InsurancePlanType;
+import fourservings_fiveservings.insurance_system_be.team.plan.entity.type.InsurancePlanType;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import org.springframework.web.multipart.MultipartFile;
 

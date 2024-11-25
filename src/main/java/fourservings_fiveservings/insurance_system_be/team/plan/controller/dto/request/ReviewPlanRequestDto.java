@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request;
 
-import fourservings_fiveservings.insurance_system_be.team.plan.entity.ReviewStatus;
+import fourservings_fiveservings.insurance_system_be.team.plan.entity.type.ReviewStatus;
 
 public record ReviewPlanRequestDto(
     String reviewResult,

@@ -1,8 +1,8 @@
 package fourservings_fiveservings.insurance_system_be.team.payment.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.type.PaymentMethod;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.type.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.*;
 

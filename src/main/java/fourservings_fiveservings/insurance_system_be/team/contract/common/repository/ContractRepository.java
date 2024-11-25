@@ -1,7 +1,7 @@
 package fourservings_fiveservings.insurance_system_be.team.contract.common.repository;
 
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.ApproveStatus;
-import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.common.Contract;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.type.ApproveStatus;
+import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.Contract;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 

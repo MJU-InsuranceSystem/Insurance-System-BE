@@ -1,6 +1,8 @@
 package fourservings_fiveservings.insurance_system_be.team.insurance.entity;
 
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
+import fourservings_fiveservings.insurance_system_be.team.insurance.entity.type.InsuranceType;
+import fourservings_fiveservings.insurance_system_be.team.insurance.entity.type.SaleTarget;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
