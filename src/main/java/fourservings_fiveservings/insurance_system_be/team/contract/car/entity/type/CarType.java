@@ -24,7 +24,7 @@ public enum CarType {
         return EnumSet.allOf(CarType.class).stream()
             .filter(carType -> carType.getName().equals(name))
             .findFirst()
-            .orElseThrow(() -> new ResourceNotFoundException(ErrorType.RESOURCE_NOT_FOUND));
+            .orElseThrow(() -> new ResourceNotFoundException(ErrorType.NO_EXIST_CAR_TYPE));
 
     }
 }

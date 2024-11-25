@@ -20,7 +20,7 @@ public enum LicenseType {
         return EnumSet.allOf(LicenseType.class).stream()
             .filter(licenseType -> licenseType.getDescription().equals(description))
             .findFirst()
-            .orElseThrow(() -> new BusinessException(ErrorType.RESOURCE_NOT_FOUND));
+            .orElseThrow(() -> new BusinessException(ErrorType.NO_EXIST_LICENSE_TYPE));
     }
 
     @JsonValue
