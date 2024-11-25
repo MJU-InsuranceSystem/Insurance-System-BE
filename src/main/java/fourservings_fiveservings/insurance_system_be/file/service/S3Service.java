@@ -47,12 +47,12 @@ public class S3Service {
         return fileName;
     }
 
-    public String getFileUrl(String fileName) {
+    public String getFileUrl(String fileType, String fileName) {
         if (fileName == null || fileName.isEmpty()) {
             return null;
         }
-
-        return amazonS3.getUrl(bucketName, fileName).toString();
+        String filePath = fileType + fileName;
+        return amazonS3.getUrl(bucketName, filePath).toString();
     }
 
     private String createFileName(String fileName) {

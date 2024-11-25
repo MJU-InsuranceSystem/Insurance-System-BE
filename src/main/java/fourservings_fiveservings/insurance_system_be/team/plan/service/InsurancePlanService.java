@@ -36,7 +36,7 @@ public class InsurancePlanService {
         List<InsurancePlan> insurancePlans = insurancePlanFinder.getAll();
         return insurancePlans.stream()
                 .map(insurancePlan -> {
-                    String fileUrl = s3Service.getFileUrl(insurancePlan.getFileName());
+                    String fileUrl = s3Service.getFileUrl(FIleType.INSURANCE_PLAN.getLabel(), insurancePlan.getFileName());
                     return InsurancePlanListResponse.from(insurancePlan, fileUrl);
                 })
                 .toList();
@@ -53,7 +53,7 @@ public class InsurancePlanService {
 
     public InsurancePlanResponse getInsurancePlan(Long planId) {
         InsurancePlan insurancePlan = insurancePlanFinder.findById(planId);
-        String fileUrl = s3Service.getFileUrl(insurancePlan.getFileName());
+        String fileUrl = s3Service.getFileUrl(FIleType.INSURANCE_PLAN.getLabel(), insurancePlan.getFileName());
         return InsurancePlanResponse.of(insurancePlan, fileUrl);
     }
 }
