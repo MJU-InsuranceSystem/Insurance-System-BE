@@ -2,7 +2,7 @@ package fourservings_fiveservings.insurance_system_be.team.reward.accident.servi
 
 import fourservings_fiveservings.insurance_system_be.auth.custom.CustomUserDetails;
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
-import fourservings_fiveservings.insurance_system_be.file.enums.FIleType;
+import fourservings_fiveservings.insurance_system_be.file.type.FIleType;
 import fourservings_fiveservings.insurance_system_be.file.service.S3Service;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.Contract;
 import fourservings_fiveservings.insurance_system_be.team.contract.common.service.implement.ContractFinder;

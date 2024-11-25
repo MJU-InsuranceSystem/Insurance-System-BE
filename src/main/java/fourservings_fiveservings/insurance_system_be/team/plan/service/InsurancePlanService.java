@@ -1,6 +1,6 @@
 package fourservings_fiveservings.insurance_system_be.team.plan.service;
 
-import fourservings_fiveservings.insurance_system_be.file.enums.FIleType;
+import fourservings_fiveservings.insurance_system_be.file.type.FIleType;
 import fourservings_fiveservings.insurance_system_be.file.service.S3Service;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.CreatePlanRequestDto;
 import fourservings_fiveservings.insurance_system_be.team.plan.controller.dto.request.ReviewPlanRequestDto;
