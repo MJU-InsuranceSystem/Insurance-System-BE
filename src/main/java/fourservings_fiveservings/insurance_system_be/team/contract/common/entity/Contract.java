@@ -4,16 +4,7 @@ import fourservings_fiveservings.insurance_system_be.team.contract.common.entity
 import fourservings_fiveservings.insurance_system_be.team.contract.common.entity.type.ApproveStatus;
 import fourservings_fiveservings.insurance_system_be.team.insurance.entity.Insurance;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,13 +30,13 @@ public abstract class Contract {
     @Enumerated(EnumType.STRING)
     private ApproveStatus approveStatus;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User subscriber;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Insurance insurance;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User underwriteManager;
 
     public void updateApproveStatus(User underwriteManager, ApproveStatus approveStatus) {

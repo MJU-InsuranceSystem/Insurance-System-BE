@@ -12,8 +12,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -61,10 +63,10 @@ public class Insurance extends BaseEntity {
 
     @Builder
     private Insurance(
-        String name, String description, int eligibleAgeMin, int eligibleAgeMax,
-        String coverageRange, BigDecimal coverageAmountMax, int duration, String exclusions,
-        BigDecimal monthlyPremium, LocalDate salesStartDate, LocalDate salesEndDate,
-        SaleTarget saleTarget, InsuranceType insuranceType, Worker worker
+            String name, String description, int eligibleAgeMin, int eligibleAgeMax,
+            String coverageRange, BigDecimal coverageAmountMax, int duration, String exclusions,
+            BigDecimal monthlyPremium, LocalDate salesStartDate, LocalDate salesEndDate,
+            SaleTarget saleTarget, InsuranceType insuranceType, Worker worker
     ) {
         this.name = name;
         this.description = description;

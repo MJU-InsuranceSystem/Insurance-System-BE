@@ -3,18 +3,13 @@ package fourservings_fiveservings.insurance_system_be.team.reward.claim.entity;
 import fourservings_fiveservings.insurance_system_be.common.entity.BaseEntity;
 import fourservings_fiveservings.insurance_system_be.team.reward.accident.entity.Accident;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-import java.math.BigDecimal;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
 
 @Entity
 @Getter
@@ -29,7 +24,7 @@ public class Claim extends BaseEntity {
 
     private String comments;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Worker worker;
 
     @OneToOne
