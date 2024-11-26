@@ -5,7 +5,7 @@ import fourservings_fiveservings.insurance_system_be.common.exception.constant.E
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.user.entity.Worker;
-import fourservings_fiveservings.insurance_system_be.user.entity.enums.UserType;
+import fourservings_fiveservings.insurance_system_be.user.entity.type.UserType;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

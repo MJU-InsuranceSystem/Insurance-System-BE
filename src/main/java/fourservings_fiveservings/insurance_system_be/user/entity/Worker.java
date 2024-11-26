@@ -1,8 +1,8 @@
 package fourservings_fiveservings.insurance_system_be.user.entity;
 
 import fourservings_fiveservings.insurance_system_be.user.entity.embeded.Address;
-import fourservings_fiveservings.insurance_system_be.user.entity.enums.UserType;
-import fourservings_fiveservings.insurance_system_be.user.entity.enums.Role;
+import fourservings_fiveservings.insurance_system_be.user.entity.type.UserType;
+import fourservings_fiveservings.insurance_system_be.user.entity.type.Role;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 

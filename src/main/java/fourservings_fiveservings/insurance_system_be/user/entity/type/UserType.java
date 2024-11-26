@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.user.entity.enums;
+package fourservings_fiveservings.insurance_system_be.user.entity.type;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

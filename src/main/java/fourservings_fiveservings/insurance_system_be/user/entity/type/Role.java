@@ -1,4 +1,4 @@
-package fourservings_fiveservings.insurance_system_be.user.entity.enums;
+package fourservings_fiveservings.insurance_system_be.user.entity.type;
 
 import fourservings_fiveservings.insurance_system_be.common.exception.ResourceNotFoundException;
 import fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType;

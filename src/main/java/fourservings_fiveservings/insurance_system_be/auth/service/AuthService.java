@@ -6,7 +6,7 @@ import fourservings_fiveservings.insurance_system_be.auth.jwt.dto.TokenDto;
 import fourservings_fiveservings.insurance_system_be.auth.jwt.service.JwtService;
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
 import fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType;
-import fourservings_fiveservings.insurance_system_be.user.entity.enums.UserType;
+import fourservings_fiveservings.insurance_system_be.user.entity.type.UserType;
 import fourservings_fiveservings.insurance_system_be.user.entity.User;
 import fourservings_fiveservings.insurance_system_be.user.repository.UserRepository;
 import fourservings_fiveservings.insurance_system_be.user.service.UserService;

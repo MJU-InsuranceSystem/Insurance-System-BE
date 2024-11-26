@@ -11,7 +11,7 @@ import fourservings_fiveservings.insurance_system_be.team.contract.common.contro
 import fourservings_fiveservings.insurance_system_be.team.insurance.entity.Insurance;
 import fourservings_fiveservings.insurance_system_be.team.insurance.service.implement.InsuranceFinder;
 import fourservings_fiveservings.insurance_system_be.user.entity.Customer;
-import fourservings_fiveservings.insurance_system_be.user.entity.enums.UserType;
+import fourservings_fiveservings.insurance_system_be.user.entity.type.UserType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
