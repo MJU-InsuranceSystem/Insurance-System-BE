@@ -1,8 +1,7 @@
-
 on: workflow_dispatch
 
 jobs:
- deploy :
+  deploy:
 
     runs-on: ubuntu-latest
     steps:
@@ -32,12 +31,10 @@ jobs:
           echo "${SSH_KEY}" > ec2_key.pem
           chmod 600 ec2_key.pem
           
-          # Connect to EC2 and execute deployment commands
+          # Connect to EC2 and run deployment commands
           ssh -o StrictHostKeyChecking=no -i ec2_key.pem ${USER}@${HOST} << 'EOF'
-            # Create or update environment variables
-            echo "REGISTRY_ALIAS=$REGISTRY_ALIAS" > .env
-          
-            # Ensure the latest image is pulled and services are restarted
-            docker-compose pull
-            docker-compose up -d
-          EOF
+            # Stop and remove existing container if running
+            sudo docker stop distribute-container || true
+            sudo docker rm distribute-container || true
+            sudo docker pull public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
+            sudo docker run -it -d -p 80:8080 —name distribute-container public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
