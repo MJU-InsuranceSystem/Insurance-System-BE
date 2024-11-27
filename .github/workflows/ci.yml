@@ -32,6 +32,7 @@ jobs:
           echo "${{ secrets.PROD_YML }}" > ./application-prod.yml
         shell: bash
 
+      # gradle 캐싱
       - name: Gradle Caching
         uses: actions/cache@v3
         with:
