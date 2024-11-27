@@ -11,6 +11,7 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
 
+
 cloud:
   aws:
     credentials:
@@ -26,3 +27,11 @@ cloud:
 
 jwt:
   secret-key: ${JWT_SECRET_KEY}
+
+
+management:
+  health:
+    db:
+      enabled: false
+    redis:
+      enabled: false

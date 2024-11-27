@@ -21,7 +21,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
 
     private static final List<String> NO_CHECK_URLS = List.of("/api/auth/sign-in",
-        "/api/auth/sign-up", "/health");
+        "/api/auth/sign-up", "/actuator/health");
 
 
     @Override

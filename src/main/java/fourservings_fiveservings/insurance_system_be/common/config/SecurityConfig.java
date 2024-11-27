@@ -57,7 +57,7 @@ public class SecurityConfig {
              */
             .authorizeHttpRequests(authorizeHttpRequests ->
                 authorizeHttpRequests
-                    .requestMatchers(new MvcRequestMatcher(introspector, "/health"))
+                    .requestMatchers(new MvcRequestMatcher(introspector, "/actuator/health"))
                     .permitAll()
                     .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/sign-up"))
                     .permitAll()
