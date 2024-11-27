@@ -1,4 +1,7 @@
 FROM openjdk:17
-CMD ["./gradlew", "clean", "build"]
-COPY build/libs/*SNAPSHOT.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+
+EXPOSE 8080
+
+COPY build/libs/mju-insurance-SNAPSHOT.jar mju-insurance.jar
+
+ENTRYPOINT ["java","-jar","/mju-insurance.jar"]
