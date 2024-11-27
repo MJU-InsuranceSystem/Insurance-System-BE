@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  app:
+    image: public.ecr.aws/${REGISTRY_ALIAS}/distribute/dev:latest
+    container_name: distribute-container
+    ports:
+      - "80:8080"
