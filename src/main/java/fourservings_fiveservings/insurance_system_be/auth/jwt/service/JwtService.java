@@ -2,13 +2,23 @@ package fourservings_fiveservings.insurance_system_be.auth.jwt.service;
 
 import fourservings_fiveservings.insurance_system_be.auth.jwt.dto.TokenDto;
 import fourservings_fiveservings.insurance_system_be.auth.jwt.entity.RefreshToken;
-import fourservings_fiveservings.insurance_system_be.auth.jwt.repository.RefreshTokenRepository;
 import fourservings_fiveservings.insurance_system_be.common.exception.BusinessException;
 import fourservings_fiveservings.insurance_system_be.common.exception.constant.ErrorType;
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.Jws;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
+import java.util.Date;
+import java.util.Optional;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,12 +29,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
-
-import java.nio.charset.StandardCharsets;
-import java.security.Key;
-import java.util.Date;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -42,7 +46,6 @@ public class JwtService {
     private Key key;
 
     private final UserDetailsService userDetailsService;
-    private final RefreshTokenRepository<RefreshToken> refreshTokenRepository;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
     private static final long ACCESS_TIME = 12 * 60 * 60 * 1000L; // 12시간
@@ -55,11 +58,13 @@ public class JwtService {
 
     public TokenDto signIn(String email, String password) {
         // principal (사용자명), credentials (비밀번호)
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(email, password);
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+            email, password);
 
         // 2. 실제 검증 (사용자 비밀번호 체크)
         // authenticate 매서드가 실행될 때 CustomUserDetailsService 에서 만든 loadUserByUsername 메서드가 실행
-        Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
+        Authentication authentication = authenticationManagerBuilder.getObject()
+            .authenticate(authenticationToken);
         TokenDto tokenDto = createAllToken(authentication);
 //        saveRefreshTokenToRedis(authentication.getName(), tokenDto.getRefreshToken());
 
@@ -69,48 +74,49 @@ public class JwtService {
     // 토큰 생성 order -> dto에 바로 담음
     public TokenDto createAllToken(Authentication authentication) {
         String authorities = authentication.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(","));
+            .map(GrantedAuthority::getAuthority)
+            .collect(Collectors.joining(","));
 
         return new TokenDto(createToken(authentication.getName(), authorities, ACCESS_TOKEN_TYPE),
-                createToken(authentication.getName(), authorities, REFRESH_TOKEN_TYPE));
+            createToken(authentication.getName(), authorities, REFRESH_TOKEN_TYPE));
     }
 
     // 헤더에 있는 access 토큰 추출
     public Optional<String> extractAccessToken(HttpServletRequest request) {
         return Optional.ofNullable(request.getHeader(ACCESS_TOKEN_HEADER))
-                .filter(accessToken -> accessToken.startsWith(BEARER))
-                .map(accessToken -> accessToken.replace(BEARER, ""));
+            .filter(accessToken -> accessToken.startsWith(BEARER))
+            .map(accessToken -> accessToken.replace(BEARER, ""));
     }
 
     // 헤더에 있는 refresh 토큰 추출
     public Optional<String> extractRefreshToken(HttpServletRequest request) {
         return Optional.ofNullable(request.getHeader(REFRESH_TOKEN_HEADER))
-                .filter(refreshToken -> refreshToken.startsWith(BEARER))
-                .map(refreshToken -> refreshToken.replace(BEARER, ""));
+            .filter(refreshToken -> refreshToken.startsWith(BEARER))
+            .map(refreshToken -> refreshToken.replace(BEARER, ""));
     }
 
     public Authentication getAuthentication(String token) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(this.getUserPk(token));
-        return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
+        return new UsernamePasswordAuthenticationToken(userDetails, "",
+            userDetails.getAuthorities());
     }
 
     public String getUserPk(String token) {
         return Jwts.parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token)
-                .getBody()
-                .getSubject();
+            .setSigningKey(key)
+            .build()
+            .parseClaimsJws(token)
+            .getBody()
+            .getSubject();
     }
 
     public boolean validateToken(String jwtToken) {
         try {
             // JWT 토큰을 파싱하고, 서명 키를 사용해 서명을 검증
             Jws<Claims> claims = Jwts.parserBuilder()
-                    .setSigningKey(key) // 비밀 키 설정
-                    .build()
-                    .parseClaimsJws(jwtToken);
+                .setSigningKey(key) // 비밀 키 설정
+                .build()
+                .parseClaimsJws(jwtToken);
 
             // 토큰 만료 시간 검증
             return !claims.getBody().getExpiration().before(new Date());
@@ -139,16 +145,15 @@ public class JwtService {
         Date validity = new Date(nowTime + expiration);
 
         return Jwts.builder()
-                .setSubject(email)
-                .claim("role", authorities)
-                .setIssuedAt(now)
-                .setExpiration(validity)
-                .signWith(key, SignatureAlgorithm.HS256)
-                .compact();
+            .setSubject(email)
+            .claim("role", authorities)
+            .setIssuedAt(now)
+            .setExpiration(validity)
+            .signWith(key, SignatureAlgorithm.HS256)
+            .compact();
     }
 
     private void saveRefreshTokenToRedis(String email, String refreshToken) {
         RefreshToken refreshTokenEntity = new RefreshToken(email, refreshToken);
-        refreshTokenRepository.save(refreshTokenEntity);
     }
 }
