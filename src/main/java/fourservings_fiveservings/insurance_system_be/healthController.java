@@ -1,5 +1,6 @@
 package fourservings_fiveservings.insurance_system_be;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,6 @@ public class healthController {
 
     @GetMapping("/health")
     public ResponseEntity<?> serverCheck() {
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
