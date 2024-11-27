@@ -26,3 +26,7 @@ cloud:
 
 jwt:
   secret-key: ${JWT_SECRET_KEY}
+management:
+  health:
+    redis:
+      enabled: false
