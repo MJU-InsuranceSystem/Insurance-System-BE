@@ -1,6 +1,6 @@
 services:
   app:
     image: public.ecr.aws/${DEV_ECR_REGISTRY_ALIAS}/distribute/dev:latest
-    container_name: insurance-container
+    container_name: distribute-container
     ports:
       - "80:8080"
