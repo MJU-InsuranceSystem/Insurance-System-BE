@@ -120,6 +120,14 @@ jobs:
           sudo usermod -aG docker $USER || true
           newgrp docker || true
           
+          if ! command -v docker-compose >/dev/null 2>&1; then
+              echo "Installing Docker Compose..."
+              sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+              sudo chmod +x /usr/local/bin/docker-compose
+          else
+              echo "Docker Compose already installed."
+          fi
+          
           # Stop existing containers
           if [ -f docker-compose.yml ]; then
             echo "Stopping existing containers..."
@@ -148,7 +156,8 @@ jobs:
 
       - name: Start services using Docker Compose
         run: |
-          sudo docker-compose up -d
+          sudo docker-compose -f ~/app/docker/compose-dev.yaml pull
+          sudo docker-compose -f ~/app/docker/compose-dev.yaml up -d --force-recreate
 
       - name: Cleanup SSH Key
         run: rm -f ec2_key.pem
