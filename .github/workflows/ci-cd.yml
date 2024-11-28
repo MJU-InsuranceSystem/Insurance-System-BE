@@ -163,7 +163,7 @@ jobs:
 
       - name: Start services using Docker Compose
         run: |
-          /usr/local/bin/docker-compose -f ~/docker-compose.yml pull
-          /usr/local/bin/docker-compose -f ~/docker-compose.yml up -d
+          docker-compose -f ~/docker-compose.yml pull
+          docker-compose -f ~/docker-compose.yml up -d
       - name: Cleanup SSH Key
         run: rm -f ec2_key.pem
