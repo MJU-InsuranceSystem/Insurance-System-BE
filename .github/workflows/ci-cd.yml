@@ -115,7 +115,7 @@ jobs:
           chmod 600 ec2_key.pem
           
           # Connect to EC2 and run deployment commands
-          ssh -o StrictHostKeyChecking=no -i ec2_key.pem ${USER}@${HOST} << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i ec2_key.pem $USER@$HOST << 'EOF'
           
           sudo usermod -aG docker $USER || true
           newgrp docker || true
@@ -132,34 +132,23 @@ jobs:
           sudo rm -f docker-compose.yml
           EOF
 
-
-      - name: Set environment variables for Docker Compose
-        run: |
-          echo "DEV_ECR_REGISTRY_ALIAS=${{ secrets.DEV_ECR_REGISTRY_ALIAS }}" >> $GITHUB_ENV
-
-
       - name: Copy docker-compose.yml to EC2
         env:
           SSH_KEY: ${{ secrets.DEV_EC2_SSH_KEY }}
           HOST: 3.39.206.214
           USER: ubuntu
         run: |
-          echo "${SSH_KEY}" > ec2_key.pem
+          echo "$SSH_KEY" > ec2_key.pem
           chmod 600 ec2_key.pem
-          scp -o StrictHostKeyChecking=no -i ec2_key.pem ./docker-compose.yml ${USER}@${HOST}:~/docker-compose.yml
+          scp -o StrictHostKeyChecking=no -i ec2_key.pem ./docker-compose.yml $USER@$HOST:~/docker-compose.yml
+
+      - name: Create .env file
+        run: |
+          echo "DEV_ECR_REGISTRY_ALIAS=${{ secrets.DEV_ECR_REGISTRY_ALIAS }}" >> .env
 
       - name: Start services using Docker Compose
-        env:
-          SSH_KEY: ${{ secrets.DEV_EC2_SSH_KEY }}
-          HOST: 3.39.206.214
-          USER: ubuntu
-          DEV_ECR_REGISTRY_ALIAS: ${{ secrets.DEV_ECR_REGISTRY_ALIAS }}
         run: |
-          ssh -o StrictHostKeyChecking=no -i ec2_key.pem ${USER}@${HOST} << 'EOF'
-          export DEV_ECR_REGISTRY_ALIAS=${DEV_ECR_REGISTRY_ALIAS}
-          echo "Starting containers with Docker Compose..."
           sudo docker-compose up -d
-          EOF
 
       - name: Cleanup SSH Key
         run: rm -f ec2_key.pem
