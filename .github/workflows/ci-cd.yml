@@ -156,8 +156,7 @@ jobs:
 
       - name: Start services using Docker Compose
         run: |
-          sudo docker-compose -f ~/app/docker/compose-dev.yaml pull
-          sudo docker-compose -f ~/app/docker/compose-dev.yaml up -d --force-recreate
-
+          sudo /usr/local/bin/docker-compose -f ~/app/docker/compose-dev.yaml pull
+          sudo /usr/local/bin/docker-compose -f ~/app/docker/compose-dev.yaml up -d --force-recreate
       - name: Cleanup SSH Key
         run: rm -f ec2_key.pem
