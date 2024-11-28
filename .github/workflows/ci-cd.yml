@@ -157,10 +157,6 @@ jobs:
           chmod 600 ec2_key.pem
           scp -o StrictHostKeyChecking=no -i ec2_key.pem ./docker-compose.yml $USER@$HOST:~/docker-compose.yml
 
-      - name: Create .env file
-        run: |
-          echo "DEV_ECR_REGISTRY_ALIAS=${{ secrets.DEV_ECR_REGISTRY_ALIAS }}" >> .env
-
       - name: Start services using Docker Compose
         run: |
           docker compose -f docker-compose.yml pull
