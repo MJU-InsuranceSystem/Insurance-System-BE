@@ -116,16 +116,20 @@ jobs:
           
           # Connect to EC2 and run deployment commands
           ssh -o StrictHostKeyChecking=no -i ec2_key.pem ${USER}@${HOST} << 'EOF'
+          
+          sudo usermod -aG docker $USER || true
+          newgrp docker || true
+          
           # Stop existing containers
           if [ -f docker-compose.yml ]; then
             echo "Stopping existing containers..."
-            docker-compose down
+            sudo docker-compose down
           else
             echo "No existing Docker Compose setup. Proceeding with deployment..."
           fi
           
           # Clean up previous files
-          rm -f docker-compose.yml
+          sudo rm -f docker-compose.yml
           
           EOF
 
@@ -147,5 +151,8 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no -i ec2_key.pem ${USER}@${HOST} << 'EOF'
           echo "Starting containers with Docker Compose..."
-          docker-compose up -d
+          sudo docker-compose up -d
           EOF
+
+      - name: Cleanup SSH Key
+        run: rm -f ec2_key.pem
