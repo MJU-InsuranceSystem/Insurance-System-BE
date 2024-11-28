@@ -33,8 +33,21 @@ jobs:
           
           # Connect to EC2 and run deployment commands
           ssh -o StrictHostKeyChecking=no -i ec2_key.pem ${USER}@${HOST} << 'EOF'
-            # Stop and remove existing container if running
-            sudo docker stop distribute-container || true
-            sudo docker rm distribute-container || true
-            sudo docker pull public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
-            sudo docker run -it -d -p 80:8080 —name distribute-container public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
+          # Check if the container is running
+          if [ "$(sudo docker ps -q -f name=distribute-container)" ]; then
+            echo "Stopping and removing existing container..."
+            sudo docker stop distribute-container
+            sudo docker rm distribute-container
+          elif [ "$(sudo docker ps -a -q -f name=distribute-container)" ]; then
+            echo "Removing stopped container..."
+            sudo docker rm distribute-container
+          else
+            echo "No existing container found. Proceeding with deployment..."
+          fi
+          
+          # Pull the latest image
+          sudo docker pull public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
+          
+          # Run the new container
+          sudo docker run -d -p 80:8080 --name distribute-container public.ecr.aws/${{ secrets.DEV_ECR_REGISTRY_ALIAS }}/distribute/dev:latest
+          EOF
