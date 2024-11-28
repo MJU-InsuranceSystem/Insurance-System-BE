@@ -133,6 +133,10 @@ jobs:
           
           EOF
 
+      - name: Set environment variables for Docker Compose
+        run: |
+          echo "DEV_ECR_REGISTRY_ALIAS=${{ secrets.DEV_ECR_REGISTRY_ALIAS }}" >> $GITHUB_ENV
+
       - name: Copy docker-compose.yml to EC2
         env:
           SSH_KEY: ${{ secrets.DEV_EC2_SSH_KEY }}
