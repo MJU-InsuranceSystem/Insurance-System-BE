@@ -120,14 +120,6 @@ jobs:
           sudo usermod -aG docker $USER || true
           newgrp docker || true
           
-          if ! command -v docker-compose >/dev/null 2>&1; then
-              echo "Installing Docker Compose..."
-              sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-              sudo chmod +x /usr/local/bin/docker-compose
-          else
-              echo "Docker Compose already installed."
-          fi
-          
           # Stop existing containers
           if [ -f docker-compose.yml ]; then
             echo "Stopping existing containers..."
@@ -139,6 +131,18 @@ jobs:
           # Clean up previous files
           sudo rm -f docker-compose.yml
           EOF
+
+      - name: Install Docker if not present
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          script: |
+            if ! command -v docker-compose >/dev/null 2>&1; then
+              echo "Installing Docker Compose..."
+              sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+              sudo chmod +x /usr/local/bin/docker-compose
+            else
+              echo "Docker Compose already installed."
+            fi
 
       - name: Copy docker-compose.yml to EC2
         env:
