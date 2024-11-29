@@ -65,6 +65,8 @@ public class SecurityConfig {
                     .permitAll()
                     .requestMatchers(new MvcRequestMatcher(introspector, "/api/auth/**"))
                     .permitAll()
+                    .requestMatchers(new MvcRequestMatcher(introspector, "/test"))
+                    .permitAll()
                     .requestMatchers(HttpMethod.OPTIONS, "/**")
                     .permitAll()
                     .anyRequest().authenticated()) // 그 외는 접근x
