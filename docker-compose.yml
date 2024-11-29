@@ -4,6 +4,18 @@ services:
     container_name: distribute-container
     ports:
       - "80:8080"
-      - "9292:9292"
     environment:
       - DEV_ECR_REGISTRY_ALIAS=${DEV_ECR_REGISTRY_ALIAS}
+  airdnb-prometheus:
+    image: prom/prometheus
+    container_name: prometheus-container
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # Prometheus 설정 파일 경로
+    ports:
+      - "9090:9090"  # Prometheus UI
+    depends_on:
+      - app  # app 서비스가 실행된 후에 시작
+  airdnb-local-grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000

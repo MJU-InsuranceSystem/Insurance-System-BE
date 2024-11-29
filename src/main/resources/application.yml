@@ -2,6 +2,8 @@ server:
   port: 8080
   tomcat:
     connection-timeout: 60s
+    mbeanregistry:
+      enabled: true
 
 spring:
   profiles:
