@@ -30,8 +30,15 @@ jwt:
 
 
 management:
-  health:
-    db:
-      enabled: false
-    redis:
-      enabled: false
+  server:
+    port: 9292
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
