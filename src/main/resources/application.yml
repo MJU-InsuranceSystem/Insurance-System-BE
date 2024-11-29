@@ -32,8 +32,6 @@ jwt:
 
 
 management:
-  server:
-    port: 9292
   endpoint:
     metrics:
       enabled: true
