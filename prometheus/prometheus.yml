@@ -19,4 +19,5 @@ scrape_configs:
     metrics_path: '/actuator/prometheus' # 수집할 경로를 지정
     scrape_interval: 15s
     static_configs:
-      - targets: [ '3.39.206.214:9292' ]      # 수집할 서버의 IP, PORT 를 지정, application.yml 에 포트를 9292로 지정했음
+      #      - targets: [ '3.39.206.214:9292' ]      # 수집할 서버의 IP, PORT 를 지정, application.yml 에 포트를 9292로 지정했음
+      - targets: [ 'distribute-container:9292' ]
