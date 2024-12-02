@@ -18,7 +18,7 @@ services:
       - '9090:9090'
     command:
       - '--web.enable-lifecycle'
-      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--config.file=/home/ubuntu/prometheus/prometheus.yml'
     restart: always
 
 #  airdnb-prometheus:
