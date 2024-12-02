@@ -25,7 +25,9 @@ services:
       - '--web.enable-lifecycle'
       - '--config.file=/etc/prometheus/prometheus.yml'
     restart: always
-
+networks:
+  my_network: # 네트워크 정의
+    driver: bridge
 #  airdnb-prometheus:
 #    image: prom/prometheus
 #    container_name: prometheus-container
