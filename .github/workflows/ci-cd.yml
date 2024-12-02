@@ -157,19 +157,6 @@ jobs:
           chmod 600 ec2_key.pem
           scp -o StrictHostKeyChecking=no -i ec2_key.pem ./docker-compose.yml $USER@$HOST:~/docker-compose.yml
 
-      - name: Check if prometheus.yml exists
-        run: ls -l ./prometheus/prometheus.yml
-
-      - name: Copy prometheus.yml to EC2
-        env:
-          SSH_KEY: ${{ secrets.DEV_EC2_SSH_KEY }}
-          HOST: 3.39.206.214
-          USER: ubuntu
-        run: |
-          echo "$SSH_KEY" > ec2_key.pem
-          chmod 600 ec2_key.pem
-          scp -o StrictHostKeyChecking=no -i ec2_key.pem ./prometheus/prometheus.yml $USER@$HOST:~/prometheus.yml
-
       - name: Start services using Docker Compose
         env:
           SSH_KEY: ${{ secrets.DEV_EC2_SSH_KEY }}
