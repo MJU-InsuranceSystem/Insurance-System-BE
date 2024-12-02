@@ -4,6 +4,9 @@ services:
     container_name: distribute-container
     ports:
       - "80:8080"
+      - "9292:9292"
+    networks:
+      - my_network
     environment:
       - DEV_ECR_REGISTRY_ALIAS=${DEV_ECR_REGISTRY_ALIAS}
 
@@ -16,6 +19,8 @@ services:
     #      - ./prometheus/prometheus-volume:/prometheus
     ports:
       - '9090:9090'
+    networks:
+      - my_network
     command:
       - '--web.enable-lifecycle'
       - '--config.file=/etc/prometheus/prometheus.yml'
