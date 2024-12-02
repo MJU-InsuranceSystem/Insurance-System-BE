@@ -12,13 +12,13 @@ services:
     image: prom/prometheus:latest
     container_name: prometheus
     volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./prometheus/prometheus-volume:/prometheus
+      - ./prometheus/prometheus.yml:/home/ubuntu/prometheus/prometheus.yml
+    #      - ./prometheus/prometheus-volume:/prometheus
     ports:
       - '9090:9090'
     command:
       - '--web.enable-lifecycle'
-      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--config.file=/home/ubuntu/prometheus/prometheus.yml'
     restart: always
 
 #  airdnb-prometheus:
