@@ -157,6 +157,16 @@ jobs:
           chmod 600 ec2_key.pem
           scp -o StrictHostKeyChecking=no -i ec2_key.pem ./docker-compose.yml $USER@$HOST:~/docker-compose.yml
 
+      - name: Copy prometheus.yml to EC2
+        env:
+          SSH_KEY: ${{ secrets.DEV_EC2_SSH_KEY }}
+          HOST: 3.39.206.214
+          USER: ubuntu
+        run: |
+          echo "$SSH_KEY" > ec2_key.pem
+          chmod 600 ec2_key.pem
+          scp -o StrictHostKeyChecking=no -i ec2_key.pem ./prometheus/prometheus.yml $USER@$HOST:~/prometheus/prometheus.yml
+
       - name: Start services using Docker Compose
         env:
           SSH_KEY: ${{ secrets.DEV_EC2_SSH_KEY }}
@@ -170,6 +180,6 @@ jobs:
             docker compose -f docker-compose.yml --env-file .env pull
             docker compose -f docker-compose.yml --env-file .env up -d
           EOF
-          
+
       - name: Cleanup SSH Key
         run: rm -f ec2_key.pem
