@@ -165,7 +165,7 @@ jobs:
         run: |
           echo "$SSH_KEY" > ec2_key.pem
           chmod 600 ec2_key.pem
-          scp -o StrictHostKeyChecking=no -i ec2_key.pem ./prometheus/prometheus.yml $USER@$HOST:~/prometheus/prometheus.yml
+          scp -o StrictHostKeyChecking=no -i ec2_key.pem ./prometheus/prometheus.yml $USER@$HOST:~/prometheus
 
       - name: Start services using Docker Compose
         env:
