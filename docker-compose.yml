@@ -19,15 +19,23 @@ services:
     #      - ./prometheus/prometheus-volume:/prometheus
     ports:
       - '9090:9090'
-    networks:
-      - my_network
     command:
       - '--web.enable-lifecycle'
       - '--config.file=/etc/prometheus/prometheus.yml'
     restart: always
+    networks:
+      - my_network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana_container
+    ports:
+      - 3000:3000
+
 networks:
   my_network: # 네트워크 정의
     driver: bridge
+
 #  airdnb-prometheus:
 #    image: prom/prometheus
 #    container_name: prometheus-container
