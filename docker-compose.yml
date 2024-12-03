@@ -16,7 +16,6 @@ services:
     container_name: prometheus
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-    #      - ./prometheus/prometheus-volume:/prometheus
     ports:
       - '9090:9090'
     command:
@@ -28,24 +27,25 @@ services:
 
   grafana:
     image: grafana/grafana:latest
-    container_name: grafana_container
+    container_name: grafana
     ports:
       - 3000:3000
+
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    ports:
+      - "3100:3100"
+    command:
+      - '--config.file=/etc/loki/loki-s3-config.yml'
+    volumes:
+      - ./loki/loki-s3-config.yml:/etc/loki/loki-s3-config.yml
+    restart: always
+    networks:
+      - my_network
 
 networks:
   my_network: # 네트워크 정의
     driver: bridge
 
-#  airdnb-prometheus:
-#    image: prom/prometheus
-#    container_name: prometheus-container
-#    volumes:
-#      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # Prometheus 설정 파일 경로
-#    ports:
-#      - "9090:9090"  # Prometheus UI
-#    depends_on:
-#      - app  # app 서비스가 실행된 후에 시작
-#  airdnb-local-grafana:
-#    image: grafana/grafana
-#    ports:
-#      - "3000:3000"
+
