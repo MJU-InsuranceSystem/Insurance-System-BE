@@ -54,4 +54,8 @@ public abstract class Contract {
         this.approveStatus = approveStatus;
         this.underwriteManager = underwriteManager;
     }
+
+    public String getInsuranceName() {
+        return insurance.getName();
+    }
 }
