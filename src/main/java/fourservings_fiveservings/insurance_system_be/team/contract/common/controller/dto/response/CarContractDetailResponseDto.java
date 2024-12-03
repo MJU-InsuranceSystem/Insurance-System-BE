@@ -9,6 +9,7 @@ import lombok.Builder;
 @Builder
 public record CarContractDetailResponseDto(
     Long contractId,
+    String insuranceName,
     ContractInformation contractInformation,
     License license,
     CarInformation carInformation
@@ -17,6 +18,7 @@ public record CarContractDetailResponseDto(
     public static CarContractDetailResponseDto from(CarContract carContract) {
         return CarContractDetailResponseDto.builder()
             .contractId(carContract.getId())
+            .insuranceName(carContract.getInsuranceName())
             .contractInformation(carContract.getContractInformation())
             .license(carContract.getLicense())
             .carInformation(carContract.getCarInformation())
