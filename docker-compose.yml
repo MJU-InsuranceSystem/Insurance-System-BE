@@ -9,7 +9,7 @@ services:
       - ./logs/all:/logs/all  # ALL_LOG 파일 경로 마운트
       - ./logs/warn:/logs/warn  # WARN_LOG 파일 경로 마운트
       - ./logs/error:/logs/error  # ERROR_LOG 파일 경로 마운트
-      - ./promtail/promtail-config.yml:/app/promtail-config.yml
+#      - ./promtail/promtail-config.yml:/app/promtail-config.yml
     networks:
       - my_network
     environment:
