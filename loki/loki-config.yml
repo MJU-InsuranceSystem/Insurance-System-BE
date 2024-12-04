@@ -30,12 +30,7 @@ storage_config:
     directory: /loki/chunks
 
 limits_config:
-  max_streams_per_user: 1000
-  max_entries_per_stream: 5000
-
-chunk_store_config:
-  chunk_target_size: 1048576  # 1MB
-  chunk_retain_period: 30s
+  max_global_streams_per_user: 10000  # 전역 스트림 제한
 
 table_manager:
   retention_deletes_enabled: false

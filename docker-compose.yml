@@ -60,6 +60,7 @@ services:
       - "3100:3100"
     command:
       - '--config.file=/etc/loki/loki-config.yml'
+      - '--config.expand-env=true'
     volumes:
       - ./loki/loki-config.yml:/etc/loki/loki-config.yml
     restart: always
