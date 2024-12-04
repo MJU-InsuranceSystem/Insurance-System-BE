@@ -11,7 +11,6 @@ ingester:
       replication_factor: 1
   chunk_idle_period: 5m
   chunk_retain_period: 30s
-  max_transfer_retries: 0
 
 schema_config:
   configs:
@@ -26,9 +25,7 @@ schema_config:
 storage_config:
   boltdb_shipper:
     active_index_directory: /loki/index
-    shared_store: filesystem
     cache_location: /loki/cache
-
   filesystem:
     directory: /loki/chunks
 
@@ -37,7 +34,8 @@ limits_config:
   max_entries_per_stream: 5000
 
 chunk_store_config:
-  max_look_back_period: 0s
+  chunk_target_size: 1048576  # 1MB
+  chunk_retain_period: 30s
 
 table_manager:
   retention_deletes_enabled: false
