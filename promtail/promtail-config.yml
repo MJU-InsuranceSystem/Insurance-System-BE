@@ -6,7 +6,7 @@ positions:
   filename: /positions.yaml
 
 clients:
-  - url: http://loki:3100/loki/api/v1/push
+  - url: http://mju-insurance.xyz:3100/loki/api/v1/push
 
 scrape_configs:
   - job_name: all
