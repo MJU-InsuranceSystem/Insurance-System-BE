@@ -47,7 +47,7 @@ services:
       - ./logs/warn:/var/logs/warn
       - ./logs/error:/var/logs/error
     command:
-      - 'config.file=/etc/promtail/promtail-config.yml'
+      - -config.file=/etc/promtail/promtail-config.yml
     depends_on:
       - loki
     networks:
