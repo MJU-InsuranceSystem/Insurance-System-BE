@@ -31,6 +31,7 @@ dependencies {
 
     // log
     implementation 'org.springframework.boot:spring-boot-starter-logging'
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
 
     //cloud
     implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE' //AWS S3
