@@ -167,8 +167,8 @@ jobs:
           chmod 600 ec2_key.pem
           ssh -o StrictHostKeyChecking=no -i ec2_key.pem $USER@$HOST << 'EOF'
             cd /home/ubuntu
-            docker compose -f docker-compose.yml --env-file .env pull
-            docker compose -f docker-compose.yml --env-file .env up -d
+            docker compose docker-compose.yml --env-file .env pull
+            docker compose docker-compose.yml --env-file .env up -d
           EOF
 
       - name: Cleanup SSH Key
