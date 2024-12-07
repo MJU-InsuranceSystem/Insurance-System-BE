@@ -2,6 +2,7 @@ services:
   app:
     image: public.ecr.aws/${DEV_ECR_REGISTRY_ALIAS}/distribute/dev:latest
     container_name: distribute-container
+    restart: always
     ports:
       - "80:8080"
       - "9292:9292"
@@ -9,7 +10,7 @@ services:
       - ./logs/all:/logs/all  # ALL_LOG 파일 경로 마운트
       - ./logs/warn:/logs/warn  # WARN_LOG 파일 경로 마운트
       - ./logs/error:/logs/error  # ERROR_LOG 파일 경로 마운트
-#      - ./promtail/promtail-config.yml:/app/promtail-config.yml
+    #      - ./promtail/promtail-config.yml:/app/promtail-config.yml
     networks:
       - my_network
     environment:
@@ -32,6 +33,7 @@ services:
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
+    restart: always
     ports:
       - 3000:3000
 
