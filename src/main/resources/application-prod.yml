@@ -9,9 +9,13 @@ spring:
         show_sql: true
 
   datasource:
-    url: ${DB_URL}
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${DB_USER_NAME}
-    password: ${DB_PASSWORD}
-    hikari:
-      minimum-idle: 5
+    source:
+      jdbc-url: ${DB_URL}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_NAME}
+      password: ${DB_PASSWORD}
+    replica:
+      jdbc-url: ${READ_DB_URL}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: ${DB_USER_NAME}
+      password: ${DB_PASSWORD}

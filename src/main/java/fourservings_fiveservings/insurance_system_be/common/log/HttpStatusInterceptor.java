@@ -13,7 +13,6 @@ public class HttpStatusInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        // 요청 정보를 MDC에 추가
         MDC.put("method", request.getMethod());
         MDC.put("uri", request.getRequestURI());
         return true;
