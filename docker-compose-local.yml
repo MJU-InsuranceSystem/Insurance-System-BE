@@ -1,13 +1,11 @@
 services:
-  prometheus:
-    image: prom/prometheus:latest
-    container_name: mju-insurance-prometheus
-    volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./prometheus/prometheus-volume:/prometheus
-    ports:
-      - '9090:9090'
-    command:
-      - '--web.enable-lifecycle'
-      - '--config.file=/etc/prometheus/prometheus.yml'
+  mju-insurance-read-local:
+    image: mysql:latest
     restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: mju-insurance
+    volumes:
+      - ./db/mysql/data:/var/lib/mysql
+    ports:
+      - "3307:3306"
