@@ -82,3 +82,6 @@ volumes:
     external: true
   grafana-provisioning:
     external: true
+  prometheus-data:
+    external: true
+
