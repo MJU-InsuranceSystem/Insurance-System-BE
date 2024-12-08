@@ -39,6 +39,8 @@ services:
     volumes:
       - grafana-data:/var/lib/grafana
       - grafana-provisioning:/etc/grafana/provisioning
+    networks:
+      - my_network
 
   promtail:
     container_name: promtail
