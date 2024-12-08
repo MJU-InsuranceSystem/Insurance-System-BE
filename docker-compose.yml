@@ -20,7 +20,7 @@ services:
     image: prom/prometheus:latest
     container_name: prometheus
     volumes:
-      - ./prometheus/prometheus-data:/prometheus
+      - prometheus-data:/prometheus
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - '9090:9090'
@@ -38,8 +38,8 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./grafana/grafana-data:/var/lib/grafana
-      - ./grafana/grafana-provisioning:/etc/grafana/provisioning
+      - grafana-data:/var/lib/grafana
+      - grafana-provisioning:/etc/grafana/provisioning
 
   promtail:
     container_name: promtail
