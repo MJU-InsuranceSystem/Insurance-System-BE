@@ -5,14 +5,15 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.List;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
+
+import java.io.IOException;
+import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -21,7 +22,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
 
     private static final List<String> NO_CHECK_URLS = List.of("/api/auth/sign-in",
-        "/api/auth/sign-up", "/actuator", "/test");
+            "/api/auth/sign-up", "/actuator", "/test", "/api/test/error");
 
 
     @Override
@@ -34,16 +35,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
      */
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
-        @NonNull HttpServletResponse response,
-        @NonNull FilterChain filterChain) throws ServletException, IOException {
+                                    @NonNull HttpServletResponse response,
+                                    @NonNull FilterChain filterChain) throws ServletException, IOException {
 
         /**
          * accessToken header에서 추출 후 유효성 검증
          * 아닐시 null 반환
          */
         String accessToken = jwtService.extractAccessToken(request)
-            .filter(jwtService::validateToken)
-            .orElse(null);
+                .filter(jwtService::validateToken)
+                .orElse(null);
 
         if (accessToken != null) {
             // Access Token이 유효할 경우 인증 객체 저장
@@ -61,8 +62,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
          * 아닐시 null 반환
          */
         String refreshToken = jwtService.extractRefreshToken(request)
-            .filter(jwtService::validateToken)
-            .orElse(null);
+                .filter(jwtService::validateToken)
+                .orElse(null);
 
         if (refreshToken != null) {
             // Refresh Token이 유효할 경우 Access Token 재발급 및 인증 객체 저장
