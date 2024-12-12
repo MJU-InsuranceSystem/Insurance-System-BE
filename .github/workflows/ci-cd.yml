@@ -108,7 +108,7 @@ jobs:
       - name: SSH into EC2 and Deploy with Docker Compose
         env:
           SSH_KEY: ${{ secrets.DEV_EC2_SSH_KEY }}
-          HOST: 54.180.151.103
+          HOST: ${{secrets.SERVER_IP}}
           USER: ubuntu
         run: |
           echo "${SSH_KEY}" > ec2_key.pem
@@ -135,7 +135,7 @@ jobs:
       - name: Install Docker if not present
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: 54.180.151.103
+          host: ${{secrets.SERVER_IP}}
           username: ubuntu
           key: ${{ secrets.DEV_EC2_SSH_KEY }}
           script: |
@@ -150,7 +150,7 @@ jobs:
       - name: Copy docker-compose.yml to EC2
         env:
           SSH_KEY: ${{ secrets.DEV_EC2_SSH_KEY }}
-          HOST: 54.180.151.103
+          HOST: ${{secrets.SERVER_IP}}
           USER: ubuntu
         run: |
           echo "$SSH_KEY" > ec2_key.pem
@@ -160,7 +160,7 @@ jobs:
       - name: Start services using Docker Compose
         env:
           SSH_KEY: ${{ secrets.DEV_EC2_SSH_KEY }}
-          HOST: 54.180.151.103
+          HOST: ${{secrets.SERVER_IP}}
           USER: ubuntu
         run: |
           echo "$SSH_KEY" > ec2_key.pem
