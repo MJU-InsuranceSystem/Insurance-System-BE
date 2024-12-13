@@ -69,8 +69,8 @@ public class AccidentService {
     public AccidentResponseDto getAccident(Long accidentId) {
         Accident accident = accidentRepository.findById(accidentId)
                 .orElseThrow(() -> new BusinessException(NO_EXIST_ACCIDENT));
-        String fileUrl = s3Service.getFileUrl(FIleType.ACCIDENT.getLabel(), accident.getFileName());
-        return AccidentResponseDto.from(accident, fileUrl);
+//        String fileUrl = s3Service.getFileUrl(FIleType.ACCIDENT.getLabel(), accident.getFileName());
+        return AccidentResponseDto.from(accident, accident.getFileName());
     }
 
     @Transactional
